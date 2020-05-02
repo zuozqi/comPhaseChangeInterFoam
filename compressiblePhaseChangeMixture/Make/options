@@ -1,0 +1,20 @@
+
+EXE_INC = \
+    -I../twoPhaseMixtureThermo \
+    -I$(LIB_SRC)/finiteVolume/fvMatrices \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude \
+    -I$(LIB_SRC)/transportModels \
+    -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
+    -I$(LIB_SRC)/transportModels/compressible/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume \
+    -ltwoPhaseMixtureThermo \
+    -ltwoPhaseMixture \
+    -linterfaceProperties \
+    -ltwoPhaseProperties \
+    -lcompressibleTransportModels \
+    -lfiniteVolume \
+    -lfluidThermophysicalModels

@@ -1,0 +1,6 @@
+newcompressiblePhaseChangeMixture.C
+compressiblePhaseChangeMixture.C
+lee/lee.C 
+
+LIB = $(FOAM_USER_LIBBIN)/libcompressiblePhaseChangeMixture
+
