@@ -67,9 +67,13 @@ protected:
 
         //- Reference to fvMesh
         const fvMesh& mesh_;
+
         volScalarField::Internal pcSu_;
         //- Sp phase source term
         volScalarField::Internal pcSp_;
+
+        //- Mass flux, kg/m^3/s.
+        volScalarField dmdtNet_;
 
         //- latent heat
         dimensionedScalar hf_;

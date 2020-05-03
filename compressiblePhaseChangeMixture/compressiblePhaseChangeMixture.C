@@ -93,6 +93,22 @@ compressiblePhaseChangeMixture
             dimensionedScalar(dimless/dimTime, Zero)
         )
     ),
+    dmdtNet_
+    (
+        volScalarField
+        (
+            IOobject
+            (
+                "dmdtNet",
+                mesh.time().timeName(),
+                mesh,
+                IOobject::NO_READ,
+                IOobject::AUTO_WRITE
+            ),
+            mesh,
+            dimensionedScalar(dimDensity/dimTime, Zero)
+        )
+    ),
     hf_
     (
         "hf",dimEnergy/dimMass,subDict("saturationProperty")
@@ -139,8 +155,10 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
     Pair<tmp<volScalarField>> mDot = this->mDot();
     const volScalarField& mDot1 = mDot[0]();
     const volScalarField& mDot2 = mDot[1]();
+    
+    dmdtNet_ = mDot2 -mDot1;
 
-    return(mDot2 - mDot1);
+    return dmdtNet_;
 }
 
 
