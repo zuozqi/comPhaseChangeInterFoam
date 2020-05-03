@@ -35,13 +35,21 @@ forAll(dgdt, celli)
     }
 }
 
-fluid.updateSuSp();
-volScalarField::Internal& pcSu(fluid.pcSu());
-volScalarField::Internal& pcSp(fluid.pcSp());
+tmp<volScalarField> tdmdtNet = fluid.dmdtNet();
+const volScalarField& dmdt12 = tdmdtNet();
+        // NOTE: dmdtNet is distributed in terms =
+        //  Source for phase 1 =
+        //      dmdtNet/rho1
+        //    - alpha1*dmdtNet(1/rho1 - 1/rho2)
 
-//- update phase change source term.
-Su += pcSu;
-Sp += pcSp;
+Su +=  dmdt12/rho1 - alpha1 * dmdt12* fluid.coeffs();
+// fluid.updateSuSp();
+// volScalarField::Internal& pcSu(fluid.pcSu());
+// volScalarField::Internal& pcSp(fluid.pcSp());
+
+// //- update phase change source term.
+// Su += pcSu;
+// Sp += pcSp;
 
 
 volScalarField::Internal divU

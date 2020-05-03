@@ -138,6 +138,9 @@ public:
         //- The mass flux rate of evaporation/condensation, in unit of kg/m^3/s
         virtual Pair<tmp<volScalarField>> mDot() const = 0;
 
+        //- Net mass transfer from phase1(liquid) to phase2(vapor)
+        tmp<volScalarField> dmdtNet();
+
         //Return the coefficients in PEqn and alphaEqn, (1/rho1 -1/rho2).
         virtual tmp<volScalarField> coeffs() const;
 
