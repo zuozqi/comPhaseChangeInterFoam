@@ -43,7 +43,6 @@ SourceFiles
 #include "volFields.H"
 #include "dimensionedScalar.H"
 #include "fvScalarMatrix.H"
-#include "saturationModel.H"
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -75,13 +74,10 @@ protected:
         //- Mass flux, kg/m^3/s.
         volScalarField dmdtNet_;
 
-        autoPtr<saturationModel> saturationModel_;
-
-
-        //- latent heat
+        //- Saturation properties
         dimensionedScalar hf_;
-        //- saturation temperature
-        dimensionedScalar Tsat_;
+        dimensionedScalar T0_;     // For nitrogen: T0:69.954, TbyP:7.32646e-5;
+        dimensionedScalar TbyP_;  //- T:K P:Pa Tsatp = T0 + Pmax*TbyP;
 
     // Private Member Functions
 
@@ -153,6 +149,10 @@ public:
 
         // //- update the Su and Sp according to the phase change rate.
         // void updateSuSp();
+        
+        //- updated saturation temperature according to polynomial fitting
+
+        dimensionedScalar updatedTsat() const;
 
         // Calculate the energy change due to phase chagne.
         virtual tmp<fvScalarMatrix> heatTransfer(const volScalarField& T);
@@ -160,7 +160,7 @@ public:
 
         volScalarField::Internal & pcSu();
         volScalarField::Internal & pcSp();
-        const volScalarField & Tsat();
+
         //- Correct the phaseChange model
         virtual void correct() = 0;
 

@@ -616,6 +616,5 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/clockTime.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/clockValue.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PrecisionAdaptor.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/fvMatrices/fvMatricesFwd.H \
-../saturationModels/lnInclude/saturationModel.H \
 
 

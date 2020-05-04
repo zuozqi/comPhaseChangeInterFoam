@@ -113,18 +113,16 @@ compressiblePhaseChangeMixture
     (
         "hf",dimEnergy/dimMass,subDict("saturationProperty")
     ),
-    Tsat_
+    T0_
     (
-        "Tsat",dimTemperature,subDict("saturationProperty")
+        "T0",dimTemperature,subDict("saturationProperty")
+    ),
+    TbyP_
+    (
+        "TbyP",dimTemperature/dimPressure,subDict("saturationProperty")
     )
 {
-    saturationModel_.reset
-    (
-        saturationModel::New(
-            subDict("saturationModel"),
-            mesh
-        ).ptr()
-    );
+
 }
 
 
@@ -170,51 +168,16 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
 }
 
 
-// void Foam::compressiblePhaseChangeMixture::updateSuSp()
-// {
-//     tmp<volScalarField> tdmdtNet = this->dmdtNet();
-//     const volScalarField& dmdt12 = tdmdtNet();
+Foam::dimensionedScalar Foam::compressiblePhaseChangeMixture::updatedTsat() const
+{
+    const volScalarField& p = mesh_.lookupObject<volScalarField>("p_rgh");
 
-//     tmp<volScalarField> tcoeffs(this->coeffs());
-//     const volScalarField& coeffs = tcoeffs();
+    dimensionedScalar pmax = max(p);
 
-//     volScalarField rho1 = mixture_.thermo1().rho();
-//     volScalarField alpha1(mixture_.alpha1());
+    const dimensionedScalar Tsatp(T0_ + pmax*TbyP_);
 
-//     //- for case with liquid(1) to gas(2), coeffs always < 0
-//     forAll(dmdt12, celli)
-//     {
-//         scalar cdmdt = dmdt12[celli];
-//         scalar ccoeffs = coeffs[celli];
-
-//         scalar alpha1Limited = max(min(alpha1[celli],1.0),0.0);
-
-//         pcSu_[celli] += 1.0/rho1[celli]*cdmdt;
-
-//         if (cdmdt > 0)
-//         {
-//             if (ccoeffs > 0)
-//             {
-//                 pcSp_[celli] -= cdmdt * ccoeffs;
-//             }
-//             else if (ccoeffs < 0)
-//             {
-//                 pcSu_[celli] = cdmdt * ccoeffs * alpha1Limited;
-//             }
-//         }
-//         else if (cdmdt < 0)
-//         {
-//             if (ccoeffs > 0)
-//             {
-//                 pcSu_[celli] -= cdmdt * ccoeffs * alpha1Limited;
-//             }
-//             else if (ccoeffs < 0)
-//             {
-//                 pcSp_[celli] -= cdmdt * ccoeffs;
-//             }
-//         }
-//     }
-// }
+    return Tsatp;
+}
 
 Foam::tmp<Foam::volScalarField> 
 Foam::compressiblePhaseChangeMixture::coeffs() const
@@ -232,13 +195,6 @@ Foam::volScalarField::Internal & Foam::compressiblePhaseChangeMixture::pcSp()
     return pcSp_;
 }
 
-const Foam::volScalarField & Foam::compressiblePhaseChangeMixture::Tsat()
-{
-    const volScalarField& p_rgh = mesh_.lookupObject<volScalarField>("p_rgh");
-    
-    return (saturationModel_->Tsat(p_rgh));  //- Use saturation model 
-    // return Tsat_;                            //- Use constant
-}
 
 Foam::tmp<Foam::volScalarField> 
 Foam::compressiblePhaseChangeMixture::rho1()
