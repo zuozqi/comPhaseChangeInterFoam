@@ -148,8 +148,8 @@ public:
         //Return the coefficients in PEqn and alphaEqn, (1/rho1 -1/rho2).
         virtual tmp<volScalarField> coeffs() const;
 
-        //- update the Su and Sp according to the phase change rate.
-        void updateSuSp();
+        // //- update the Su and Sp according to the phase change rate.
+        // void updateSuSp();
 
         // Calculate the energy change due to phase chagne.
         virtual tmp<fvScalarMatrix> heatTransfer(const volScalarField& T);

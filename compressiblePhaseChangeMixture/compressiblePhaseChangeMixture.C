@@ -162,51 +162,51 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
 }
 
 
-void Foam::compressiblePhaseChangeMixture::updateSuSp()
-{
-    tmp<volScalarField> tdmdtNet = this->dmdtNet();
-    const volScalarField& dmdt12 = tdmdtNet();
+// void Foam::compressiblePhaseChangeMixture::updateSuSp()
+// {
+//     tmp<volScalarField> tdmdtNet = this->dmdtNet();
+//     const volScalarField& dmdt12 = tdmdtNet();
 
-    tmp<volScalarField> tcoeffs(this->coeffs());
-    const volScalarField& coeffs = tcoeffs();
+//     tmp<volScalarField> tcoeffs(this->coeffs());
+//     const volScalarField& coeffs = tcoeffs();
 
-    volScalarField rho1 = mixture_.thermo1().rho();
-    volScalarField alpha1(mixture_.alpha1());
+//     volScalarField rho1 = mixture_.thermo1().rho();
+//     volScalarField alpha1(mixture_.alpha1());
 
-    //- for case with liquid(1) to gas(2), coeffs always < 0
-    forAll(dmdt12, celli)
-    {
-        scalar cdmdt = dmdt12[celli];
-        scalar ccoeffs = coeffs[celli];
+//     //- for case with liquid(1) to gas(2), coeffs always < 0
+//     forAll(dmdt12, celli)
+//     {
+//         scalar cdmdt = dmdt12[celli];
+//         scalar ccoeffs = coeffs[celli];
 
-        scalar alpha1Limited = max(min(alpha1[celli],1.0),0.0);
+//         scalar alpha1Limited = max(min(alpha1[celli],1.0),0.0);
 
-        pcSu_[celli] += 1.0/rho1[celli]*cdmdt;
+//         pcSu_[celli] += 1.0/rho1[celli]*cdmdt;
 
-        if (cdmdt > 0)
-        {
-            if (ccoeffs > 0)
-            {
-                pcSp_[celli] -= cdmdt * ccoeffs;
-            }
-            else if (ccoeffs < 0)
-            {
-                pcSu_[celli] -= cdmdt * ccoeffs * alpha1Limited;
-            }
-        }
-        else if (cdmdt < 0)
-        {
-            if (ccoeffs > 0)
-            {
-                pcSu_[celli] -= cdmdt * ccoeffs * alpha1Limited;
-            }
-            else if (ccoeffs < 0)
-            {
-                pcSp_[celli] -= cdmdt * ccoeffs;
-            }
-        }
-    }
-}
+//         if (cdmdt > 0)
+//         {
+//             if (ccoeffs > 0)
+//             {
+//                 pcSp_[celli] -= cdmdt * ccoeffs;
+//             }
+//             else if (ccoeffs < 0)
+//             {
+//                 pcSu_[celli] = cdmdt * ccoeffs * alpha1Limited;
+//             }
+//         }
+//         else if (cdmdt < 0)
+//         {
+//             if (ccoeffs > 0)
+//             {
+//                 pcSu_[celli] -= cdmdt * ccoeffs * alpha1Limited;
+//             }
+//             else if (ccoeffs < 0)
+//             {
+//                 pcSp_[celli] -= cdmdt * ccoeffs;
+//             }
+//         }
+//     }
+// }
 
 Foam::tmp<Foam::volScalarField> 
 Foam::compressiblePhaseChangeMixture::coeffs() const
