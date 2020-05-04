@@ -7,9 +7,12 @@ EXE_INC = \
     -I$(LIB_SRC)/transportModels \
     -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
-    -I$(LIB_SRC)/finiteVolume/lnInclude
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I../saturationModels/lnInclude
 
 LIB_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcomPhaseChangeSaturationModels \
     -lfiniteVolume \
     -ltwoPhaseMixtureThermo \
     -ltwoPhaseMixture \

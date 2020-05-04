@@ -43,7 +43,7 @@ SourceFiles
 #include "volFields.H"
 #include "dimensionedScalar.H"
 #include "fvScalarMatrix.H"
-
+#include "saturationModel.H"
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -74,6 +74,9 @@ protected:
 
         //- Mass flux, kg/m^3/s.
         volScalarField dmdtNet_;
+
+        autoPtr<saturationModel> saturationModel_;
+
 
         //- latent heat
         dimensionedScalar hf_;
@@ -157,7 +160,7 @@ public:
 
         volScalarField::Internal & pcSu();
         volScalarField::Internal & pcSp();
-        dimensionedScalar & Tsat();
+        const volScalarField & Tsat();
         //- Correct the phaseChange model
         virtual void correct() = 0;
 

@@ -117,7 +117,15 @@ compressiblePhaseChangeMixture
     (
         "Tsat",dimTemperature,subDict("saturationProperty")
     )
-{}
+{
+    saturationModel_.reset
+    (
+        saturationModel::New(
+            subDict("saturationModel"),
+            mesh
+        ).ptr()
+    );
+}
 
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
@@ -224,9 +232,12 @@ Foam::volScalarField::Internal & Foam::compressiblePhaseChangeMixture::pcSp()
     return pcSp_;
 }
 
-Foam::dimensionedScalar & Foam::compressiblePhaseChangeMixture::Tsat()
+const Foam::volScalarField & Foam::compressiblePhaseChangeMixture::Tsat()
 {
-    return Tsat_;
+    const volScalarField& p_rgh = mesh_.lookupObject<volScalarField>("p_rgh");
+    
+    return (saturationModel_->Tsat(p_rgh));  //- Use saturation model 
+    // return Tsat_;                            //- Use constant
 }
 
 Foam::tmp<Foam::volScalarField> 

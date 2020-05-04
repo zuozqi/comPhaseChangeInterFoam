@@ -59,7 +59,7 @@
 # 6 "<command-line>" 2
 # 1 "Make/options"
 
-EXE_INC = -I../twoPhaseMixtureThermo -I$(LIB_SRC)/finiteVolume/fvMatrices -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude -I$(LIB_SRC)/transportModels -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude -I$(LIB_SRC)/transportModels/compressible/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude
-# 11 "Make/options"
+EXE_INC = -I../twoPhaseMixtureThermo -I$(LIB_SRC)/finiteVolume/fvMatrices -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude -I$(LIB_SRC)/transportModels -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude -I$(LIB_SRC)/transportModels/compressible/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude -I../saturationModels/lnInclude
+# 12 "Make/options"
 
-LIB_LIBS = -lfiniteVolume -ltwoPhaseMixtureThermo -ltwoPhaseMixture -linterfaceProperties -ltwoPhaseProperties -lcompressibleTransportModels -lfiniteVolume -lfluidThermophysicalModels
+LIB_LIBS = -L$(FOAM_USER_LIBBIN) -lcomPhaseChangeSaturationModels -lfiniteVolume -ltwoPhaseMixtureThermo -ltwoPhaseMixture -linterfaceProperties -ltwoPhaseProperties -lcompressibleTransportModels -lfiniteVolume -lfluidThermophysicalModels
