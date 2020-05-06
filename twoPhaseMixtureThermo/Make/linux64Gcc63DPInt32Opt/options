@@ -58,11 +58,7 @@
 
 # 6 "<command-line>" 2
 # 1 "Make/options"
-EXE_INC = -I$(LIB_SRC)/transportModels/compressible/lnInclude -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude
+EXE_INC = -I$(LIB_SRC)/transportModels/compressible/lnInclude -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/meshTools/lnInclude -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude -I$(LIB_SRC)/thermophysicalModels/thermophysicalProperties/lnInclude -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude
+# 10 "Make/options"
 
-
-
-
-
-
-LIB_LIBS = -lcompressibleTransportModels -lfluidThermophysicalModels -lspecie -ltwoPhaseMixture -linterfaceProperties -lfiniteVolume
+LIB_LIBS = -lcompressibleTransportModels -lfluidThermophysicalModels -lspecie -lmeshTools -ltwoPhaseMixture -lthermophysicalProperties -linterfaceProperties -lfiniteVolume

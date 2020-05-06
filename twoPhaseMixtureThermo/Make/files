@@ -1,3 +1,4 @@
 twoPhaseMixtureThermo.C
+newrhoThermos.C
 
 LIB = $(FOAM_USER_LIBBIN)/libtwoPhaseMixtureThermo
