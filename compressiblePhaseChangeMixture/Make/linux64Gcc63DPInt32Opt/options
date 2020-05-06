@@ -62,4 +62,4 @@
 EXE_INC = -I../twoPhaseMixtureThermo -I$(LIB_SRC)/finiteVolume/fvMatrices -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude -I$(LIB_SRC)/transportModels -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude -I$(LIB_SRC)/transportModels/compressible/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude -I../saturationModels/lnInclude
 # 12 "Make/options"
 
-LIB_LIBS = -L$(FOAM_USER_LIBBIN) -lcomPhaseChangeSaturationModels -lfiniteVolume -ltwoPhaseMixtureThermo -ltwoPhaseMixture -linterfaceProperties -ltwoPhaseProperties -lcompressibleTransportModels -lfiniteVolume -lfluidThermophysicalModels
+LIB_LIBS = -L$(FOAM_USER_LIBBIN) -lfiniteVolume -ltwoPhaseMixtureThermo -ltwoPhaseMixture -linterfaceProperties -ltwoPhaseProperties -lcompressibleTransportModels -lfiniteVolume -lfluidThermophysicalModels
