@@ -7,9 +7,7 @@ cd "${0%/*}" || exit                                # Run from this directory
 wmake $targetType twoPhaseMixtureThermo
 wmake $targetType surfaceTensionModels
 wmake $targetType VoFphaseCompressibleTurbulenceModels
+wmake $targetType compressiblePhaseChangeMixture
 
 wmake $targetType
-wmake $targetType compressibleInterDyMFoam
-wmake $targetType compressibleInterFilmFoam
-
 #------------------------------------------------------------------------------
