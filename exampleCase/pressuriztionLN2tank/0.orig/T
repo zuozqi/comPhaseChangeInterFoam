@@ -22,8 +22,17 @@ boundaryField
 {
     walls
     {
-        type            fixedValue;
-        value           uniform 81;
+         type            externalWallHeatFluxTemperature;
+  
+         mode            flux;
+  
+         q               uniform 6;
+         thicknessLayers (0.1 0.2 0.3 0.4);
+         kappaLayers     (1 2 3 4);
+  
+         kappaMethod     fluidThermo;
+  
+         value           $internalField;
     }
 
     defaultFaces

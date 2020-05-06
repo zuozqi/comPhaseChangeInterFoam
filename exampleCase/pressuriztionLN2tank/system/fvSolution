@@ -77,6 +77,14 @@ solvers
         maxIter         20;
     }
 
+    "(U.*|epsilon.*|k.*)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-8;
+        relTol          0;
+    };
+    
     U
     {
         solver          smoothSolver;
