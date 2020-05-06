@@ -67,10 +67,6 @@ protected:
         //- Reference to fvMesh
         const fvMesh& mesh_;
 
-        volScalarField::Internal pcSu_;
-        //- Sp phase source term
-        volScalarField::Internal pcSp_;
-
         //- Mass flux, kg/m^3/s.
         volScalarField dmdtNet_;
 
@@ -156,10 +152,6 @@ public:
 
         // Calculate the energy change due to phase chagne.
         virtual tmp<fvScalarMatrix> heatTransfer(const volScalarField& T);
-
-
-        volScalarField::Internal & pcSu();
-        volScalarField::Internal & pcSp();
 
         //- Correct the phaseChange model
         virtual void correct() = 0;

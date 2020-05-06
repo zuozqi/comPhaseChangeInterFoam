@@ -61,38 +61,6 @@ compressiblePhaseChangeMixture
     ),
     mixture_(mixture),
     mesh_(mesh),
-    pcSu_
-    (
-        volScalarField::Internal
-        (
-            IOobject
-            (
-                "pcSu",
-                mesh.time().timeName(),
-                mesh,
-                IOobject::NO_READ,
-                IOobject::NO_WRITE
-            ),
-            mesh,
-            dimensionedScalar(dimless/dimTime, Zero)
-        )
-    ),
-    pcSp_
-    (
-        volScalarField::Internal
-        (
-            IOobject
-            (
-                "pcSp",
-                mesh.time().timeName(),
-                mesh,
-                IOobject::NO_READ,
-                IOobject::NO_WRITE
-            ),
-            mesh,
-            dimensionedScalar(dimless/dimTime, Zero)
-        )
-    ),
     dmdtNet_
     (
         volScalarField
@@ -184,17 +152,6 @@ Foam::compressiblePhaseChangeMixture::coeffs() const
 {
     return (1.0/mixture_.thermo1().rho()-1.0/mixture_.thermo2().rho());
 }
-
-Foam::volScalarField::Internal & Foam::compressiblePhaseChangeMixture::pcSu()
-{
-    return pcSu_;
-}
-
-Foam::volScalarField::Internal & Foam::compressiblePhaseChangeMixture::pcSp()
-{
-    return pcSp_;
-}
-
 
 Foam::tmp<Foam::volScalarField> 
 Foam::compressiblePhaseChangeMixture::rho1()
