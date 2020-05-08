@@ -34,7 +34,7 @@ mixture
     }
     thermodynamics
     {
-        Cp          1007;
+        Cp          700;
         Hf          0;
     }
     transport

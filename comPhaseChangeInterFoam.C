@@ -110,13 +110,12 @@ int main(int argc, char *argv[])
         ++runTime;
 
         Info<< "Time = " << runTime.timeName() << nl << endl;
-
         // --- Pressure-velocity PIMPLE corrector loop
         while (pimple.loop())
         {
             #include "alphaControls.H"
             #include "compressibleAlphaEqnSubCycle.H"
-
+            
             turbulence.correctPhasePhi();
 
             #include "UEqn.H"

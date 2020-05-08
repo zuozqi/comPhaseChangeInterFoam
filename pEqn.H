@@ -97,9 +97,8 @@
     // Cache p_rgh prior to solve for density update
     volScalarField p_rgh_0(p_rgh);
 
-    Pair<tmp<volScalarField>> mDot = fluid.mDot();
-    const volScalarField& mDot1 = mDot[0]();
-    const volScalarField& mDot2 = mDot[1]();
+    tmp<volScalarField> tdmdt12 = fluid.dmdtNet();
+    const volScalarField dmdt12 = tdmdt12();
 
     while (pimple.correctNonOrthogonal())
     {
@@ -107,7 +106,7 @@
         (
             fvc::div(phiHbyA)
           - fvm::laplacian(rAUf, p_rgh)
-          - (fluid.coeffs()*(mDot1 - mDot2))
+          - (fluid.coeffs()*dmdt12)
         );
 
         solve

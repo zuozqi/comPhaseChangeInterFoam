@@ -1,6 +1,8 @@
 newcompressiblePhaseChangeMixture.C
 compressiblePhaseChangeMixture.C
 lee/lee.C 
+energyJump/energyJump.C
+tanasawa/tanasawa.C
 
 LIB = $(FOAM_USER_LIBBIN)/libcompressiblePhaseChangeMixture
 

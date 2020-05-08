@@ -156,8 +156,8 @@ public:
         //- Correct the phaseChange model
         virtual void correct() = 0;
 
-        virtual tmp<volScalarField> rho1();
-        virtual tmp<volScalarField> rho2();
+        virtual tmp<volScalarField> rho1() const;
+        virtual tmp<volScalarField> rho2() const;
         //- Read the transportProperties dictionary and update
         virtual bool read();
 };

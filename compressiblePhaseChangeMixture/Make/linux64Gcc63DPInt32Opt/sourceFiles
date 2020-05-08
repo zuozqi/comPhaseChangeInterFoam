@@ -2,5 +2,7 @@ SOURCE = \
 newcompressiblePhaseChangeMixture.C \
 compressiblePhaseChangeMixture.C \
 lee/lee.C \
+energyJump/energyJump.C \
+tanasawa/tanasawa.C \
 
 # sources

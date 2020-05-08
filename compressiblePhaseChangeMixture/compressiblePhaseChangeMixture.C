@@ -106,19 +106,14 @@ Foam::compressiblePhaseChangeMixture::heatTransfer(const volScalarField & T)
 
     fvScalarMatrix& eqn = tEqnPtr.ref();
 
-    Pair<tmp<volScalarField>> mDot = this->mDot();
-    const volScalarField& mDot1 = mDot[0]();
-    const volScalarField& mDot2 = mDot[1]();
 
-    const volScalarField dmdtNet(mDot1 - mDot2);
-    Info<<"dmdtNet Min/Max"<< min(dmdtNet).value() << ", " << max(dmdtNet).value() << endl;
+    tmp<volScalarField> tdmdt12 = dmdtNet();
+    const volScalarField dmdt12 = tdmdt12();
+    Info<<"dmdtNet Min/Max = "<< min(dmdt12).value() << ", " << max(dmdt12).value() << endl;
 
-    volScalarField heat_source(dmdtNet * hf_ / mixture_.Cv());
-    Info<<"T source Min/Max"<< min(heat_source).value() << ", " << max(heat_source).value() << endl;
-
-    eqn -=
+    eqn +=
     (
-        dmdtNet * hf_ / mixture_.Cv()
+        dmdt12 * hf_ / mixture_.Cv()
     );
 
     return tEqnPtr;
@@ -129,8 +124,8 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
     Pair<tmp<volScalarField>> mDot = this->mDot();
     const volScalarField& mDot1 = mDot[0]();
     const volScalarField& mDot2 = mDot[1]();
-    
-    dmdtNet_ = mDot2 -mDot1;
+
+    dmdtNet_ = mDot2 - mDot1;
 
     return dmdtNet_;
 }
@@ -154,13 +149,13 @@ Foam::compressiblePhaseChangeMixture::coeffs() const
 }
 
 Foam::tmp<Foam::volScalarField> 
-Foam::compressiblePhaseChangeMixture::rho1()
+Foam::compressiblePhaseChangeMixture::rho1() const
 {
     return mixture_.thermo1().rho();
 }
 
 Foam::tmp<Foam::volScalarField> 
-Foam::compressiblePhaseChangeMixture::rho2()
+Foam::compressiblePhaseChangeMixture::rho2() const
 {
     return mixture_.thermo2().rho();
 }

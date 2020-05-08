@@ -24,6 +24,7 @@ regions
         fieldValues
         (
             volScalarFieldValue alpha.liquid 0
+            volScalarFieldValue T 77.2
         );
     }
 );

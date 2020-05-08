@@ -14,12 +14,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-phaseChangeTwoPhaseModel lee;
+phaseChangeTwoPhaseModel energyJump;
 
 Coeffs
 {
-    coeffC          0.01;
-    coeffE          0.001;
+    coeffC          1;
+    coeffE          1;
 }
 
 saturationProperty
