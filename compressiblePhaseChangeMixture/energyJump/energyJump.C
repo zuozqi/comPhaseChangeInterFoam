@@ -98,8 +98,8 @@ Foam::compressiblePhaseChangeMixtures::energyJump::mDot() const
 
     return Pair<tmp<volScalarField>>
     (
-        max(coeffE_*kappa*(gradT&gradAlpha1)/L,m0),
-        max(coeffC_*kappa*(gradT&gradAlpha2)/L,m0)
+        max(coeffE_*kappa*(gradT&gradAlpha1)*limitedAlpha1/L,m0),
+        max(coeffC_*kappa*(gradT&gradAlpha2)*limitedAlpha2/L,m0)
     );
 }
 

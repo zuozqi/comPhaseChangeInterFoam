@@ -4,5 +4,6 @@ compressiblePhaseChangeMixture.C \
 lee/lee.C \
 energyJump/energyJump.C \
 tanasawa/tanasawa.C \
+heatConvection/heatConvection.C \
 
 # sources

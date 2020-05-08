@@ -3,6 +3,7 @@ compressiblePhaseChangeMixture.C
 lee/lee.C 
 energyJump/energyJump.C
 tanasawa/tanasawa.C
+heatConvection/heatConvection.C 
 
 LIB = $(FOAM_USER_LIBBIN)/libcompressiblePhaseChangeMixture
 

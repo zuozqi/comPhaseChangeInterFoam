@@ -14,12 +14,15 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-phaseChangeTwoPhaseModel energyJump;
+phaseChangeTwoPhaseModel heatConvection;
 
 Coeffs
 {
     coeffC          1;
     coeffE          1;
+    Ptl             2.3;
+    Ptg             0.8;
+    qw              6;
 }
 
 saturationProperty
