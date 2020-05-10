@@ -143,7 +143,7 @@ Foam::dimensionedScalar Foam::compressiblePhaseChangeMixture::updatedTsat() cons
     dimensionedScalar pnow = min(p);
     dimensionedScalar pold = min(p.oldTime());
     dimensionedScalar p = 0.7*pold + (1-0.7)*pnow;
-    const dimensionedScalar Tsatp(T0_ + (pavg - p0_) * TbyP_);
+    const dimensionedScalar Tsatp(T0_ + (p - p0_) * TbyP_);
     Info<<"Tsatp: "<<Tsatp.value()<<endl;
     return Tsatp;
 }
