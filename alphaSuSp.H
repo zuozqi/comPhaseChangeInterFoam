@@ -47,29 +47,27 @@ const volScalarField& dmdt12 = tdmdtNet();
 tmp<volScalarField> tcoeffs(fluid.coeffs());
 const volScalarField& coeffs = tcoeffs();
 
-Info<<"dmdt alpha max: "<<max(dmdt12).value()<<endl;
+forAll(dmdt12, celli)
+{
+    scalar cdmdt = dmdt12[celli];
+    scalar ccoeffs = coeffs[celli];
 
-// forAll(dmdt12, celli)
-// {
-//     scalar cdmdt = dmdt12[celli];
-//     scalar ccoeffs = coeffs[celli];
+    scalar alpha1Limited = max(min(alpha1[celli],1.0),0.0);
 
-//     scalar alpha1Limited = max(min(alpha1[celli],1.0),0.0);
+    Su[celli] += 1.0/rho1[celli]*cdmdt;
 
-//     Su[celli] += 1.0/rho1[celli]*cdmdt;
+    if (cdmdt > 0)
+    {
+        Su[celli] -= cdmdt * ccoeffs * alpha1Limited;
+    }
+    else if (cdmdt < 0)
+    {
+        Sp[celli] -= cdmdt * ccoeffs;
+    }
+}
 
-//     if (cdmdt > 0)
-//     {
-//         Su[celli] -= cdmdt * ccoeffs * alpha1Limited;
-//     }
-//     else if (cdmdt < 0)
-//     {
-//         Sp[celli] -= cdmdt * ccoeffs;
-//     }
-// }
-
-// - All terms are treated explicitly
-Su +=  dmdt12/rho1 - alpha1 * dmdt12* fluid.coeffs();
+// // - All terms are treated explicitly
+// Su +=  dmdt12/rho1 - alpha1 * dmdt12* fluid.coeffs();
 
 
 

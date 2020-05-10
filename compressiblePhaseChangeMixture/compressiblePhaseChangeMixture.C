@@ -85,6 +85,10 @@ compressiblePhaseChangeMixture
     (
         "T0",dimTemperature,subDict("saturationProperty")
     ),
+    p0_
+    (
+        "p0",dimPressure,subDict("saturationProperty")
+    ),
     TbyP_
     (
         "TbyP",dimTemperature/dimPressure,subDict("saturationProperty")
@@ -135,10 +139,12 @@ Foam::dimensionedScalar Foam::compressiblePhaseChangeMixture::updatedTsat() cons
 {
     const volScalarField& p = mesh_.lookupObject<volScalarField>("p_rgh");
 
-    dimensionedScalar pmax = max(p);
 
-    const dimensionedScalar Tsatp(T0_ + pmax*TbyP_);
-
+    dimensionedScalar pnow = min(p);
+    dimensionedScalar pold = min(p.oldTime());
+    dimensionedScalar p = 0.7*pold + (1-0.7)*pnow;
+    const dimensionedScalar Tsatp(T0_ + (pavg - p0_) * TbyP_);
+    Info<<"Tsatp: "<<Tsatp.value()<<endl;
     return Tsatp;
 }
 

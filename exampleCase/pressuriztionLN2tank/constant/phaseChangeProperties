@@ -18,8 +18,8 @@ phaseChangeTwoPhaseModel lee;
 
 Coeffs
 {
-    coeffC          2;
-    coeffE          2;
+    coeffC          1;
+    coeffE          1;
     Ptl             2.3;
     Ptg             0.8;
     qw              6;
@@ -27,9 +27,10 @@ Coeffs
 
 saturationProperty
 {
-    hf          10000;
+    hf          200000;
     T0          77.2;
-    TbyP        0;
+    TbyP        7.32646e-5;
+    p0          101947;
 }
 
 // ************************************************************************* //

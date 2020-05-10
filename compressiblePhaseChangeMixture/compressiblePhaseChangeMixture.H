@@ -72,8 +72,9 @@ protected:
 
         //- Saturation properties
         dimensionedScalar hf_;
-        dimensionedScalar T0_;     // For nitrogen: T0:69.954, TbyP:7.32646e-5;
-        dimensionedScalar TbyP_;  //- T:K P:Pa Tsatp = T0 + Pmax*TbyP;
+        dimensionedScalar T0_;    
+        dimensionedScalar p0_;
+        dimensionedScalar TbyP_; 
 
     // Private Member Functions
 
