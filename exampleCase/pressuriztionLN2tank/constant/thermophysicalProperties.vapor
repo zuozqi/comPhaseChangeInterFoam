@@ -19,7 +19,7 @@ thermoType
 {
     type            heRhoThermo;
     mixture         pureMixture;
-    transport       polynomial;
+    transport       const;
     thermo          hConst;
     equationOfState perfectGas;
     specie          specie;
@@ -39,8 +39,8 @@ mixture
     }
     transport
     {
-        muCoeffs<8>     (0.00168752 -2.79782e-5 1.2668877e-7 0 0 0 0 0);
-        kappaCoeffs<8>  (0.28138657 -0.0014473491 0 0 0 0 0 0);
+        mu          3e-06;
+        Pr          0.7;
     }
 }
 

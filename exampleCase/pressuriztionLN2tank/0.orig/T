@@ -22,11 +22,10 @@ boundaryField
 {
     walls
     {
-         type            externalWallHeatFluxTemperature;
+        type            externalWallHeatFluxTemperature;        
+        mode            flux;
   
-         mode            flux;
-  
-         q               uniform 20;
+         q               uniform 6;
          thicknessLayers (0.1 0.2 0.3 0.4);
          kappaLayers     (1 2 3 4);
   
