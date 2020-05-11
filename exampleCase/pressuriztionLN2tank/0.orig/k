@@ -21,7 +21,7 @@ internalField   uniform 1e-4;
 
 boundaryField
 {
-    walls
+    ".*wall"
     {
         type            kqRWallFunction;
         value           $internalField;

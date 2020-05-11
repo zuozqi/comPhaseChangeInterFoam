@@ -21,7 +21,7 @@ internalField   uniform 1e-3;
 
 boundaryField
 {
-    walls
+    ".*wall"
     {
         type            epsilonWallFunction;
         value           $internalField;
