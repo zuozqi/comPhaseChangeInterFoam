@@ -25,7 +25,7 @@ boundaryField
         type            externalWallHeatFluxTemperature;        
         mode            flux;
   
-         q               uniform 9.6;
+         q               uniform 6.01;
          thicknessLayers (0.1 0.2 0.3 0.4);
          kappaLayers     (1 2 3 4);
   

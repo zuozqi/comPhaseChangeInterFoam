@@ -74,6 +74,16 @@ makeThermos
     perfectGas,
     specie
 );
-
+makeThermos
+(
+    rhoThermo,
+    heRhoThermo,
+    pureMixture,
+    constTransport,
+    sensibleInternalEnergy,
+    hConstThermo,
+    PengRobinsonGas,
+    specie
+);
 }
 

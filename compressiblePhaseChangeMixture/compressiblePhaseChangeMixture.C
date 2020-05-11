@@ -137,46 +137,7 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
 
 Foam::dimensionedScalar Foam::compressiblePhaseChangeMixture::updatedTsat() const
 {
-    const volScalarField& p = mesh_.lookupObject<volScalarField>("p_rgh");
-
-    // The idea is to use gas pressure (ignore the liquid height),
-    // This approach must have some bug. MUST have gas phase at initial
-
-    volScalarField limitedAlpha2
-    (
-        min(max(mixture_.alpha2(), scalar(0)), scalar(1))
-    );
-
-    dimensionedScalar pavg("pavg",dimPressure,Zero);
-    dimensionedScalar pnow("pnow",dimPressure,Zero);
-    dimensionedScalar pold("pold",dimPressure,Zero);
-    scalar gascount = 0;
-
-    forAll(limitedAlpha2, celli)
-    {
-        if (limitedAlpha2[celli] == 1)
-        {
-            pnow.value() += p[celli];
-            pold.value() += p.oldTime()[celli];
-            gascount += 1;
-        }
-    }
-
-    if(gascount != 0)
-    {
-        pnow.value() = pnow.value() / gascount;
-        pold.value() = pold.value() / gascount;
-    }
-    else
-    {
-        pnow = min(p);
-        pold = min(p.oldTime());
-    }
-    pavg = 0.7*pold + (1-0.7)*pnow;
-
-    const dimensionedScalar Tsatp(T0_ + (pavg - p0_) * TbyP_);
-    Info<<"Tsatp: "<<Tsatp.value()<<endl;
-    return Tsatp;
+    return T0_;
 }
 
 Foam::tmp<Foam::volScalarField> 

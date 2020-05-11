@@ -51,28 +51,6 @@ maxCo           0.1;
 maxAlphaCo      0.1;
 maxDeltaT       0.01;
 
-functions
-{
-    #includeFunc  residuals
-
-    volumeAverage
-    {
-        type            volFieldValue;
-        libs            ("libfieldFunctionObjects.so");
-
-        log             true;
-        writeControl    timeStep;
-        writeFields     false;
-
-        regionType      all;
-        operation       volAverage;
-
-        fields
-        (
-            p
-        );
-    }
-}
 
 libs ( "libtwoPhaseMixtureThermo.so" );
 // ************************************************************************* //

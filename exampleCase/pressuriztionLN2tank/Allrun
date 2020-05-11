@@ -7,7 +7,6 @@ runApplication blockMesh
 restore0Dir
 touch a.foam
 runApplication setFields
-decomposePar
-
-mpirun -np 2 $(getApplication) -parallel > log 
+runApplication decomposePar
+runParallel $(getApplication)
 #------------------------------------------------------------------------------
