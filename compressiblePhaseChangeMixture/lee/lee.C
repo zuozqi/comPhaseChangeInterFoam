@@ -86,8 +86,9 @@ Foam::compressiblePhaseChangeMixtures::lee::mDot() const
     const volScalarField& rho1 = mixture_.thermo1().rho();
     const volScalarField& rho2 = mixture_.thermo2().rho();
 
-    const dimensionedScalar Tsat = this->updatedTsat();
-
+    tmp<volScalarField> tTsat = this->updatedTsat();
+    const volScalarField Tsat = tTsat();
+    
     const dimensionedScalar T0(dimTemperature, Zero);
 
     return Pair<tmp<volScalarField>>

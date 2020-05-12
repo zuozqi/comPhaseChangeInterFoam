@@ -617,6 +617,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/clockTime.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/clockValue.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PrecisionAdaptor.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/fvMatrices/fvMatricesFwd.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PolynomialIO.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addToRunTimeSelectionTable.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcGrad.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcGrad.C \

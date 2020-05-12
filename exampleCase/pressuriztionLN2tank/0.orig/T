@@ -16,7 +16,7 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 77.2;
+internalField   uniform 76.9;
 
 boundaryField
 {
@@ -25,7 +25,7 @@ boundaryField
         type            externalWallHeatFluxTemperature;        
         mode            flux;
   
-         q               uniform 6.01;
+         q               uniform 9;
          thicknessLayers (0.1 0.2 0.3 0.4);
          kappaLayers     (1 2 3 4);
   

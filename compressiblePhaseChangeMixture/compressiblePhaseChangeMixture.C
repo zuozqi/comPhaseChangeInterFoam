@@ -81,18 +81,7 @@ compressiblePhaseChangeMixture
     (
         "hf",dimEnergy/dimMass,subDict("saturationProperty")
     ),
-    T0_
-    (
-        "T0",dimTemperature,subDict("saturationProperty")
-    ),
-    p0_
-    (
-        "p0",dimPressure,subDict("saturationProperty")
-    ),
-    TbyP_
-    (
-        "TbyP",dimTemperature/dimPressure,subDict("saturationProperty")
-    )
+    C_(subDict("saturationProperty").lookup("C<8>"))
 {
 
 }
@@ -135,9 +124,41 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
 }
 
 
-Foam::dimensionedScalar Foam::compressiblePhaseChangeMixture::updatedTsat() const
+Foam::tmp<Foam::volScalarField>
+Foam::compressiblePhaseChangeMixture::updatedTsat() const
 {
-    return T0_;
+    const volScalarField& p = mesh_.lookupObject<volScalarField>("p_rgh");
+    tmp<volScalarField> tTsat
+    (
+        volScalarField::New
+        (
+            "Tsat",
+            p.mesh(),
+            dimensionedScalar(dimTemperature)
+        )
+    );
+
+    volScalarField& Tsat = tTsat.ref();
+
+    forAll(Tsat, celli)
+    {
+        Tsat[celli] = C_.value(p[celli]);
+    }
+
+    volScalarField::Boundary& TsatBf = Tsat.boundaryFieldRef();
+
+    forAll(Tsat.boundaryField(), patchi)
+    {
+        scalarField& Tsatp = TsatBf[patchi];
+        const scalarField& pp = p.boundaryField()[patchi];
+
+        forAll(Tsatp, facei)
+        {
+            Tsatp[facei] = C_.value(pp[facei]);
+        }
+    }
+
+    return tTsat;
 }
 
 Foam::tmp<Foam::volScalarField> 

@@ -87,7 +87,8 @@ Foam::compressiblePhaseChangeMixtures::heatConvection::mDot() const
 
     dimensionedScalar L = hf_;
 
-    const dimensionedScalar Tsat = this->updatedTsat();
+    tmp<volScalarField> tTsat = this->updatedTsat();
+    const volScalarField Tsat = tTsat();
 
     const volScalarField areaDensity = mag(fvc::grad(limitedAlpha1));
 

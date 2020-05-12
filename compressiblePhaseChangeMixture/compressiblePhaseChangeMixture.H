@@ -43,6 +43,8 @@ SourceFiles
 #include "volFields.H"
 #include "dimensionedScalar.H"
 #include "fvScalarMatrix.H"
+#include "Polynomial.H"
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -72,9 +74,7 @@ protected:
 
         //- Saturation properties
         dimensionedScalar hf_;
-        dimensionedScalar T0_;    
-        dimensionedScalar p0_;
-        dimensionedScalar TbyP_; 
+        Polynomial<8>     C_;
 
     // Private Member Functions
 
@@ -149,7 +149,7 @@ public:
         
         //- updated saturation temperature according to polynomial fitting
 
-        dimensionedScalar updatedTsat() const;
+        tmp<volScalarField> updatedTsat() const;
 
         // Calculate the energy change due to phase chagne.
         virtual tmp<fvScalarMatrix> heatTransfer(const volScalarField& T);

@@ -91,7 +91,8 @@ Foam::compressiblePhaseChangeMixtures::tanasawa::mDot() const
     
     dimensionedScalar L = hf_;
 
-    const dimensionedScalar Tsat = this->updatedTsat();
+    tmp<volScalarField> tTsat = this->updatedTsat();
+    const volScalarField Tsat = tTsat();
 
     tmp<volScalarField> tRhom
     (
