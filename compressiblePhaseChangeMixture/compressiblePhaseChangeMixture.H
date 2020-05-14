@@ -71,6 +71,7 @@ protected:
 
         //- Mass flux, kg/m^3/s.
         volScalarField dmdtNet_;
+        volScalarField Tsat_;
 
         //- Saturation properties
         dimensionedScalar hf_;
@@ -136,7 +137,7 @@ public:
     // Member Functions
 
         //- The mass flux rate of evaporation/condensation, in unit of kg/m^3/s
-        virtual Pair<tmp<volScalarField>> mDot() const = 0;
+        virtual Pair<tmp<volScalarField>> mDot() = 0;
 
         //- Net mass transfer from phase1(liquid) to phase2(vapor)
         tmp<volScalarField> dmdtNet();
@@ -149,7 +150,7 @@ public:
         
         //- updated saturation temperature according to polynomial fitting
 
-        tmp<volScalarField> updatedTsat() const;
+        tmp<volScalarField> updatedTsat();
 
         // Calculate the energy change due to phase chagne.
         virtual tmp<fvScalarMatrix> heatTransfer(const volScalarField& T);

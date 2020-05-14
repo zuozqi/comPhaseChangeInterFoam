@@ -71,7 +71,7 @@ Foam::compressiblePhaseChangeMixtures::tanasawa::tanasawa
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 Foam::Pair<Foam::tmp<Foam::volScalarField>>
-Foam::compressiblePhaseChangeMixtures::tanasawa::mDot() const
+Foam::compressiblePhaseChangeMixtures::tanasawa::mDot()
 {
     volScalarField limitedAlpha1
     (
@@ -92,7 +92,7 @@ Foam::compressiblePhaseChangeMixtures::tanasawa::mDot() const
     dimensionedScalar L = hf_;
 
     tmp<volScalarField> tTsat = this->updatedTsat();
-    const volScalarField Tsat = tTsat();
+    volScalarField Tsat = tTsat();
 
     tmp<volScalarField> tRhom
     (

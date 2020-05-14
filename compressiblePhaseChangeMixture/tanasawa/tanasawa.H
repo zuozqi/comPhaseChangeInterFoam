@@ -87,7 +87,7 @@ public:
 
     // Member Functions
         //- Return the mass condensation and vaporisation rates as coefficients
-        virtual Pair<tmp<volScalarField>> mDot() const;
+        virtual Pair<tmp<volScalarField>> mDot();
         //- Correct the tanasawa phaseChange model
         virtual void correct();
 

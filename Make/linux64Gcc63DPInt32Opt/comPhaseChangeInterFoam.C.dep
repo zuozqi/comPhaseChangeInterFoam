@@ -890,6 +890,9 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionListTemplates.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvcSmooth.H \
 compressiblePhaseChangeMixture/compressiblePhaseChangeMixture.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PolynomialIO.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addRegionOption.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addFunctionObjectOptions.H \

@@ -70,7 +70,7 @@ Foam::compressiblePhaseChangeMixtures::energyJump::energyJump
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 Foam::Pair<Foam::tmp<Foam::volScalarField>>
-Foam::compressiblePhaseChangeMixtures::energyJump::mDot() const
+Foam::compressiblePhaseChangeMixtures::energyJump::mDot()
 {
     const volScalarField& T =
         mesh_.lookupObject<volScalarField>("T").oldTime();

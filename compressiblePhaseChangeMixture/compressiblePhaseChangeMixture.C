@@ -77,6 +77,22 @@ compressiblePhaseChangeMixture
             dimensionedScalar(dimDensity/dimTime, Zero)
         )
     ),
+    Tsat_
+    (
+        volScalarField
+        (
+            IOobject
+            (
+                "Tsat",
+                mesh.time().timeName(),
+                mesh,
+                IOobject::NO_READ,
+                IOobject::AUTO_WRITE
+            ),
+            mesh,
+            dimensionedScalar(dimTemperature, Zero)
+        )
+    ),
     hf_
     (
         "hf",dimEnergy/dimMass,subDict("saturationProperty")
@@ -125,21 +141,11 @@ Foam::tmp<Foam::volScalarField> Foam::compressiblePhaseChangeMixture::dmdtNet()
 
 
 Foam::tmp<Foam::volScalarField>
-Foam::compressiblePhaseChangeMixture::updatedTsat() const
+Foam::compressiblePhaseChangeMixture::updatedTsat()
 {
-    const volScalarField& p = mesh_.lookupObject<volScalarField>("p_rgh");
-    tmp<volScalarField> tTsat
-    (
-        volScalarField::New
-        (
-            "Tsat",
-            p.mesh(),
-            dimensionedScalar(dimTemperature)
-        )
-    );
+    const volScalarField& p = mesh_.lookupObject<volScalarField>("p");
 
-    volScalarField& Tsat = tTsat.ref();
-
+    volScalarField& Tsat = this->Tsat_; 
     forAll(Tsat, celli)
     {
         Tsat[celli] = C_.value(p[celli]);
@@ -157,8 +163,8 @@ Foam::compressiblePhaseChangeMixture::updatedTsat() const
             Tsatp[facei] = C_.value(pp[facei]);
         }
     }
-
-    return tTsat;
+    Info<<"Tsat min/max: "<<min(Tsat).value()<<", "<<max(Tsat).value()<<endl;
+    return Tsat;
 }
 
 Foam::tmp<Foam::volScalarField> 

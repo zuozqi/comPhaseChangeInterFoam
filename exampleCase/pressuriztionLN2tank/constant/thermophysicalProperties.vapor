@@ -41,13 +41,13 @@ mixture
     }    
     thermodynamics
     {
-        Cp          1040;
+        Cp          1100;
         Hf          0;
     }
     transport
     {
-        mu          5.6e-06;
-        Pr          0.8;
+        mu          5.85e-06;
+        Pr          0.82;
     }
 }
 

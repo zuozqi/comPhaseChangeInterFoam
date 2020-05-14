@@ -70,7 +70,7 @@ Foam::compressiblePhaseChangeMixtures::heatConvection::heatConvection
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 Foam::Pair<Foam::tmp<Foam::volScalarField>>
-Foam::compressiblePhaseChangeMixtures::heatConvection::mDot() const
+Foam::compressiblePhaseChangeMixtures::heatConvection::mDot()
 {
     volScalarField limitedAlpha1
     (
@@ -88,7 +88,7 @@ Foam::compressiblePhaseChangeMixtures::heatConvection::mDot() const
     dimensionedScalar L = hf_;
 
     tmp<volScalarField> tTsat = this->updatedTsat();
-    const volScalarField Tsat = tTsat();
+    volScalarField Tsat = tTsat();
 
     const volScalarField areaDensity = mag(fvc::grad(limitedAlpha1));
 

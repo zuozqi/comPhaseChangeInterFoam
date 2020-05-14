@@ -68,7 +68,7 @@ Foam::compressiblePhaseChangeMixtures::lee::lee
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 Foam::Pair<Foam::tmp<Foam::volScalarField>>
-Foam::compressiblePhaseChangeMixtures::lee::mDot() const
+Foam::compressiblePhaseChangeMixtures::lee::mDot()
 {
 
     volScalarField limitedAlpha1
@@ -87,7 +87,7 @@ Foam::compressiblePhaseChangeMixtures::lee::mDot() const
     const volScalarField& rho2 = mixture_.thermo2().rho();
 
     tmp<volScalarField> tTsat = this->updatedTsat();
-    const volScalarField Tsat = tTsat();
+    volScalarField Tsat = tTsat();
     
     const dimensionedScalar T0(dimTemperature, Zero);
 

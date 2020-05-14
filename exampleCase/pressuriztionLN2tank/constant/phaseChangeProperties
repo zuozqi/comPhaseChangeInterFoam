@@ -18,8 +18,8 @@ phaseChangeTwoPhaseModel lee;
 
 Coeffs
 {
-    coeffC          1;
-    coeffE          1;
+    coeffC          0.6;
+    coeffE          0.6;
     Ptl             2.3;
     Ptg             0.8;
     qw              6;
