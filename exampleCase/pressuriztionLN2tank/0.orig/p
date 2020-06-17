@@ -22,7 +22,7 @@ boundaryField
 {
     ".*wall"
     {
-        type            calculated;
+        type            dummy;
         value           uniform 1e5;
     }
 

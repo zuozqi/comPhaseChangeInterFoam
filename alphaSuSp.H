@@ -39,7 +39,7 @@ forAll(dgdt, celli)
 //      dmdtNet/rho1
 //    - alpha1*dmdtNet(1/rho1 - 1/rho2)
 //  second term is added to Su or Sp regarding the 
-//  sing of dmdtNet
+//  sign of dmdtNet
 
 tmp<volScalarField> tdmdtNet = fluid.dmdtNet();
 const volScalarField& dmdt12 = tdmdtNet();
