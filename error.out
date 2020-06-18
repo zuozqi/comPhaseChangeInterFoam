@@ -1,0 +1,35 @@
+make: Warning: File 'Make/linux64Gcc63DPInt32Opt/comPhaseChangeInterFoam.C.dep' has modification time 5.7 s in the future
+In file included from /opt/OpenFOAM/OpenFOAM-v1912/src/../applications/solvers/multiphase/VoF/alphaEqn.H:101:0,
+                 from compressibleAlphaEqnSubCycle.H:45,
+                 from comPhaseChangeInterFoam.C:117:
+./alphaSuSp.H: In function ‘int main(int, char**)’:
+./alphaSuSp.H:69:9: warning: suggest parentheses around ‘+’ in operand of ‘&’ [-Wparentheses]
+ Su = Su + ((alpha1*psi1/rho1)*correction(fvm::ddt(p_rgh))
+      ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     +(alpha2*psi2/rho2)*correction(fvm::ddt(p_rgh))) & p_rgh;
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/OpenFOAM/OpenFOAM-v1912/src/../applications/solvers/multiphase/VoF/alphaEqn.H:160:0,
+                 from compressibleAlphaEqnSubCycle.H:45,
+                 from comPhaseChangeInterFoam.C:117:
+./alphaSuSp.H:69:9: warning: suggest parentheses around ‘+’ in operand of ‘&’ [-Wparentheses]
+ Su = Su + ((alpha1*psi1/rho1)*correction(fvm::ddt(p_rgh))
+      ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     +(alpha2*psi2/rho2)*correction(fvm::ddt(p_rgh))) & p_rgh;
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/OpenFOAM/OpenFOAM-v1912/src/../applications/solvers/multiphase/VoF/alphaEqn.H:101:0,
+                 from compressibleAlphaEqnSubCycle.H:54,
+                 from comPhaseChangeInterFoam.C:117:
+./alphaSuSp.H:69:9: warning: suggest parentheses around ‘+’ in operand of ‘&’ [-Wparentheses]
+ Su = Su + ((alpha1*psi1/rho1)*correction(fvm::ddt(p_rgh))
+      ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     +(alpha2*psi2/rho2)*correction(fvm::ddt(p_rgh))) & p_rgh;
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/OpenFOAM/OpenFOAM-v1912/src/../applications/solvers/multiphase/VoF/alphaEqn.H:160:0,
+                 from compressibleAlphaEqnSubCycle.H:54,
+                 from comPhaseChangeInterFoam.C:117:
+./alphaSuSp.H:69:9: warning: suggest parentheses around ‘+’ in operand of ‘&’ [-Wparentheses]
+ Su = Su + ((alpha1*psi1/rho1)*correction(fvm::ddt(p_rgh))
+      ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     +(alpha2*psi2/rho2)*correction(fvm::ddt(p_rgh))) & p_rgh;
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: warning:  Clock skew detected.  Your build may be incomplete.

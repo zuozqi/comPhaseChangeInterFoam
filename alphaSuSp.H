@@ -65,7 +65,13 @@ forAll(dmdt12, celli)
         Sp[celli] -= cdmdt * ccoeffs;
     }
 }
+tmp<fvScalarMatrix> SuCompMatrix;
 
+SuCompMatrix = (alpha1*psi1/rho1)*correction(fvm::ddt(p_rgh)) 
+    +(alpha2*psi2/rho2)*correction(fvm::ddt(p_rgh));
+
+volScalarField SuCompSource(SuCompMatrix & p_rgh);
+Su = Su + SuCompSource;
 // // - All terms are treated explicitly
 // Su +=  dmdt12/rho1 - alpha1 * dmdt12* fluid.coeffs();
 
