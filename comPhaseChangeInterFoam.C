@@ -51,7 +51,7 @@ Description
 #include "CrankNicolsonDdtScheme.H"
 #include "subCycle.H"
 #include "compressibleInterPhaseTransportModel.H"
-#include "pimpleControl.H"
+#include "pressureControl.H"
 #include "fvOptions.H"
 #include "fvcSmooth.H"
 #include "compressiblePhaseChangeMixture.H"

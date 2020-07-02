@@ -1,1 +1,0 @@
-../derivedFvPatchFields/energyJump/energyJump/energyJumpFvPatchScalarField.H

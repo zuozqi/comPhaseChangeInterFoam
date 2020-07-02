@@ -1,1 +1,0 @@
-../psiThermo/psiThermos.C

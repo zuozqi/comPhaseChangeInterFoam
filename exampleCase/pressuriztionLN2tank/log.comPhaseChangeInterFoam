@@ -1,0 +1,2598 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : comPhaseChangeInterFoam -parallel
+Date   : Jun 19 2020
+Time   : 14:24:39
+Host   : ZZQ
+PID    : 16382
+I/O    : uncollated
+Case   : /mnt/c/Users/ZZQ/Desktop/OFcode/comPhaseChangeInterFoam/exampleCase/pressuriztionLN2tank
+nProcs : 3
+Hosts  :
+(
+    (ZZQ 3)
+)
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PIMPLE: Operating solver in PISO mode
+
+Reading field p_rgh
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Constructing twoPhaseMixtureThermo
+
+Selecting surfaceTensionModel constant
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState Boussinesq;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState PengRobinsonGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+Constructing compressiblePhaseChangeMixture
+
+Selecting phaseChange model lee
+Reading thermophysical properties
+
+
+Reading g
+
+Reading hRef
+Calculating field g.h
+
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kEpsilon
+RAS
+{
+    RASModel        kEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+    Cmu             0.09;
+    C1              1.44;
+    C2              1.92;
+    C3              0;
+    sigmak          1;
+    sigmaEps        1.3;
+}
+
+Creating field kinetic energy K
+
+No MRF models present
+
+No finite volume options present
+Courant Number mean: 0 max: 0
+
+Starting time loop
+
+Courant Number mean: 0 max: 0
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00012004802
+Time = 0.0001200480192
+
+PIMPLE: iteration 1
+Tsat min/max: 77.243, 77.243
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000001  Min(alpha.liquid) = 6.9804714e-08  Max(alpha.liquid) = 1
+Tsat min/max: 77.243, 77.243
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000001  Min(alpha.liquid) = 1.3961028e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.243, 77.243
+dmdtNet Min/Max = 0, 0.93975075
+smoothSolver:  Solving for T, Initial residual = 0.99999808, Final residual = 1.9939329e-09, No Iterations 2
+min/max(T) = 76.9, 77.832561
+Tsat min/max: 77.243, 77.243
+GAMG:  Solving for p_rgh, Initial residual = 1, Final residual = 0.0029479342, No Iterations 1
+Tsat min/max: 77.179899, 77.242849
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.0014452279, Final residual = 7.1181011e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.038181677, Final residual = 1.9605037e-12, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 1, Final residual = 7.6913584e-11, No Iterations 2
+ExecutionTime = 0.14 s  ClockTime = 1 s
+
+Courant Number mean: 3.6701053e-08 max: 1.9059309e-06
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00014412691
+Time = 0.000264174934
+
+PIMPLE: iteration 1
+Tsat min/max: 77.242076, 77.359312
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000002  Min(alpha.liquid) = 2.2031252e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.242076, 77.359312
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000003  Min(alpha.liquid) = 3.0101592e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.242076, 77.359312
+dmdtNet Min/Max = -9.9286475e-05, 0.92056674
+smoothSolver:  Solving for T, Initial residual = 0.004064652, Final residual = 9.7539069e-12, No Iterations 2
+min/max(T) = 76.9, 77.840764
+Tsat min/max: 77.242076, 77.359312
+GAMG:  Solving for p_rgh, Initial residual = 0.00046021478, Final residual = 1.7528443e-06, No Iterations 1
+Tsat min/max: 77.243465, 77.360699
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.4010443e-06, Final residual = 1.2996427e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.04620506, Final residual = 3.4127035e-12, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.95703807, Final residual = 1.0734162e-10, No Iterations 2
+ExecutionTime = 0.17 s  ClockTime = 1 s
+
+Courant Number mean: 1.0756877e-06 max: 1.8245671e-05
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00017285238
+Time = 0.0004370273172
+
+PIMPLE: iteration 1
+Tsat min/max: 77.243463, 77.3607
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000004  Min(alpha.liquid) = 4.0007305e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.243463, 77.3607
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000005  Min(alpha.liquid) = 4.9646674e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.243463, 77.3607
+dmdtNet Min/Max = -0.00020124462, 0.90257804
+smoothSolver:  Solving for T, Initial residual = 0.0020787442, Final residual = 5.8066013e-12, No Iterations 2
+min/max(T) = 76.9, 77.850391
+Tsat min/max: 77.243463, 77.3607
+GAMG:  Solving for p_rgh, Initial residual = 0.00016963883, Final residual = 7.9145599e-08, No Iterations 2
+Tsat min/max: 77.244178, 77.361416
+GAMGPCG:  Solving for p_rgh, Initial residual = 6.6296262e-07, Final residual = 2.4297731e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.055914884, Final residual = 5.9324437e-12, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.92362898, Final residual = 1.4886262e-10, No Iterations 2
+ExecutionTime = 0.21 s  ClockTime = 1 s
+
+Courant Number mean: 6.5597401e-07 max: 1.5340198e-05
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00020742286
+Time = 0.0006444501769
+
+PIMPLE: iteration 1
+Tsat min/max: 77.244174, 77.361401
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000006  Min(alpha.liquid) = 6.090043e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.244174, 77.361401
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000007  Min(alpha.liquid) = 7.2154407e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.244174, 77.361401
+dmdtNet Min/Max = -0.00035399806, 0.87908367
+smoothSolver:  Solving for T, Initial residual = 0.0014596535, Final residual = 5.0389588e-12, No Iterations 2
+min/max(T) = 76.9, 77.861635
+Tsat min/max: 77.244174, 77.361401
+GAMG:  Solving for p_rgh, Initial residual = 0.00014679734, Final residual = 1.0357543e-06, No Iterations 1
+Tsat min/max: 77.245054, 77.36228
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.6342662e-06, Final residual = 2.6410266e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.067836116, Final residual = 1.0347804e-11, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.89570406, Final residual = 2.0769405e-10, No Iterations 2
+ExecutionTime = 0.24 s  ClockTime = 1 s
+
+Courant Number mean: 1.2391752e-06 max: 2.9901142e-05
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0002490114
+Time = 0.00089346158
+
+PIMPLE: iteration 1
+Tsat min/max: 77.24505, 77.362275
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000009  Min(alpha.liquid) = 8.5227384e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.24505, 77.362275
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000001  Min(alpha.liquid) = 9.830066e-07  Max(alpha.liquid) = 1
+Tsat min/max: 77.24505, 77.362275
+dmdtNet Min/Max = -0.00061896559, 0.85189135
+smoothSolver:  Solving for T, Initial residual = 0.0011577526, Final residual = 4.9650439e-12, No Iterations 2
+min/max(T) = 76.9, 77.874692
+Tsat min/max: 77.24505, 77.362275
+GAMG:  Solving for p_rgh, Initial residual = 0.00011881116, Final residual = 2.9966827e-07, No Iterations 1
+Tsat min/max: 77.246066, 77.363292
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0177017e-06, Final residual = 2.1685159e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.082530415, Final residual = 1.8112896e-11, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.87365266, Final residual = 2.9167684e-10, No Iterations 2
+ExecutionTime = 0.27 s  ClockTime = 1 s
+
+Courant Number mean: 2.8514671e-06 max: 6.0525051e-05
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00029851367
+Time = 0.00119197525
+
+PIMPLE: iteration 1
+Tsat min/max: 77.24606, 77.363286
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000012  Min(alpha.liquid) = 1.1336355e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.24606, 77.363286
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000013  Min(alpha.liquid) = 1.2842684e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.24606, 77.363286
+dmdtNet Min/Max = -0.0010941603, 0.82050655
+smoothSolver:  Solving for T, Initial residual = 0.00097532948, Final residual = 5.7640444e-12, No Iterations 2
+min/max(T) = 76.9, 77.889726
+Tsat min/max: 77.24606, 77.363286
+GAMG:  Solving for p_rgh, Initial residual = 9.580078e-05, Final residual = 1.9872958e-07, No Iterations 1
+Tsat min/max: 77.247227, 77.364454
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0974154e-06, Final residual = 1.8034942e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.10054513, Final residual = 3.165195e-11, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.85577727, Final residual = 4.1016272e-10, No Iterations 2
+ExecutionTime = 0.3 s  ClockTime = 1 s
+
+Courant Number mean: 5.7153038e-06 max: 0.00011577286
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00035800009
+Time = 0.00154997534
+
+PIMPLE: iteration 1
+Tsat min/max: 77.247219, 77.364447
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000015  Min(alpha.liquid) = 1.4565028e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.247219, 77.364447
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000017  Min(alpha.liquid) = 1.6287424e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.247219, 77.364447
+dmdtNet Min/Max = -0.001936914, 0.78461955
+smoothSolver:  Solving for T, Initial residual = 0.00085196261, Final residual = 7.1465347e-12, No Iterations 2
+min/max(T) = 76.9, 77.906891
+Tsat min/max: 77.247219, 77.364447
+GAMG:  Solving for p_rgh, Initial residual = 7.6385824e-05, Final residual = 2.5145958e-07, No Iterations 1
+Tsat min/max: 77.248545, 77.365772
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.2410202e-06, Final residual = 1.8180573e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.12298577, Final residual = 5.5563465e-11, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.84134186, Final residual = 5.7927495e-10, No Iterations 2
+ExecutionTime = 0.33 s  ClockTime = 1 s
+
+Courant Number mean: 1.0624769e-05 max: 0.00021341221
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00042991277
+Time = 0.001979888111
+
+PIMPLE: iteration 1
+Tsat min/max: 77.248533, 77.365763
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000019  Min(alpha.liquid) = 1.7929847e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.248533, 77.365763
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000021  Min(alpha.liquid) = 1.9495109e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.248533, 77.365763
+dmdtNet Min/Max = -0.0034058809, 0.74413096
+smoothSolver:  Solving for T, Initial residual = 0.00076117289, Final residual = 9.381948e-12, No Iterations 2
+min/max(T) = 76.9, 77.926305
+Tsat min/max: 77.248533, 77.365763
+GAMG:  Solving for p_rgh, Initial residual = 6.0017787e-05, Final residual = 2.908207e-07, No Iterations 1
+Tsat min/max: 77.250022, 77.36725
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.3777228e-06, Final residual = 2.0187329e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.15134248, Final residual = 9.835438e-11, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.82971637, Final residual = 8.2272679e-10, No Iterations 2
+ExecutionTime = 0.36 s  ClockTime = 1 s
+
+Courant Number mean: 1.9044544e-05 max: 0.00038398224
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00051589533
+Time = 0.002495783437
+
+PIMPLE: iteration 1
+Tsat min/max: 77.250005, 77.367237
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000023  Min(alpha.liquid) = 2.0865867e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.250005, 77.367237
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000026  Min(alpha.liquid) = 2.2236702e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.250005, 77.367237
+dmdtNet Min/Max = -0.0059421468, 0.7005508
+smoothSolver:  Solving for T, Initial residual = 0.00068755509, Final residual = 1.2628986e-11, No Iterations 2
+min/max(T) = 76.9, 77.947948
+Tsat min/max: 77.250005, 77.367237
+GAMG:  Solving for p_rgh, Initial residual = 4.6480062e-05, Final residual = 3.3358079e-07, No Iterations 1
+Tsat min/max: 77.251645, 77.368875
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.5074524e-06, Final residual = 2.1350513e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.18715375, Final residual = 1.7464263e-10, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.81995478, Final residual = 1.1690476e-09, No Iterations 2
+ExecutionTime = 0.39 s  ClockTime = 1 s
+
+Courant Number mean: 3.3317318e-05 max: 0.00067502102
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00061711529
+Time = 0.003112898731
+
+PIMPLE: iteration 1
+Tsat min/max: 77.251622, 77.368856
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000028  Min(alpha.liquid) = 2.3085385e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.251622, 77.368856
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000031  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.251622, 77.368856
+dmdtNet Min/Max = -0.010279114, 0.65352412
+smoothSolver:  Solving for T, Initial residual = 0.00062237768, Final residual = 1.7498151e-11, No Iterations 2
+min/max(T) = 76.9, 77.97159
+Tsat min/max: 77.251622, 77.368856
+GAMG:  Solving for p_rgh, Initial residual = 3.5612174e-05, Final residual = 1.8001829e-07, No Iterations 2
+Tsat min/max: 77.253384, 77.370613
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4712249e-06, Final residual = 3.1669739e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.23223867, Final residual = 3.0911554e-10, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.81120809, Final residual = 1.6523132e-09, No Iterations 2
+ExecutionTime = 0.43 s  ClockTime = 1 s
+
+Courant Number mean: 5.6831264e-05 max: 0.0011557809
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00073959619
+Time = 0.003852494924
+
+PIMPLE: iteration 1
+Tsat min/max: 77.253349, 77.370585
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000034  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.253349, 77.370585
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000037  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.253349, 77.370585
+dmdtNet Min/Max = -0.017536741, 0.60417485
+smoothSolver:  Solving for T, Initial residual = 0.00056482084, Final residual = 2.4949628e-11, No Iterations 2
+min/max(T) = 76.9, 77.996918
+Tsat min/max: 77.253349, 77.370585
+GAMG:  Solving for p_rgh, Initial residual = 2.7378284e-05, Final residual = 1.9940265e-07, No Iterations 2
+Tsat min/max: 77.255182, 77.372412
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.539399e-06, Final residual = 3.1613889e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.29153946, Final residual = 5.5536451e-10, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.80404481, Final residual = 2.3482304e-09, No Iterations 2
+ExecutionTime = 0.46 s  ClockTime = 1 s
+
+Courant Number mean: 9.5495828e-05 max: 0.0019519235
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.00089025468
+Time = 0.004742749601
+
+PIMPLE: iteration 1
+Tsat min/max: 77.255133, 77.372371
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000041  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.255133, 77.372371
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000044  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.255133, 77.372371
+dmdtNet Min/Max = -0.029724151, 0.55387221
+smoothSolver:  Solving for T, Initial residual = 0.00051219929, Final residual = 3.6705031e-11, No Iterations 2
+min/max(T) = 76.9, 78.023415
+Tsat min/max: 77.255133, 77.372371
+GAMG:  Solving for p_rgh, Initial residual = 2.1967303e-05, Final residual = 2.1264466e-07, No Iterations 2
+Tsat min/max: 77.256954, 77.374186
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.5668852e-06, Final residual = 3.0688327e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.37260635, Final residual = 1.0241846e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.79852116, Final residual = 3.3725544e-09, No Iterations 2
+ExecutionTime = 0.49 s  ClockTime = 1 s
+
+Courant Number mean: 0.00015911923 max: 0.0032689891
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0010703062
+Time = 0.005813055785
+
+PIMPLE: iteration 1
+Tsat min/max: 77.256885, 77.374126
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000048  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.256885, 77.374126
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000052  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.256885, 77.374126
+dmdtNet Min/Max = -0.049898002, 0.50448026
+smoothSolver:  Solving for T, Initial residual = 0.00045846805, Final residual = 5.4253612e-11, No Iterations 2
+min/max(T) = 76.9, 78.05006
+Tsat min/max: 77.256885, 77.374126
+GAMG:  Solving for p_rgh, Initial residual = 1.9626321e-05, Final residual = 1.157478e-07, No Iterations 3
+Tsat min/max: 77.258551, 77.375783
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4664644e-06, Final residual = 3.324367e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.4298291, Final residual = 1.7000339e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.79326761, Final residual = 4.8332084e-09, No Iterations 2
+ExecutionTime = 0.52 s  ClockTime = 1 s
+
+Courant Number mean: 0.00025983688 max: 0.0053627575
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0012902321
+Time = 0.007103287898
+
+PIMPLE: iteration 1
+Tsat min/max: 77.258458, 77.3757
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000056  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.258458, 77.3757
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000006  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.258458, 77.3757
+dmdtNet Min/Max = -0.082461118, 0.45873515
+smoothSolver:  Solving for T, Initial residual = 0.00040418475, Final residual = 8.0734946e-11, No Iterations 2
+min/max(T) = 76.9, 78.075562
+Tsat min/max: 77.258458, 77.3757
+GAMG:  Solving for p_rgh, Initial residual = 2.0710966e-05, Final residual = 1.1697948e-07, No Iterations 3
+Tsat min/max: 77.259757, 77.376991
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.368299e-06, Final residual = 2.9576691e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.47616142, Final residual = 2.7228905e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.78879529, Final residual = 6.9696263e-09, No Iterations 2
+ExecutionTime = 0.55 s  ClockTime = 1 s
+
+Courant Number mean: 0.00041826792 max: 0.0086751951
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0015482785
+Time = 0.008651566433
+
+PIMPLE: iteration 1
+Tsat min/max: 77.259636, 77.376879
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000065  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.259636, 77.376879
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000007  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.259636, 77.376879
+dmdtNet Min/Max = -0.13351712, 0.41941951
+smoothSolver:  Solving for T, Initial residual = 0.00034508511, Final residual = 1.1656816e-10, No Iterations 2
+min/max(T) = 76.9, 78.098038
+Tsat min/max: 77.259636, 77.376879
+GAMG:  Solving for p_rgh, Initial residual = 2.6173067e-05, Final residual = 2.4927685e-07, No Iterations 2
+Tsat min/max: 77.260267, 77.377504
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.2528481e-06, Final residual = 2.0121076e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.52186293, Final residual = 4.2744933e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.78351122, Final residual = 9.9498097e-09, No Iterations 2
+ExecutionTime = 0.58 s  ClockTime = 1 s
+
+Courant Number mean: 0.00065290719 max: 0.013602842
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0018642537
+Time = 0.01051582018
+
+PIMPLE: iteration 1
+Tsat min/max: 77.260124, 77.377367
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000076  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.260124, 77.377367
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000081  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.260124, 77.377367
+dmdtNet Min/Max = -0.21059488, 0.3895343
+smoothSolver:  Solving for T, Initial residual = 0.00028449237, Final residual = 1.6334896e-10, No Iterations 2
+min/max(T) = 76.9, 78.115661
+Tsat min/max: 77.260124, 77.377367
+GAMG:  Solving for p_rgh, Initial residual = 3.9134225e-05, Final residual = 2.1885074e-07, No Iterations 2
+Tsat min/max: 77.259681, 77.376919
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0092615e-06, Final residual = 1.4711671e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.56813611, Final residual = 6.705538e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.77881913, Final residual = 1.1093111e-11, No Iterations 3
+ExecutionTime = 0.62 s  ClockTime = 1 s
+
+Courant Number mean: 0.0010017056 max: 0.020962772
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0022371045
+Time = 0.01275292467
+
+PIMPLE: iteration 1
+Tsat min/max: 77.259534, 77.376776
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000088  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.259534, 77.376776
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000095  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.259534, 77.376776
+dmdtNet Min/Max = -0.32174601, 0.370515
+smoothSolver:  Solving for T, Initial residual = 0.00021989352, Final residual = 2.1117972e-10, No Iterations 2
+min/max(T) = 76.9, 78.126384
+Tsat min/max: 77.259534, 77.376776
+GAMG:  Solving for p_rgh, Initial residual = 6.0080156e-05, Final residual = 2.1882168e-07, No Iterations 2
+Tsat min/max: 77.257514, 77.374752
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.4121181e-07, Final residual = 7.0947763e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.61263425, Final residual = 7.9738666e-12, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.77316085, Final residual = 1.9307164e-11, No Iterations 3
+ExecutionTime = 0.65 s  ClockTime = 1 s
+
+Courant Number mean: 0.0014829571 max: 0.031239784
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0026438508
+Time = 0.01539677544
+
+PIMPLE: iteration 1
+Tsat min/max: 77.25741, 77.374649
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000102  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.25741, 77.374649
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000011  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.25741, 77.374649
+dmdtNet Min/Max = -0.47257152, 0.36263222
+smoothSolver:  Solving for T, Initial residual = 0.00015160632, Final residual = 2.2730556e-10, No Iterations 2
+min/max(T) = 76.9, 78.128796
+Tsat min/max: 77.25741, 77.374649
+GAMG:  Solving for p_rgh, Initial residual = 8.5472838e-05, Final residual = 2.0991354e-07, No Iterations 2
+Tsat min/max: 77.25335, 77.370587
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.5179404e-07, Final residual = 2.4950704e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.65221706, Final residual = 1.4379229e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.76430646, Final residual = 3.2135429e-11, No Iterations 3
+ExecutionTime = 0.68 s  ClockTime = 1 s
+
+Courant Number mean: 0.0020828983 max: 0.043903451
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0031334528
+Time = 0.0185302282
+
+PIMPLE: iteration 1
+Tsat min/max: 77.253369, 77.370604
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000118  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.253369, 77.370604
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000127  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.253369, 77.370604
+dmdtNet Min/Max = -0.66469554, 0.36424768
+smoothSolver:  Solving for T, Initial residual = 8.9574063e-05, Final residual = 1.824859e-10, No Iterations 2
+min/max(T) = 76.9, 78.123187
+Tsat min/max: 77.253369, 77.370604
+GAMG:  Solving for p_rgh, Initial residual = 0.00011882121, Final residual = 1.7455214e-07, No Iterations 2
+Tsat min/max: 77.246715, 77.363949
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1795073e-06, Final residual = 1.3592736e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.69074946, Final residual = 2.6031493e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.75600875, Final residual = 5.4044588e-11, No Iterations 3
+ExecutionTime = 0.71 s  ClockTime = 1 s
+
+Courant Number mean: 0.0028577371 max: 0.060479827
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037031714
+Time = 0.02223339965
+
+PIMPLE: iteration 1
+Tsat min/max: 77.246962, 77.364193
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000137  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.246962, 77.364193
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000147  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.246962, 77.364193
+dmdtNet Min/Max = -0.88714523, 0.37063961
+smoothSolver:  Solving for T, Initial residual = 3.5276768e-05, Final residual = 5.0991515e-09, No Iterations 1
+min/max(T) = 76.9, 78.110129
+Tsat min/max: 77.246962, 77.364193
+GAMG:  Solving for p_rgh, Initial residual = 0.00015652688, Final residual = 1.7712974e-07, No Iterations 2
+Tsat min/max: 77.237121, 77.354353
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4812567e-06, Final residual = 2.1316439e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.72673317, Final residual = 4.6462347e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.74683718, Final residual = 9.0138917e-11, No Iterations 3
+ExecutionTime = 0.74 s  ClockTime = 1 s
+
+Courant Number mean: 0.0038094061 max: 0.081404085
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.004092979
+Time = 0.02632637861
+
+PIMPLE: iteration 1
+Tsat min/max: 77.237582, 77.354808
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000157  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.237582, 77.354808
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000167  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.237582, 77.354808
+dmdtNet Min/Max = -1.1156451, 0.37698575
+smoothSolver:  Solving for T, Initial residual = 4.0974034e-05, Final residual = 7.9783513e-09, No Iterations 1
+min/max(T) = 76.9, 78.092718
+Tsat min/max: 77.237582, 77.354808
+GAMG:  Solving for p_rgh, Initial residual = 0.00018763307, Final residual = 2.8306365e-07, No Iterations 2
+Tsat min/max: 77.226156, 77.343382
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.2328505e-06, Final residual = 3.109688e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.74872083, Final residual = 6.7094983e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.72409058, Final residual = 1.2142466e-10, No Iterations 3
+ExecutionTime = 0.77 s  ClockTime = 1 s
+
+Courant Number mean: 0.0043786686 max: 0.096028738
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0043337424
+Time = 0.03066012105
+
+PIMPLE: iteration 1
+Tsat min/max: 77.226872, 77.344089
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000175  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.226872, 77.344089
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000183  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.226872, 77.344089
+dmdtNet Min/Max = -1.3008948, 0.38506669
+smoothSolver:  Solving for T, Initial residual = 4.3603438e-05, Final residual = 3.4677181e-11, No Iterations 2
+min/max(T) = 76.9, 78.077973
+Tsat min/max: 77.226872, 77.344089
+GAMG:  Solving for p_rgh, Initial residual = 0.00019698856, Final residual = 2.0652676e-07, No Iterations 2
+Tsat min/max: 77.214862, 77.332081
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.2562559e-06, Final residual = 2.2850969e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.76288557, Final residual = 8.2346456e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.69436895, Final residual = 1.3985698e-10, No Iterations 3
+ExecutionTime = 0.8 s  ClockTime = 1 s
+
+Courant Number mean: 0.0046594323 max: 0.10618412
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0040788164
+Time = 0.03473893746
+
+PIMPLE: iteration 1
+Tsat min/max: 77.215511, 77.332723
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000186  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.215511, 77.332723
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000189  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.215511, 77.332723
+dmdtNet Min/Max = -1.4174589, 0.38189001
+smoothSolver:  Solving for T, Initial residual = 4.0138897e-05, Final residual = 8.7214926e-09, No Iterations 1
+min/max(T) = 76.9, 78.067141
+Tsat min/max: 77.215511, 77.332723
+GAMG:  Solving for p_rgh, Initial residual = 0.00017691821, Final residual = 3.7782976e-07, No Iterations 2
+Tsat min/max: 77.205472, 77.322682
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.0728984e-06, Final residual = 2.7268749e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.75704978, Final residual = 6.9635042e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.64094465, Final residual = 1.0906696e-10, No Iterations 3
+ExecutionTime = 0.83 s  ClockTime = 1 s
+
+Courant Number mean: 0.0039937705 max: 0.095644213
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0043507375
+Time = 0.03908967496
+
+PIMPLE: iteration 1
+Tsat min/max: 77.205858, 77.323072
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000188  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.205858, 77.323072
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000187  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.205858, 77.323072
+dmdtNet Min/Max = -1.4554743, 0.3745618
+smoothSolver:  Solving for T, Initial residual = 3.9795042e-05, Final residual = 8.3362157e-09, No Iterations 1
+min/max(T) = 76.9, 78.06277
+Tsat min/max: 77.205858, 77.323072
+GAMG:  Solving for p_rgh, Initial residual = 0.00016095388, Final residual = 4.7820006e-07, No Iterations 2
+Tsat min/max: 77.194783, 77.311995
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.9256864e-06, Final residual = 3.0689328e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.77319865, Final residual = 8.2263085e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.62130691, Final residual = 1.2415059e-10, No Iterations 3
+ExecutionTime = 0.87 s  ClockTime = 1 s
+
+Courant Number mean: 0.004477827 max: 0.10823615
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0040606883
+Time = 0.0431503633
+
+PIMPLE: iteration 1
+Tsat min/max: 77.194932, 77.312148
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000184  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.194932, 77.312148
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000018  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.194932, 77.312148
+dmdtNet Min/Max = -1.5205879, 0.34758358
+smoothSolver:  Solving for T, Initial residual = 3.8335667e-05, Final residual = 7.839461e-09, No Iterations 1
+min/max(T) = 76.9, 78.052759
+Tsat min/max: 77.194932, 77.312148
+GAMG:  Solving for p_rgh, Initial residual = 0.00014729504, Final residual = 4.5842485e-07, No Iterations 2
+Tsat min/max: 77.185456, 77.302666
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.0670011e-06, Final residual = 3.2521186e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.76731231, Final residual = 6.907698e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.57041982, Final residual = 9.5090602e-11, No Iterations 3
+ExecutionTime = 0.9 s  ClockTime = 1 s
+
+Courant Number mean: 0.0037919851 max: 0.095214564
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.004373049
+Time = 0.04752341227
+
+PIMPLE: iteration 1
+Tsat min/max: 77.185808, 77.303022
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000017  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.185808, 77.303022
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000016  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.185808, 77.303022
+dmdtNet Min/Max = -1.5227407, 0.34233578
+smoothSolver:  Solving for T, Initial residual = 3.8074523e-05, Final residual = 7.5607049e-09, No Iterations 1
+min/max(T) = 76.9, 78.048768
+Tsat min/max: 77.185808, 77.303022
+GAMG:  Solving for p_rgh, Initial residual = 0.00013120166, Final residual = 5.0369884e-07, No Iterations 2
+Tsat min/max: 77.175095, 77.292308
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.8562605e-06, Final residual = 3.3643477e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.78565495, Final residual = 8.4208357e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.55903155, Final residual = 1.1263822e-10, No Iterations 3
+ExecutionTime = 0.93 s  ClockTime = 2 s
+
+Courant Number mean: 0.0043469266 max: 0.10965756
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0040366606
+Time = 0.05156007287
+
+PIMPLE: iteration 1
+Tsat min/max: 77.175227, 77.292444
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000149  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.175227, 77.292444
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000138  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.175227, 77.292444
+dmdtNet Min/Max = -1.5638812, 0.3186801
+smoothSolver:  Solving for T, Initial residual = 3.661225e-05, Final residual = 7.1886752e-09, No Iterations 1
+min/max(T) = 76.9, 78.038402
+Tsat min/max: 77.175227, 77.292444
+GAMG:  Solving for p_rgh, Initial residual = 0.00011991145, Final residual = 4.6734216e-07, No Iterations 2
+Tsat min/max: 77.166261, 77.283471
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.9996027e-06, Final residual = 3.3696599e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.77947158, Final residual = 6.8678219e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.50996226, Final residual = 8.3167572e-11, No Iterations 3
+ExecutionTime = 0.97 s  ClockTime = 2 s
+
+Courant Number mean: 0.0035983048 max: 0.093951104
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0044036297
+Time = 0.05596370261
+
+PIMPLE: iteration 1
+Tsat min/max: 77.166613, 77.283827
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9000012  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.166613, 77.283827
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000101  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.166613, 77.283827
+dmdtNet Min/Max = -1.5316422, 0.31658824
+smoothSolver:  Solving for T, Initial residual = 3.6712647e-05, Final residual = 7.0394752e-09, No Iterations 1
+min/max(T) = 76.9, 78.034824
+Tsat min/max: 77.166613, 77.283827
+GAMG:  Solving for p_rgh, Initial residual = 0.00011339754, Final residual = 5.4960963e-07, No Iterations 2
+Tsat min/max: 77.156223, 77.273436
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.80058e-06, Final residual = 4.4301631e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.8002513, Final residual = 8.6807234e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.50646649, Final residual = 1.0339188e-10, No Iterations 3
+ExecutionTime = 1.01 s  ClockTime = 2 s
+
+Courant Number mean: 0.0042342876 max: 0.11001108
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0040032998
+Time = 0.05996700237
+
+PIMPLE: iteration 1
+Tsat min/max: 77.156334, 77.273551
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000084  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.156334, 77.273551
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000068  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.156334, 77.273551
+dmdtNet Min/Max = -1.5307956, 0.29299188
+smoothSolver:  Solving for T, Initial residual = 3.5074901e-05, Final residual = 6.6977472e-09, No Iterations 1
+min/max(T) = 76.9, 78.024329
+Tsat min/max: 77.156334, 77.273551
+GAMG:  Solving for p_rgh, Initial residual = 9.9889663e-05, Final residual = 5.04992e-07, No Iterations 2
+Tsat min/max: 77.147897, 77.265107
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.9590427e-06, Final residual = 3.6206853e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.79339724, Final residual = 6.789785e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.45786673, Final residual = 7.2494151e-11, No Iterations 3
+ExecutionTime = 1.04 s  ClockTime = 2 s
+
+Courant Number mean: 0.0034028732 max: 0.091758619
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0044481108
+Time = 0.06441511322
+
+PIMPLE: iteration 1
+Tsat min/max: 77.148243, 77.265458
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000041  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.148243, 77.265458
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90000014  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.148243, 77.265458
+dmdtNet Min/Max = -1.4800706, 0.29045947
+smoothSolver:  Solving for T, Initial residual = 3.5582261e-05, Final residual = 6.7084929e-09, No Iterations 1
+min/max(T) = 76.9, 78.021322
+Tsat min/max: 77.148243, 77.265458
+GAMG:  Solving for p_rgh, Initial residual = 9.9260873e-05, Final residual = 6.1937502e-07, No Iterations 2
+Tsat min/max: 77.138104, 77.255318
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.7632387e-06, Final residual = 6.1916383e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.81650539, Final residual = 9.0281308e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.46246783, Final residual = 9.638877e-11, No Iterations 3
+ExecutionTime = 1.07 s  ClockTime = 2 s
+
+Courant Number mean: 0.0041537355 max: 0.10993338
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0039538763
+Time = 0.06836898953
+
+PIMPLE: iteration 1
+Tsat min/max: 77.13819, 77.255408
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999995  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.13819, 77.255408
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999976  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.13819, 77.255408
+dmdtNet Min/Max = -1.455423, 0.26894428
+smoothSolver:  Solving for T, Initial residual = 3.3639071e-05, Final residual = 6.316101e-09, No Iterations 1
+min/max(T) = 76.9, 78.010585
+Tsat min/max: 77.13819, 77.255408
+GAMG:  Solving for p_rgh, Initial residual = 8.5905725e-05, Final residual = 5.9344012e-07, No Iterations 2
+Tsat min/max: 77.130317, 77.247527
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.9587321e-06, Final residual = 4.1217125e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.80744666, Final residual = 6.6330993e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.41233319, Final residual = 6.2616493e-11, No Iterations 3
+ExecutionTime = 1.1 s  ClockTime = 2 s
+
+Courant Number mean: 0.0032070633 max: 0.088117654
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0045187158
+Time = 0.07288770531
+
+PIMPLE: iteration 1
+Tsat min/max: 77.130663, 77.247879
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999941  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.130663, 77.247879
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999906  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.130663, 77.247879
+dmdtNet Min/Max = -1.3941947, 0.26772588
+smoothSolver:  Solving for T, Initial residual = 3.458372e-05, Final residual = 6.5760332e-09, No Iterations 1
+min/max(T) = 76.9, 78.008624
+Tsat min/max: 77.130663, 77.247879
+GAMG:  Solving for p_rgh, Initial residual = 8.7762437e-05, Final residual = 7.3509427e-07, No Iterations 2
+Tsat min/max: 77.120658, 77.237872
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.7559993e-06, Final residual = 8.8671918e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.83417204, Final residual = 9.5375167e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.42632469, Final residual = 9.2100331e-11, No Iterations 3
+ExecutionTime = 1.13 s  ClockTime = 2 s
+
+Courant Number mean: 0.0041290101 max: 0.11035071
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.003873185
+Time = 0.07676089026
+
+PIMPLE: iteration 1
+Tsat min/max: 77.120707, 77.237926
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999888  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.120707, 77.237926
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999869  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.120707, 77.237926
+dmdtNet Min/Max = -1.3629753, 0.24647845
+smoothSolver:  Solving for T, Initial residual = 3.2140578e-05, Final residual = 5.9872889e-09, No Iterations 1
+min/max(T) = 76.9, 77.997335
+Tsat min/max: 77.120707, 77.237926
+GAMG:  Solving for p_rgh, Initial residual = 7.2667786e-05, Final residual = 7.1176967e-07, No Iterations 2
+Tsat min/max: 77.113486, 77.230695
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.0077464e-06, Final residual = 4.686456e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.79755218, Final residual = 6.148812e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.3712844, Final residual = 5.2829838e-11, No Iterations 3
+ExecutionTime = 1.16 s  ClockTime = 2 s
+
+Courant Number mean: 0.0029807014 max: 0.082904673
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0046478219
+Time = 0.08140871221
+
+PIMPLE: iteration 1
+Tsat min/max: 77.113835, 77.231053
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999827  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.113835, 77.231053
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999784  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.113835, 77.231053
+dmdtNet Min/Max = -1.2921754, 0.24808279
+smoothSolver:  Solving for T, Initial residual = 3.3830813e-05, Final residual = 6.6320899e-09, No Iterations 1
+min/max(T) = 76.9, 77.996742
+Tsat min/max: 77.113835, 77.231053
+GAMG:  Solving for p_rgh, Initial residual = 8.1348765e-05, Final residual = 4.6081924e-07, No Iterations 3
+Tsat min/max: 77.103719, 77.220938
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4848567e-06, Final residual = 5.1302591e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.80142838, Final residual = 9.789261e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.39839796, Final residual = 9.2303662e-11, No Iterations 3
+ExecutionTime = 1.19 s  ClockTime = 2 s
+
+Courant Number mean: 0.0042173009 max: 0.11268357
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037182576
+Time = 0.08512696977
+
+PIMPLE: iteration 1
+Tsat min/max: 77.103713, 77.220932
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999751  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.103713, 77.220932
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999717  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.103713, 77.220932
+dmdtNet Min/Max = -1.2565821, 0.22416805
+smoothSolver:  Solving for T, Initial residual = 3.007966e-05, Final residual = 5.5371415e-09, No Iterations 1
+min/max(T) = 76.9, 77.98434
+Tsat min/max: 77.103713, 77.220932
+GAMG:  Solving for p_rgh, Initial residual = 6.6233479e-05, Final residual = 4.800516e-07, No Iterations 3
+Tsat min/max: 77.097365, 77.214579
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.7908378e-06, Final residual = 3.5714033e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.7285132, Final residual = 4.9977215e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.33124286, Final residual = 4.1778346e-11, No Iterations 3
+ExecutionTime = 1.23 s  ClockTime = 2 s
+
+Courant Number mean: 0.0026798352 max: 0.07526164
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037182576
+Time = 0.08884522733
+
+PIMPLE: iteration 1
+Tsat min/max: 77.097718, 77.214943
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999678  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.097718, 77.214943
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999638  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.097718, 77.214943
+dmdtNet Min/Max = -1.1951211, 0.22994387
+smoothSolver:  Solving for T, Initial residual = 2.6090695e-05, Final residual = 3.987767e-09, No Iterations 1
+min/max(T) = 76.9, 77.985651
+Tsat min/max: 77.097718, 77.214943
+GAMG:  Solving for p_rgh, Initial residual = 6.2036945e-05, Final residual = 3.3408945e-07, No Iterations 3
+Tsat min/max: 77.091578, 77.208795
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1325964e-06, Final residual = 4.0182703e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.70545299, Final residual = 4.4643976e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.32003042, Final residual = 3.8034613e-11, No Iterations 3
+ExecutionTime = 1.26 s  ClockTime = 2 s
+
+Courant Number mean: 0.0026963502 max: 0.0773103
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037182576
+Time = 0.09256348488
+
+PIMPLE: iteration 1
+Tsat min/max: 77.091509, 77.208723
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999603  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.091509, 77.208723
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999567  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.091509, 77.208723
+dmdtNet Min/Max = -1.1435619, 0.21260519
+smoothSolver:  Solving for T, Initial residual = 2.619872e-05, Final residual = 4.1289394e-09, No Iterations 1
+min/max(T) = 76.9, 77.982021
+Tsat min/max: 77.091509, 77.208723
+GAMG:  Solving for p_rgh, Initial residual = 5.805306e-05, Final residual = 1.0003613e-07, No Iterations 2
+Tsat min/max: 77.085276, 77.20249
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0128907e-06, Final residual = 5.2198527e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.67941954, Final residual = 4.3021899e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.30864999, Final residual = 3.6654997e-11, No Iterations 3
+ExecutionTime = 1.35 s  ClockTime = 2 s
+
+Courant Number mean: 0.0026846491 max: 0.075051097
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037182576
+Time = 0.09628174244
+
+PIMPLE: iteration 1
+Tsat min/max: 77.085369, 77.20258
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.8999952  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.085369, 77.20258
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999473  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.085369, 77.20258
+dmdtNet Min/Max = -1.0882519, 0.20221314
+smoothSolver:  Solving for T, Initial residual = 2.5851092e-05, Final residual = 4.1361214e-09, No Iterations 1
+min/max(T) = 76.9, 77.977703
+Tsat min/max: 77.085369, 77.20258
+GAMG:  Solving for p_rgh, Initial residual = 6.1645356e-05, Final residual = 7.809021e-08, No Iterations 2
+Tsat min/max: 77.079209, 77.196419
+GAMGPCG:  Solving for p_rgh, Initial residual = 9.8400599e-07, Final residual = 5.074792e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.6547096, Final residual = 4.1431865e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.29810076, Final residual = 3.5349953e-11, No Iterations 3
+ExecutionTime = 1.39 s  ClockTime = 2 s
+
+Courant Number mean: 0.0026522179 max: 0.07429061
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0037182576
+Time = 0.1
+
+PIMPLE: iteration 1
+Tsat min/max: 77.079331, 77.196539
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999424  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.079331, 77.196539
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999375  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.079331, 77.196539
+dmdtNet Min/Max = -1.0324429, 0.19348745
+smoothSolver:  Solving for T, Initial residual = 2.5501316e-05, Final residual = 4.1484577e-09, No Iterations 1
+min/max(T) = 76.9, 77.972884
+Tsat min/max: 77.079331, 77.196539
+GAMG:  Solving for p_rgh, Initial residual = 6.0445315e-05, Final residual = 1.2357093e-07, No Iterations 2
+Tsat min/max: 77.073271, 77.190479
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0060965e-06, Final residual = 4.4950377e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.63093476, Final residual = 3.9780014e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.28823851, Final residual = 3.4055082e-11, No Iterations 3
+ExecutionTime = 1.45 s  ClockTime = 2 s
+
+Courant Number mean: 0.0026123705 max: 0.072805156
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0041666667
+Time = 0.1041666667
+
+PIMPLE: iteration 1
+Tsat min/max: 77.073397, 77.190606
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999318  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.073397, 77.190606
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999261  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.073397, 77.190606
+dmdtNet Min/Max = -0.96865411, 0.18585761
+smoothSolver:  Solving for T, Initial residual = 2.8103128e-05, Final residual = 5.4444033e-09, No Iterations 1
+min/max(T) = 76.9, 77.967864
+Tsat min/max: 77.073397, 77.190606
+GAMG:  Solving for p_rgh, Initial residual = 6.5760287e-05, Final residual = 3.6292052e-07, No Iterations 2
+Tsat min/max: 77.065892, 77.183104
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.3043886e-06, Final residual = 8.678538e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.63384936, Final residual = 5.5201026e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.30163584, Final residual = 4.9536311e-11, No Iterations 3
+ExecutionTime = 1.48 s  ClockTime = 2 s
+
+Courant Number mean: 0.0031323293 max: 0.085612652
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0045634921
+Time = 0.1087301587
+
+PIMPLE: iteration 1
+Tsat min/max: 77.066077, 77.183289
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999188  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.066077, 77.183289
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999115  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.066077, 77.183289
+dmdtNet Min/Max = -0.8970696, 0.17557193
+smoothSolver:  Solving for T, Initial residual = 3.1635528e-05, Final residual = 7.4912043e-09, No Iterations 1
+min/max(T) = 76.9, 77.95769
+Tsat min/max: 77.066077, 77.183289
+GAMG:  Solving for p_rgh, Initial residual = 7.84706e-05, Final residual = 1.3763105e-07, No Iterations 2
+Tsat min/max: 77.057302, 77.174513
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4923758e-06, Final residual = 1.1603382e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.62939981, Final residual = 7.2572305e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.30962654, Final residual = 6.7212567e-11, No Iterations 3
+ExecutionTime = 1.51 s  ClockTime = 2 s
+
+Courant Number mean: 0.0036047405 max: 0.095779131
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0048036759
+Time = 0.1135338346
+
+PIMPLE: iteration 1
+Tsat min/max: 77.05775, 77.174957
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89999031  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.05775, 77.174957
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998948  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.05775, 77.174957
+dmdtNet Min/Max = -0.82084996, 0.171691
+smoothSolver:  Solving for T, Initial residual = 3.3052251e-05, Final residual = 9.0237058e-09, No Iterations 1
+min/max(T) = 76.9, 77.947646
+Tsat min/max: 77.05775, 77.174957
+GAMG:  Solving for p_rgh, Initial residual = 8.4252227e-05, Final residual = 1.0511924e-07, No Iterations 2
+Tsat min/max: 77.048513, 77.165719
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.5270065e-06, Final residual = 1.3470051e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.61588766, Final residual = 8.3926216e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.30920081, Final residual = 7.9052285e-11, No Iterations 3
+ExecutionTime = 1.54 s  ClockTime = 2 s
+
+Courant Number mean: 0.0038079628 max: 0.10036829
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0048036759
+Time = 0.1183375104
+
+PIMPLE: iteration 1
+Tsat min/max: 77.049013, 77.166218
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998855  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.049013, 77.166218
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998763  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.049013, 77.166218
+dmdtNet Min/Max = -0.74463179, 0.16825401
+smoothSolver:  Solving for T, Initial residual = 3.2084619e-05, Final residual = 8.9803574e-09, No Iterations 1
+min/max(T) = 76.9, 77.939096
+Tsat min/max: 77.049013, 77.166218
+GAMG:  Solving for p_rgh, Initial residual = 8.8413504e-05, Final residual = 1.1179744e-07, No Iterations 2
+Tsat min/max: 77.040256, 77.157461
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.3898058e-06, Final residual = 1.0808852e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.59109614, Final residual = 8.0797728e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.29846984, Final residual = 7.6412444e-11, No Iterations 3
+ExecutionTime = 1.57 s  ClockTime = 2 s
+
+Courant Number mean: 0.0036842261 max: 0.098136089
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0048036759
+Time = 0.1231411863
+
+PIMPLE: iteration 1
+Tsat min/max: 77.040645, 77.157853
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998666  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.040645, 77.157853
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998569  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.040645, 77.157853
+dmdtNet Min/Max = -0.66960993, 0.1632165
+smoothSolver:  Solving for T, Initial residual = 3.066917e-05, Final residual = 8.5409998e-09, No Iterations 1
+min/max(T) = 76.9, 77.932952
+Tsat min/max: 77.040645, 77.157853
+GAMG:  Solving for p_rgh, Initial residual = 8.8859706e-05, Final residual = 1.8660842e-07, No Iterations 2
+Tsat min/max: 77.032235, 77.149442
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.293477e-06, Final residual = 5.8321669e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.56750659, Final residual = 7.69301e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.28853799, Final residual = 7.3358446e-11, No Iterations 3
+ExecutionTime = 1.6 s  ClockTime = 3 s
+
+Courant Number mean: 0.003604089 max: 0.096510665
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051239209
+Time = 0.1282651072
+
+PIMPLE: iteration 1
+Tsat min/max: 77.032513, 77.14972
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998456  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.032513, 77.14972
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998342  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.032513, 77.14972
+dmdtNet Min/Max = -0.58625819, 0.15435348
+smoothSolver:  Solving for T, Initial residual = 3.1715867e-05, Final residual = 9.8487491e-09, No Iterations 1
+min/max(T) = 76.9, 77.926416
+Tsat min/max: 77.032513, 77.14972
+GAMG:  Solving for p_rgh, Initial residual = 0.00010089313, Final residual = 2.8860541e-07, No Iterations 2
+Tsat min/max: 77.0232, 77.140407
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4203619e-06, Final residual = 7.2260349e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.55372811, Final residual = 8.9930082e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.29180488, Final residual = 8.9242042e-11, No Iterations 3
+ExecutionTime = 1.63 s  ClockTime = 3 s
+
+Courant Number mean: 0.003947861 max: 0.1053622
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0047823262
+Time = 0.1330474334
+
+PIMPLE: iteration 1
+Tsat min/max: 77.023526, 77.140732
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998224  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.023526, 77.140732
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998106  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.023526, 77.140732
+dmdtNet Min/Max = -0.50551618, 0.14292851
+smoothSolver:  Solving for T, Initial residual = 2.959528e-05, Final residual = 8.932586e-09, No Iterations 1
+min/max(T) = 76.9, 77.917903
+Tsat min/max: 77.023526, 77.140732
+GAMG:  Solving for p_rgh, Initial residual = 0.00010208881, Final residual = 2.1897045e-07, No Iterations 2
+Tsat min/max: 77.01571, 77.132914
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.3287299e-06, Final residual = 1.6449452e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.50548118, Final residual = 6.8104114e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.26881041, Final residual = 6.7680386e-11, No Iterations 3
+ExecutionTime = 1.72 s  ClockTime = 3 s
+
+Courant Number mean: 0.0033747312 max: 0.091594104
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.1381976308
+
+PIMPLE: iteration 1
+Tsat min/max: 77.016087, 77.133298
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997989  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.016087, 77.133298
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997871  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.016087, 77.133298
+dmdtNet Min/Max = -0.43283945, 0.13951446
+smoothSolver:  Solving for T, Initial residual = 2.9245717e-05, Final residual = 9.4805394e-09, No Iterations 1
+min/max(T) = 76.9, 77.914227
+Tsat min/max: 77.016087, 77.133298
+GAMG:  Solving for p_rgh, Initial residual = 9.7151466e-05, Final residual = 4.1519202e-07, No Iterations 2
+Tsat min/max: 77.007354, 77.124563
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.2643246e-06, Final residual = 1.8973873e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.49578813, Final residual = 8.088926e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.2748745, Final residual = 8.455774e-11, No Iterations 3
+ExecutionTime = 1.75 s  ClockTime = 3 s
+
+Courant Number mean: 0.0038079612 max: 0.10244581
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.1433478283
+
+PIMPLE: iteration 1
+Tsat min/max: 77.00751, 77.124717
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997742  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.00751, 77.124717
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997614  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 77.00751, 77.124717
+dmdtNet Min/Max = -0.34992749, 0.12374669
+smoothSolver:  Solving for T, Initial residual = 2.9908889e-05, Final residual = 3.7045803e-11, No Iterations 2
+min/max(T) = 76.9, 77.904961
+Tsat min/max: 77.00751, 77.124717
+GAMG:  Solving for p_rgh, Initial residual = 0.00010612581, Final residual = 1.8323343e-07, No Iterations 2
+Tsat min/max: 76.998932, 77.116136
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.3422898e-06, Final residual = 1.410568e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.46712093, Final residual = 7.7456247e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.26611162, Final residual = 8.2770423e-11, No Iterations 3
+ExecutionTime = 1.78 s  ClockTime = 3 s
+
+Courant Number mean: 0.0036578237 max: 0.099295662
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.1484980257
+
+PIMPLE: iteration 1
+Tsat min/max: 76.999423, 77.116628
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997476  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.999423, 77.116628
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997339  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.999423, 77.116628
+dmdtNet Min/Max = -0.27320943, 0.11978437
+smoothSolver:  Solving for T, Initial residual = 2.8059126e-05, Final residual = 9.8881965e-09, No Iterations 1
+min/max(T) = 76.9, 77.899136
+Tsat min/max: 76.999423, 77.116628
+GAMG:  Solving for p_rgh, Initial residual = 0.00011226445, Final residual = 2.6082493e-07, No Iterations 2
+Tsat min/max: 76.99129, 77.108493
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1684037e-06, Final residual = 6.8712753e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.44206407, Final residual = 7.2790117e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.25827767, Final residual = 7.9858963e-11, No Iterations 3
+ExecutionTime = 1.81 s  ClockTime = 3 s
+
+Courant Number mean: 0.0035677171 max: 0.097299329
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.1536482231
+
+PIMPLE: iteration 1
+Tsat min/max: 76.991574, 77.108778
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997188  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.991574, 77.108778
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89997038  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.991574, 77.108778
+dmdtNet Min/Max = -0.19308868, 0.11024749
+smoothSolver:  Solving for T, Initial residual = 2.7108691e-05, Final residual = 9.8349896e-09, No Iterations 1
+min/max(T) = 76.9, 77.893113
+Tsat min/max: 76.991574, 77.108778
+GAMG:  Solving for p_rgh, Initial residual = 0.00012499045, Final residual = 2.6177471e-07, No Iterations 2
+Tsat min/max: 76.983687, 77.100891
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1181057e-06, Final residual = 7.4630293e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.41882623, Final residual = 6.8693523e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.2508398, Final residual = 7.7267398e-11, No Iterations 3
+ExecutionTime = 1.84 s  ClockTime = 3 s
+
+Courant Number mean: 0.0034805264 max: 0.095955252
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.1587984206
+
+PIMPLE: iteration 1
+Tsat min/max: 76.983972, 77.101177
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89996881  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.983972, 77.101177
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89996724  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.983972, 77.101177
+dmdtNet Min/Max = -0.1153508, 0.10176781
+smoothSolver:  Solving for T, Initial residual = 2.6074812e-05, Final residual = 9.7128315e-09, No Iterations 1
+min/max(T) = 76.9, 77.887423
+Tsat min/max: 76.983972, 77.101177
+GAMG:  Solving for p_rgh, Initial residual = 0.00013325638, Final residual = 2.5542008e-07, No Iterations 2
+Tsat min/max: 76.976335, 77.093538
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0364667e-06, Final residual = 7.2539822e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.39751297, Final residual = 6.501623e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.2438616, Final residual = 7.4896938e-11, No Iterations 3
+ExecutionTime = 1.87 s  ClockTime = 3 s
+
+Courant Number mean: 0.0033932737 max: 0.093772872
+Interface Courant Number mean: 0 max: 0
+deltaT = 0.0051501974
+Time = 0.163948618
+
+PIMPLE: iteration 1
+Tsat min/max: 76.976612, 77.093817
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89996562  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.976612, 77.093817
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.899964  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.976612, 77.093817
+dmdtNet Min/Max = -0.041009637, 0.093243448
+smoothSolver:  Solving for T, Initial residual = 2.504313e-05, Final residual = 9.5750363e-09, No Iterations 1
+min/max(T) = 76.9, 77.881764
+Tsat min/max: 76.976612, 77.093817
+GAMG:  Solving for p_rgh, Initial residual = 0.00014014349, Final residual = 2.6826584e-07, No Iterations 2
+Tsat min/max: 76.969218, 77.086421
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0106363e-06, Final residual = 7.7561997e-08, No Iterations 1
+smoothSolver:  Solving for epsilon, Initial residual = 0.37793167, Final residual = 6.1630141e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.23730603, Final residual = 7.2658023e-11, No Iterations 3
+ExecutionTime = 1.9 s  ClockTime = 3 s
+
+Courant Number mean: 0.0032992419 max: 0.092332829
+Interface Courant Number mean: 4.5172188e-07 max: 0.0032599694
+deltaT = 0.0060085637
+Time = 0.1699571817
+
+PIMPLE: iteration 1
+Tsat min/max: 76.969485, 77.086689
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89996205  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.969485, 77.086689
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.8999601  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.969485, 77.086689
+dmdtNet Min/Max = -0.0060654448, 0.085119652
+smoothSolver:  Solving for T, Initial residual = 2.7975488e-05, Final residual = 5.8287066e-11, No Iterations 2
+min/max(T) = 76.9, 77.875472
+Tsat min/max: 76.969485, 77.086689
+GAMG:  Solving for p_rgh, Initial residual = 0.00018552046, Final residual = 4.3308898e-07, No Iterations 2
+Tsat min/max: 76.959722, 77.076925
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.2743178e-06, Final residual = 1.1376603e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.39465521, Final residual = 9.987402e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.25849838, Final residual = 1.2386804e-10, No Iterations 3
+ExecutionTime = 1.93 s  ClockTime = 3 s
+
+Courant Number mean: 0.0041906937 max: 0.11414384
+Interface Courant Number mean: 1.4316298e-06 max: 0.0038759262
+deltaT = 0.0050071364
+Time = 0.174964318
+
+PIMPLE: iteration 1
+Tsat min/max: 76.960152, 77.07735
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89995829  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.960152, 77.07735
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89995648  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.960152, 77.07735
+dmdtNet Min/Max = -0.0059761605, 0.073287755
+smoothSolver:  Solving for T, Initial residual = 2.3468332e-05, Final residual = 9.6735592e-09, No Iterations 1
+min/max(T) = 76.9, 77.865038
+Tsat min/max: 76.960152, 77.07735
+GAMG:  Solving for p_rgh, Initial residual = 0.00018573101, Final residual = 4.0122295e-07, No Iterations 2
+Tsat min/max: 76.953759, 77.070956
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1802137e-06, Final residual = 3.1091957e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.33380054, Final residual = 5.1364425e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.21942379, Final residual = 6.2839791e-11, No Iterations 3
+ExecutionTime = 1.96 s  ClockTime = 3 s
+
+Courant Number mean: 0.0028593724 max: 0.082712094
+Interface Courant Number mean: 1.3526424e-06 max: 0.0034943694
+deltaT = 0.0062589205
+Time = 0.1812232385
+
+PIMPLE: iteration 1
+Tsat min/max: 76.954261, 77.071483
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89995452  Min(alpha.liquid) = 2.3934145e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.954261, 77.071483
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89995256  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.954261, 77.071483
+dmdtNet Min/Max = -0.0059132605, 0.082179089
+smoothSolver:  Solving for T, Initial residual = 2.540994e-05, Final residual = 6.2462867e-11, No Iterations 2
+min/max(T) = 76.9, 77.865811
+Tsat min/max: 76.954261, 77.071483
+GAMG:  Solving for p_rgh, Initial residual = 0.00020680758, Final residual = 7.0405617e-07, No Iterations 2
+Tsat min/max: 76.944855, 77.062064
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1965764e-06, Final residual = 7.2096179e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.36889476, Final residual = 1.0332126e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.25313291, Final residual = 1.348379e-10, No Iterations 3
+ExecutionTime = 2 s  ClockTime = 3 s
+
+Courant Number mean: 0.0042990716 max: 0.11931707
+Interface Courant Number mean: 2.6947225e-06 max: 0.0055531261
+deltaT = 0.0046941904
+Time = 0.1859174289
+
+PIMPLE: iteration 1
+Tsat min/max: 76.944663, 77.061863
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89995091  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.944663, 77.061863
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994925  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.944663, 77.061863
+dmdtNet Min/Max = -0.0058686357, 0.055930325
+smoothSolver:  Solving for T, Initial residual = 1.9661211e-05, Final residual = 7.8499549e-09, No Iterations 1
+min/max(T) = 76.9, 77.852939
+Tsat min/max: 76.944663, 77.061863
+GAMG:  Solving for p_rgh, Initial residual = 0.0001831201, Final residual = 6.1610629e-07, No Iterations 2
+Tsat min/max: 76.939418, 77.056615
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1998486e-06, Final residual = 4.3553181e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.28912849, Final residual = 3.7032921e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19790093, Final residual = 4.6921451e-11, No Iterations 3
+ExecutionTime = 2.03 s  ClockTime = 3 s
+
+Courant Number mean: 0.0023822966 max: 0.072362624
+Interface Courant Number mean: 2.0653823e-06 max: 0.0035677552
+deltaT = 0.0046941904
+Time = 0.1906116193
+
+PIMPLE: iteration 1
+Tsat min/max: 76.939997, 77.057228
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994777  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.939997, 77.057228
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994629  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.939997, 77.057228
+dmdtNet Min/Max = -0.0059050283, 0.07291631
+smoothSolver:  Solving for T, Initial residual = 1.7346962e-05, Final residual = 5.9038554e-09, No Iterations 1
+min/max(T) = 76.9, 77.855826
+Tsat min/max: 76.939997, 77.057228
+GAMG:  Solving for p_rgh, Initial residual = 0.00016775857, Final residual = 5.8066371e-07, No Iterations 2
+Tsat min/max: 76.935162, 77.052384
+GAMGPCG:  Solving for p_rgh, Initial residual = 9.0153911e-07, Final residual = 3.471145e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.27948013, Final residual = 3.3662065e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.1943582, Final residual = 4.3936719e-11, No Iterations 3
+ExecutionTime = 2.06 s  ClockTime = 3 s
+
+Courant Number mean: 0.0024210048 max: 0.075375047
+Interface Courant Number mean: 2.1275387e-06 max: 0.0036366598
+deltaT = 0.0046941904
+Time = 0.1953058096
+
+PIMPLE: iteration 1
+Tsat min/max: 76.934947, 77.05216
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994485  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.934947, 77.05216
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994341  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.934947, 77.05216
+dmdtNet Min/Max = -0.28204629, 0.05243423
+smoothSolver:  Solving for T, Initial residual = 1.6620312e-05, Final residual = 5.9523666e-09, No Iterations 1
+min/max(T) = 76.9, 77.851987
+Tsat min/max: 76.934947, 77.05216
+GAMG:  Solving for p_rgh, Initial residual = 0.00016699939, Final residual = 1.01901e-06, No Iterations 1
+Tsat min/max: 76.929902, 77.047111
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.2436937e-06, Final residual = 2.4743642e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.26840066, Final residual = 3.2419887e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19018875, Final residual = 4.3040781e-11, No Iterations 3
+ExecutionTime = 2.09 s  ClockTime = 3 s
+
+Courant Number mean: 0.002357015 max: 0.073253601
+Interface Courant Number mean: 2.3757462e-06 max: 0.0037291913
+deltaT = 0.0046941904
+Time = 0.2
+
+PIMPLE: iteration 1
+Tsat min/max: 76.930068, 77.04727
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994192  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.930068, 77.04727
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89994042  Min(alpha.liquid) = 2.3933542e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.930068, 77.04727
+dmdtNet Min/Max = -2.7924791, 0.049094196
+smoothSolver:  Solving for T, Initial residual = 1.5837183e-05, Final residual = 5.6390866e-09, No Iterations 1
+min/max(T) = 76.9, 77.847977
+Tsat min/max: 76.930068, 77.04727
+GAMG:  Solving for p_rgh, Initial residual = 0.00017222264, Final residual = 9.4872255e-07, No Iterations 1
+Tsat min/max: 76.925184, 77.042384
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1419883e-06, Final residual = 1.9727829e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.258558, Final residual = 3.1185963e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.18641208, Final residual = 4.2100343e-11, No Iterations 3
+ExecutionTime = 2.15 s  ClockTime = 3 s
+
+Courant Number mean: 0.0022914818 max: 0.072959088
+Interface Courant Number mean: 2.6313034e-06 max: 0.0038107156
+deltaT = 0.0052631579
+Time = 0.2052631579
+
+PIMPLE: iteration 1
+Tsat min/max: 76.92533, 77.042529
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89993869  Min(alpha.liquid) = 2.3933426e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.92533, 77.042529
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89993696  Min(alpha.liquid) = 2.3933307e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.92533, 77.042529
+dmdtNet Min/Max = -5.2371941, 0.044983695
+smoothSolver:  Solving for T, Initial residual = 1.7033805e-05, Final residual = 7.1141349e-09, No Iterations 1
+min/max(T) = 76.9, 77.844003
+Tsat min/max: 76.92533, 77.042529
+GAMG:  Solving for p_rgh, Initial residual = 0.00021167201, Final residual = 9.8288552e-07, No Iterations 1
+Tsat min/max: 76.91935, 77.036546
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.1526115e-06, Final residual = 2.7372815e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.27067498, Final residual = 4.5357156e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19997374, Final residual = 6.3054401e-11, No Iterations 3
+ExecutionTime = 2.19 s  ClockTime = 3 s
+
+Courant Number mean: 0.0027095008 max: 0.08420463
+Interface Courant Number mean: 3.3126061e-06 max: 0.0046065583
+deltaT = 0.0059210526
+Time = 0.2111842105
+
+PIMPLE: iteration 1
+Tsat min/max: 76.919564, 77.036758
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89993478  Min(alpha.liquid) = 2.3933307e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.919564, 77.036758
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89993259  Min(alpha.liquid) = 2.3933307e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.919564, 77.036758
+dmdtNet Min/Max = -8.1696079, 0.039172754
+smoothSolver:  Solving for T, Initial residual = 1.8689776e-05, Final residual = 9.7473535e-09, No Iterations 1
+min/max(T) = 76.898118, 77.836047
+Tsat min/max: 76.919564, 77.036758
+GAMG:  Solving for p_rgh, Initial residual = 0.00027292561, Final residual = 1.4255551e-06, No Iterations 1
+Tsat min/max: 76.912326, 77.029516
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.7120925e-06, Final residual = 3.1868271e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.28274966, Final residual = 6.7388127e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.21432047, Final residual = 9.6309269e-11, No Iterations 3
+ExecutionTime = 2.22 s  ClockTime = 3 s
+
+Courant Number mean: 0.0031474292 max: 0.096376524
+Interface Courant Number mean: 4.1850387e-06 max: 0.0055144826
+deltaT = 0.006343985
+Time = 0.2175281955
+
+PIMPLE: iteration 1
+Tsat min/max: 76.912861, 77.030048
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89992987  Min(alpha.liquid) = 2.3933307e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.912861, 77.030048
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89992716  Min(alpha.liquid) = 2.3933307e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.912861, 77.030048
+dmdtNet Min/Max = -11.562582, 0.038771734
+smoothSolver:  Solving for T, Initial residual = 1.907627e-05, Final residual = 5.5967025e-11, No Iterations 2
+min/max(T) = 76.891544, 77.8296
+Tsat min/max: 76.912861, 77.030048
+GAMG:  Solving for p_rgh, Initial residual = 0.00033650452, Final residual = 1.5061727e-06, No Iterations 1
+Tsat min/max: 76.905165, 77.022348
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.7830027e-06, Final residual = 4.7512465e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.28495901, Final residual = 8.3829202e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.22095088, Final residual = 1.2255482e-10, No Iterations 3
+ExecutionTime = 2.25 s  ClockTime = 3 s
+
+Courant Number mean: 0.003360531 max: 0.1022751
+Interface Courant Number mean: 5.1731039e-06 max: 0.0060893641
+deltaT = 0.006343985
+Time = 0.2238721805
+
+PIMPLE: iteration 1
+Tsat min/max: 76.905763, 77.022952
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89992417  Min(alpha.liquid) = 2.3932872e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.905763, 77.022952
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89992119  Min(alpha.liquid) = 2.3931978e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.905763, 77.022952
+dmdtNet Min/Max = -15.162903, 0.037365427
+smoothSolver:  Solving for T, Initial residual = 1.8228068e-05, Final residual = 5.4848635e-11, No Iterations 2
+min/max(T) = 76.886256, 77.821813
+Tsat min/max: 76.905763, 77.022952
+GAMG:  Solving for p_rgh, Initial residual = 0.00036730465, Final residual = 1.0970245e-06, No Iterations 1
+Tsat min/max: 76.898688, 77.015874
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.9391162e-06, Final residual = 2.5122471e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.27380971, Final residual = 8.098522e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.2162674, Final residual = 1.2039942e-10, No Iterations 3
+ExecutionTime = 2.28 s  ClockTime = 3 s
+
+Courant Number mean: 0.0033630699 max: 0.096273869
+Interface Courant Number mean: 8.9717217e-06 max: 0.0071413385
+deltaT = 0.006343985
+Time = 0.2302161654
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901485, 77.018688
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89992618  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901485, 77.018688
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89993116  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901485, 77.018688
+dmdtNet Min/Max = -17.428094, 0.039900061
+smoothSolver:  Solving for T, Initial residual = 0.00020094491, Final residual = 1.2159434e-10, No Iterations 2
+min/max(T) = 76.885582, 77.820359
+Tsat min/max: 76.901485, 77.018688
+GAMG:  Solving for p_rgh, Initial residual = 0.0046652051, Final residual = 6.5747092e-06, No Iterations 2
+Tsat min/max: 76.895831, 77.013026
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.0321159e-05, Final residual = 9.4237237e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.26410827, Final residual = 7.7768895e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.21250117, Final residual = 1.1776441e-10, No Iterations 3
+ExecutionTime = 2.31 s  ClockTime = 4 s
+
+Courant Number mean: 0.0035413873 max: 0.088683724
+Interface Courant Number mean: 2.1167488e-05 max: 0.010628725
+deltaT = 0.0069783835
+Time = 0.2371945489
+
+PIMPLE: iteration 1
+Tsat min/max: 76.900339, 77.017559
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89996004  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900339, 77.017559
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.89998892  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900339, 77.017559
+dmdtNet Min/Max = -17.713479, 0.038413856
+smoothSolver:  Solving for T, Initial residual = 0.00022492381, Final residual = 1.5767151e-10, No Iterations 2
+min/max(T) = 76.88579, 77.818683
+Tsat min/max: 76.900339, 77.017559
+GAMG:  Solving for p_rgh, Initial residual = 0.01588081, Final residual = 2.1020087e-05, No Iterations 2
+Tsat min/max: 76.893645, 77.010863
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.8834408e-05, Final residual = 2.0207938e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.2735246, Final residual = 1.058422e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.22523506, Final residual = 1.6479069e-10, No Iterations 3
+ExecutionTime = 2.35 s  ClockTime = 4 s
+
+Courant Number mean: 0.0045715626 max: 0.089883524
+Interface Courant Number mean: 4.8819055e-05 max: 0.018817408
+deltaT = 0.0078506814
+Time = 0.2450452303
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903148, 77.020426
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90006591  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903148, 77.020426
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90014296  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903148, 77.020426
+dmdtNet Min/Max = -16.198241, 0.045545414
+smoothSolver:  Solving for T, Initial residual = 4.1575448e-05, Final residual = 1.887912e-10, No Iterations 2
+min/max(T) = 76.883154, 77.821043
+Tsat min/max: 76.903148, 77.020426
+GAMG:  Solving for p_rgh, Initial residual = 0.046966657, Final residual = 5.147317e-05, No Iterations 2
+Tsat min/max: 76.893162, 77.010426
+GAMGPCG:  Solving for p_rgh, Initial residual = 6.3386357e-05, Final residual = 3.0896458e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.28695409, Final residual = 1.5810861e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.24252321, Final residual = 2.5303119e-10, No Iterations 3
+ExecutionTime = 2.39 s  ClockTime = 4 s
+
+Courant Number mean: 0.0056845097 max: 0.10629459
+Interface Courant Number mean: 0.00020943043 max: 0.026101612
+deltaT = 0.0078506814
+Time = 0.2528959117
+
+PIMPLE: iteration 1
+Tsat min/max: 76.906313, 77.023561
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90022664  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906313, 77.023561
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90031036  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906313, 77.023561
+dmdtNet Min/Max = -15.118445, 0.060740742
+smoothSolver:  Solving for T, Initial residual = 3.344229e-05, Final residual = 2.1263029e-10, No Iterations 2
+min/max(T) = 76.882663, 77.818801
+Tsat min/max: 76.906313, 77.023561
+GAMG:  Solving for p_rgh, Initial residual = 0.082220823, Final residual = 0.00010315642, No Iterations 2
+Tsat min/max: 76.896342, 77.013559
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00011220189, Final residual = 3.9307636e-08, No Iterations 5
+smoothSolver:  Solving for epsilon, Initial residual = 0.27546299, Final residual = 1.5555451e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.237607, Final residual = 2.517755e-10, No Iterations 3
+ExecutionTime = 2.44 s  ClockTime = 4 s
+
+Courant Number mean: 0.0046580844 max: 0.10703264
+Interface Courant Number mean: 6.9646694e-05 max: 0.011512582
+deltaT = 0.0078506814
+Time = 0.260746593
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901432, 77.018595
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90033622  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901432, 77.018595
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90036209  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901432, 77.018595
+dmdtNet Min/Max = -17.989776, 0.049222612
+smoothSolver:  Solving for T, Initial residual = 8.7166394e-05, Final residual = 1.96631e-10, No Iterations 2
+min/max(T) = 76.875922, 77.814621
+Tsat min/max: 76.901432, 77.018595
+GAMG:  Solving for p_rgh, Initial residual = 0.030636259, Final residual = 4.6684698e-05, No Iterations 2
+Tsat min/max: 76.892319, 77.009484
+GAMGPCG:  Solving for p_rgh, Initial residual = 6.4445954e-05, Final residual = 2.1871829e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.26325099, Final residual = 1.4967439e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.23035512, Final residual = 2.4602074e-10, No Iterations 3
+ExecutionTime = 2.47 s  ClockTime = 4 s
+
+Courant Number mean: 0.0056921062 max: 0.09987889
+Interface Courant Number mean: 0.00021927713 max: 0.030811789
+deltaT = 0.0078506814
+Time = 0.2685972744
+
+PIMPLE: iteration 1
+Tsat min/max: 76.908783, 77.026177
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90046433  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.908783, 77.026177
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9005666  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.908783, 77.026177
+dmdtNet Min/Max = -15.658734, 0.086162332
+smoothSolver:  Solving for T, Initial residual = 6.8699353e-05, Final residual = 2.4678281e-10, No Iterations 2
+min/max(T) = 76.888911, 77.825978
+Tsat min/max: 76.908783, 77.026177
+GAMG:  Solving for p_rgh, Initial residual = 0.17165195, Final residual = 0.00023529727, No Iterations 2
+Tsat min/max: 76.899321, 77.016627
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00024623284, Final residual = 3.6411668e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.25616306, Final residual = 1.4529306e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.22934931, Final residual = 2.4269651e-10, No Iterations 3
+ExecutionTime = 2.51 s  ClockTime = 4 s
+
+Courant Number mean: 0.0046734143 max: 0.11640366
+Interface Courant Number mean: 2.7261369e-05 max: 0.0078496685
+deltaT = 0.0062805451
+Time = 0.2748778195
+
+PIMPLE: iteration 1
+Tsat min/max: 76.89915, 77.016291
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90056254  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.89915, 77.016291
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90055848  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.89915, 77.016291
+dmdtNet Min/Max = -20.123293, 0.026909214
+smoothSolver:  Solving for T, Initial residual = 0.00021561591, Final residual = 1.2691713e-10, No Iterations 2
+min/max(T) = 76.871726, 77.80945
+Tsat min/max: 76.89915, 77.016291
+GAMG:  Solving for p_rgh, Initial residual = 0.0045740358, Final residual = 1.2821151e-05, No Iterations 2
+Tsat min/max: 76.894079, 77.011237
+GAMGPCG:  Solving for p_rgh, Initial residual = 4.1138641e-05, Final residual = 5.398831e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.20550589, Final residual = 6.3408324e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.18520827, Final residual = 1.0513887e-10, No Iterations 3
+ExecutionTime = 2.54 s  ClockTime = 4 s
+
+Courant Number mean: 0.0032412939 max: 0.064449172
+Interface Courant Number mean: 0.00011182152 max: 0.017118354
+deltaT = 0.0083740602
+Time = 0.2832518797
+
+PIMPLE: iteration 1
+Tsat min/max: 76.902133, 77.019526
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90062368  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902133, 77.019526
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90068893  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902133, 77.019526
+dmdtNet Min/Max = -19.067304, 0.07971033
+smoothSolver:  Solving for T, Initial residual = 4.5517203e-05, Final residual = 1.9487043e-10, No Iterations 2
+min/max(T) = 76.891558, 77.828878
+Tsat min/max: 76.902133, 77.019526
+GAMG:  Solving for p_rgh, Initial residual = 0.099346331, Final residual = 0.00013036063, No Iterations 2
+Tsat min/max: 76.892219, 77.009553
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00014258906, Final residual = 1.8849209e-08, No Iterations 5
+smoothSolver:  Solving for epsilon, Initial residual = 0.25060239, Final residual = 1.6757285e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.23080271, Final residual = 2.9062434e-10, No Iterations 3
+ExecutionTime = 2.58 s  ClockTime = 4 s
+
+Courant Number mean: 0.0072071193 max: 0.13430666
+Interface Courant Number mean: 0.00023717613 max: 0.034231516
+deltaT = 0.0055827068
+Time = 0.2888345865
+
+PIMPLE: iteration 1
+Tsat min/max: 76.906536, 77.023917
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90076095  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906536, 77.023917
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90083295  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906536, 77.023917
+dmdtNet Min/Max = -17.23001, 0.039336326
+smoothSolver:  Solving for T, Initial residual = 4.5974244e-05, Final residual = 1.0633835e-10, No Iterations 2
+min/max(T) = 76.874729, 77.814202
+Tsat min/max: 76.906536, 77.023917
+GAMG:  Solving for p_rgh, Initial residual = 0.099895763, Final residual = 0.00013129658, No Iterations 2
+Tsat min/max: 76.900603, 77.017902
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.000125636, Final residual = 8.3363953e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.17574174, Final residual = 3.9983365e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.16518161, Final residual = 6.7698898e-11, No Iterations 3
+ExecutionTime = 2.61 s  ClockTime = 4 s
+
+Courant Number mean: 0.0020799797 max: 0.062813036
+Interface Courant Number mean: 1.5492711e-05 max: 0.0053168219
+deltaT = 0.0055827068
+Time = 0.2944172932
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901755, 77.018918
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90083068  Min(alpha.liquid) = 4.2410474e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901755, 77.018918
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90082842  Min(alpha.liquid) = 4.2397518e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901755, 77.018918
+dmdtNet Min/Max = -20.339441, 0.070882804
+smoothSolver:  Solving for T, Initial residual = 2.2004004e-05, Final residual = 8.3366072e-09, No Iterations 1
+min/max(T) = 76.886684, 77.823793
+Tsat min/max: 76.901755, 77.018918
+GAMG:  Solving for p_rgh, Initial residual = 0.0013754832, Final residual = 4.9734141e-06, No Iterations 2
+Tsat min/max: 76.897682, 77.014867
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.1235312e-05, Final residual = 5.8968191e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.1705841, Final residual = 3.5518697e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.16037773, Final residual = 6.1437603e-11, No Iterations 3
+ExecutionTime = 2.65 s  ClockTime = 4 s
+
+Courant Number mean: 0.0024705906 max: 0.068617649
+Interface Courant Number mean: 2.9576114e-05 max: 0.0069841975
+deltaT = 0.0055827068
+Time = 0.3
+
+PIMPLE: iteration 1
+Tsat min/max: 76.898312, 77.015634
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90082941  Min(alpha.liquid) = 4.2397518e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898312, 77.015634
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90083041  Min(alpha.liquid) = 4.2397518e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898312, 77.015634
+dmdtNet Min/Max = -22.659288, 0.03054285
+smoothSolver:  Solving for T, Initial residual = 0.00018689383, Final residual = 7.7232138e-11, No Iterations 2
+min/max(T) = 76.878813, 77.81841
+Tsat min/max: 76.898312, 77.015634
+GAMG:  Solving for p_rgh, Initial residual = 0.0069001693, Final residual = 1.1355594e-05, No Iterations 2
+Tsat min/max: 76.894064, 77.011376
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.836639e-05, Final residual = 3.6220328e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.16576841, Final residual = 3.5253911e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.15820609, Final residual = 6.1601834e-11, No Iterations 3
+ExecutionTime = 2.71 s  ClockTime = 4 s
+
+Courant Number mean: 0.0028403507 max: 0.059767925
+Interface Courant Number mean: 9.5061129e-05 max: 0.014986643
+deltaT = 0.0066666667
+Time = 0.3066666667
+
+PIMPLE: iteration 1
+Tsat min/max: 76.90012, 77.017524
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90087936  Min(alpha.liquid) = 4.2397518e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90012, 77.017524
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90092834  Min(alpha.liquid) = 4.2396102e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90012, 77.017524
+dmdtNet Min/Max = -21.769215, 0.055860657
+smoothSolver:  Solving for T, Initial residual = 3.7496366e-05, Final residual = 9.4198122e-11, No Iterations 2
+min/max(T) = 76.882948, 77.821162
+Tsat min/max: 76.90012, 77.017524
+GAMG:  Solving for p_rgh, Initial residual = 0.052280269, Final residual = 6.3453569e-05, No Iterations 2
+Tsat min/max: 76.892843, 77.010207
+GAMGPCG:  Solving for p_rgh, Initial residual = 7.4068228e-05, Final residual = 3.6370478e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.18756074, Final residual = 6.694068e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.18217431, Final residual = 1.1970117e-10, No Iterations 3
+ExecutionTime = 2.75 s  ClockTime = 4 s
+
+Courant Number mean: 0.0043376494 max: 0.086320162
+Interface Courant Number mean: 0.00015417409 max: 0.022776666
+deltaT = 0.0071794872
+Time = 0.3138461538
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903773, 77.021164
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90100341  Min(alpha.liquid) = 4.2386781e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903773, 77.021164
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90107847  Min(alpha.liquid) = 4.237087e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903773, 77.021164
+dmdtNet Min/Max = -20.346418, 0.054615848
+smoothSolver:  Solving for T, Initial residual = 4.9519269e-05, Final residual = 1.6116834e-10, No Iterations 2
+min/max(T) = 76.879871, 77.819137
+Tsat min/max: 76.903773, 77.021164
+GAMG:  Solving for p_rgh, Initial residual = 0.078086892, Final residual = 0.00010322559, No Iterations 2
+Tsat min/max: 76.894927, 77.012244
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00010051708, Final residual = 7.049367e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.19310768, Final residual = 8.8849565e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19089271, Final residual = 1.606553e-10, No Iterations 3
+ExecutionTime = 2.79 s  ClockTime = 4 s
+
+Courant Number mean: 0.0041264865 max: 0.093388612
+Interface Courant Number mean: 9.2160028e-05 max: 0.015130212
+deltaT = 0.0078321678
+Time = 0.3216783217
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901763, 77.019022
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90111855  Min(alpha.liquid) = 4.2340555e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901763, 77.019022
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90115864  Min(alpha.liquid) = 4.2310763e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901763, 77.019022
+dmdtNet Min/Max = -22.011361, 0.057389352
+smoothSolver:  Solving for T, Initial residual = 2.9113833e-05, Final residual = 1.6400031e-10, No Iterations 2
+min/max(T) = 76.877797, 77.816072
+Tsat min/max: 76.901763, 77.019022
+GAMG:  Solving for p_rgh, Initial residual = 0.03733703, Final residual = 5.193698e-05, No Iterations 2
+Tsat min/max: 76.892144, 77.009385
+GAMGPCG:  Solving for p_rgh, Initial residual = 6.0351214e-05, Final residual = 5.8117107e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.19941083, Final residual = 1.2008258e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19935638, Final residual = 2.1994189e-10, No Iterations 3
+ExecutionTime = 2.82 s  ClockTime = 4 s
+
+Courant Number mean: 0.0057275001 max: 0.11104218
+Interface Courant Number mean: 0.0002157778 max: 0.030024465
+deltaT = 0.0071201526
+Time = 0.3287984743
+
+PIMPLE: iteration 1
+Tsat min/max: 76.90849, 77.02597
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90124788  Min(alpha.liquid) = 4.2302679e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90849, 77.02597
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90133712  Min(alpha.liquid) = 4.2293763e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90849, 77.02597
+dmdtNet Min/Max = -19.550372, 0.080476559
+smoothSolver:  Solving for T, Initial residual = 4.9687088e-05, Final residual = 1.8156649e-10, No Iterations 2
+min/max(T) = 76.883329, 77.822757
+Tsat min/max: 76.90849, 77.02597
+GAMG:  Solving for p_rgh, Initial residual = 0.074192644, Final residual = 9.4195461e-05, No Iterations 2
+Tsat min/max: 76.900213, 77.017595
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.9995177e-05, Final residual = 4.6328849e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.180719, Final residual = 8.393409e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.18418609, Final residual = 1.5476447e-10, No Iterations 3
+ExecutionTime = 2.86 s  ClockTime = 4 s
+
+Courant Number mean: 0.0036744592 max: 0.10303464
+Interface Courant Number mean: 2.352096e-05 max: 0.0058135458
+deltaT = 0.0071201526
+Time = 0.3359186268
+
+PIMPLE: iteration 1
+Tsat min/max: 76.899886, 77.017098
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90133342  Min(alpha.liquid) = 4.2272298e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.899886, 77.017098
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90132971  Min(alpha.liquid) = 4.2251201e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.899886, 77.017098
+dmdtNet Min/Max = -23.14303, 0.043426329
+smoothSolver:  Solving for T, Initial residual = 6.2594765e-05, Final residual = 1.3367325e-10, No Iterations 2
+min/max(T) = 76.873611, 77.812635
+Tsat min/max: 76.899886, 77.017098
+GAMG:  Solving for p_rgh, Initial residual = 0.0015914392, Final residual = 1.5392924e-05, No Iterations 1
+Tsat min/max: 76.892208, 77.009425
+GAMGPCG:  Solving for p_rgh, Initial residual = 3.0916704e-05, Final residual = 3.204825e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.17324359, Final residual = 8.0556557e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.17752743, Final residual = 1.4982074e-10, No Iterations 3
+ExecutionTime = 2.89 s  ClockTime = 4 s
+
+Courant Number mean: 0.0047258814 max: 0.093925186
+Interface Courant Number mean: 0.00019131407 max: 0.026088455
+deltaT = 0.0080101716
+Time = 0.3439287985
+
+PIMPLE: iteration 1
+Tsat min/max: 76.90716, 77.024719
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90142736  Min(alpha.liquid) = 4.22448e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90716, 77.024719
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90152506  Min(alpha.liquid) = 4.2237827e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.90716, 77.024719
+dmdtNet Min/Max = -20.15967, 0.087953057
+smoothSolver:  Solving for T, Initial residual = 5.7536775e-05, Final residual = 2.3433303e-10, No Iterations 2
+min/max(T) = 76.888505, 77.827669
+Tsat min/max: 76.90716, 77.024719
+GAMG:  Solving for p_rgh, Initial residual = 0.069452653, Final residual = 8.5460474e-05, No Iterations 2
+Tsat min/max: 76.897119, 77.014572
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.3214024e-05, Final residual = 5.9783178e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.18784926, Final residual = 1.2167317e-10, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.19643996, Final residual = 2.3150243e-10, No Iterations 3
+ExecutionTime = 2.93 s  ClockTime = 4 s
+
+Courant Number mean: 0.0050189264 max: 0.12994859
+Interface Courant Number mean: 4.3712328e-05 max: 0.0086520577
+deltaT = 0.0062301335
+Time = 0.350158932
+
+PIMPLE: iteration 1
+Tsat min/max: 76.897979, 77.015233
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90152692  Min(alpha.liquid) = 4.2213729e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897979, 77.015233
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90152878  Min(alpha.liquid) = 4.2190177e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897979, 77.015233
+dmdtNet Min/Max = -24.020196, 0.02490698
+smoothSolver:  Solving for T, Initial residual = 0.00021951264, Final residual = 1.5461136e-10, No Iterations 2
+min/max(T) = 76.865336, 77.808286
+Tsat min/max: 76.897979, 77.015233
+GAMG:  Solving for p_rgh, Initial residual = 0.0040054137, Final residual = 7.9021008e-06, No Iterations 2
+Tsat min/max: 76.892727, 77.009999
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.0132749e-05, Final residual = 2.7268257e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.14563758, Final residual = 4.7717843e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.15388953, Final residual = 9.0182557e-11, No Iterations 3
+ExecutionTime = 2.96 s  ClockTime = 4 s
+
+Courant Number mean: 0.0034246607 max: 0.071669919
+Interface Courant Number mean: 0.00014420924 max: 0.019612598
+deltaT = 0.0071201526
+Time = 0.3572790846
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903877, 77.021477
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90160278  Min(alpha.liquid) = 4.218312e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903877, 77.021477
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90167682  Min(alpha.liquid) = 4.2175593e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903877, 77.021477
+dmdtNet Min/Max = -20.870611, 0.10102161
+smoothSolver:  Solving for T, Initial residual = 4.9861873e-05, Final residual = 1.2888906e-10, No Iterations 2
+min/max(T) = 76.892849, 77.828395
+Tsat min/max: 76.903877, 77.021477
+GAMG:  Solving for p_rgh, Initial residual = 0.046370056, Final residual = 5.5029055e-05, No Iterations 2
+Tsat min/max: 76.896532, 77.014032
+GAMGPCG:  Solving for p_rgh, Initial residual = 5.6335973e-05, Final residual = 4.0082825e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.16173637, Final residual = 7.2584242e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.17323198, Final residual = 1.4110209e-10, No Iterations 3
+ExecutionTime = 3 s  ClockTime = 4 s
+
+Courant Number mean: 0.0041473902 max: 0.1124017
+Interface Courant Number mean: 4.285736e-05 max: 0.0078716261
+deltaT = 0.0061029879
+Time = 0.3633820725
+
+PIMPLE: iteration 1
+Tsat min/max: 76.896957, 77.014257
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90167763  Min(alpha.liquid) = 4.2152551e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.896957, 77.014257
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90167844  Min(alpha.liquid) = 4.212996e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.896957, 77.014257
+dmdtNet Min/Max = -24.23182, 0.010888611
+smoothSolver:  Solving for T, Initial residual = 0.00029400518, Final residual = 1.4871373e-10, No Iterations 2
+min/max(T) = 76.865503, 77.812505
+Tsat min/max: 76.896957, 77.014257
+GAMG:  Solving for p_rgh, Initial residual = 0.0048233849, Final residual = 8.4022596e-06, No Iterations 2
+Tsat min/max: 76.892164, 77.009471
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.0028901e-05, Final residual = 2.7486999e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.13568902, Final residual = 4.0960637e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14704839, Final residual = 7.9428686e-11, No Iterations 3
+ExecutionTime = 3.03 s  ClockTime = 5 s
+
+Courant Number mean: 0.0036070331 max: 0.07471694
+Interface Courant Number mean: 0.00015656643 max: 0.020952722
+deltaT = 0.0073235855
+Time = 0.370705658
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903638, 77.021286
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90176477  Min(alpha.liquid) = 4.2126702e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903638, 77.021286
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90185111  Min(alpha.liquid) = 4.2122837e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903638, 77.021286
+dmdtNet Min/Max = -20.738756, 0.099943992
+smoothSolver:  Solving for T, Initial residual = 5.7729327e-05, Final residual = 1.5453094e-10, No Iterations 2
+min/max(T) = 76.893379, 77.826352
+Tsat min/max: 76.903638, 77.021286
+GAMG:  Solving for p_rgh, Initial residual = 0.04966316, Final residual = 5.8260187e-05, No Iterations 2
+Tsat min/max: 76.8953, 77.012828
+GAMGPCG:  Solving for p_rgh, Initial residual = 5.7654893e-05, Final residual = 4.7299605e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.15704536, Final residual = 7.622322e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.17264001, Final residual = 1.5194326e-10, No Iterations 3
+ExecutionTime = 3.06 s  ClockTime = 5 s
+
+Courant Number mean: 0.0044549269 max: 0.11607632
+Interface Courant Number mean: 6.3622458e-05 max: 0.010650431
+deltaT = 0.0058588684
+Time = 0.3765645264
+
+PIMPLE: iteration 1
+Tsat min/max: 76.898089, 77.015392
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90186969  Min(alpha.liquid) = 4.2101417e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898089, 77.015392
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90188827  Min(alpha.liquid) = 4.2080498e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898089, 77.015392
+dmdtNet Min/Max = -23.345554, 0.012461477
+smoothSolver:  Solving for T, Initial residual = 2.2669535e-05, Final residual = 7.0340455e-11, No Iterations 2
+min/max(T) = 76.866034, 77.810909
+Tsat min/max: 76.898089, 77.015392
+GAMG:  Solving for p_rgh, Initial residual = 0.010096509, Final residual = 1.3541084e-05, No Iterations 2
+Tsat min/max: 76.892268, 77.009571
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.4993458e-05, Final residual = 4.1160693e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.12439135, Final residual = 3.3073606e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.13849843, Final residual = 6.5733583e-11, No Iterations 3
+ExecutionTime = 3.1 s  ClockTime = 5 s
+
+Courant Number mean: 0.0032630774 max: 0.069157297
+Interface Courant Number mean: 0.00013942331 max: 0.018559413
+deltaT = 0.0078118245
+Time = 0.3843763509
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903993, 77.021654
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90197372  Min(alpha.liquid) = 4.2075985e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903993, 77.021654
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90205919  Min(alpha.liquid) = 4.2070963e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903993, 77.021654
+dmdtNet Min/Max = -20.890496, 0.099493447
+smoothSolver:  Solving for T, Initial residual = 5.5734768e-05, Final residual = 1.7215421e-10, No Iterations 2
+min/max(T) = 76.896221, 77.829974
+Tsat min/max: 76.903993, 77.021654
+GAMG:  Solving for p_rgh, Initial residual = 0.04401414, Final residual = 5.1069086e-05, No Iterations 2
+Tsat min/max: 76.89478, 77.012321
+GAMGPCG:  Solving for p_rgh, Initial residual = 5.1200914e-05, Final residual = 6.2034934e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.15716466, Final residual = 9.0362123e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.17672653, Final residual = 1.8486157e-10, No Iterations 3
+ExecutionTime = 3.13 s  ClockTime = 5 s
+
+Courant Number mean: 0.0053343401 max: 0.13145117
+Interface Courant Number mean: 8.3276266e-05 max: 0.013228737
+deltaT = 0.005207883
+Time = 0.3895842339
+
+PIMPLE: iteration 1
+Tsat min/max: 76.898491, 77.015843
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9020812  Min(alpha.liquid) = 4.2052552e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898491, 77.015843
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90210321  Min(alpha.liquid) = 4.2034522e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.898491, 77.015843
+dmdtNet Min/Max = -23.140197, 0.0060881098
+smoothSolver:  Solving for T, Initial residual = 2.0112842e-05, Final residual = 5.475464e-11, No Iterations 2
+min/max(T) = 76.866106, 77.813036
+Tsat min/max: 76.898491, 77.015843
+GAMG:  Solving for p_rgh, Initial residual = 0.010741045, Final residual = 1.3404533e-05, No Iterations 2
+Tsat min/max: 76.893661, 77.011009
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.053853e-05, Final residual = 7.3002565e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.10603962, Final residual = 2.0147659e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.12145405, Final residual = 4.0852781e-11, No Iterations 3
+ExecutionTime = 3.22 s  ClockTime = 5 s
+
+Courant Number mean: 0.0023681376 max: 0.055872271
+Interface Courant Number mean: 8.1885672e-05 max: 0.011483386
+deltaT = 0.005207883
+Time = 0.394792117
+
+PIMPLE: iteration 1
+Tsat min/max: 76.900894, 77.018502
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9021391  Min(alpha.liquid) = 4.2023549e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900894, 77.018502
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90217499  Min(alpha.liquid) = 4.2012459e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900894, 77.018502
+dmdtNet Min/Max = -21.944923, 0.091187035
+smoothSolver:  Solving for T, Initial residual = 2.5469522e-05, Final residual = 9.3611886e-09, No Iterations 1
+min/max(T) = 76.886545, 77.823052
+Tsat min/max: 76.900894, 77.018502
+GAMG:  Solving for p_rgh, Initial residual = 0.017050023, Final residual = 0.00016942965, No Iterations 1
+Tsat min/max: 76.896695, 77.014285
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00017224187, Final residual = 6.4478648e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.10536157, Final residual = 1.8057712e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.1214984, Final residual = 3.7453683e-11, No Iterations 3
+ExecutionTime = 3.25 s  ClockTime = 5 s
+
+Courant Number mean: 0.0021424322 max: 0.070466991
+Interface Courant Number mean: 2.3262638e-05 max: 0.0042840801
+deltaT = 0.005207883
+Time = 0.4
+
+PIMPLE: iteration 1
+Tsat min/max: 76.897573, 77.014963
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90217991  Min(alpha.liquid) = 4.1994411e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897573, 77.014963
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90218483  Min(alpha.liquid) = 4.1976481e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897573, 77.014963
+dmdtNet Min/Max = -23.581224, 0.028971919
+smoothSolver:  Solving for T, Initial residual = 7.83806e-05, Final residual = 4.2854231e-11, No Iterations 2
+min/max(T) = 76.87867, 77.819339
+Tsat min/max: 76.897573, 77.014963
+GAMG:  Solving for p_rgh, Initial residual = 0.0024081313, Final residual = 3.6286299e-06, No Iterations 2
+Tsat min/max: 76.893461, 77.010856
+GAMGPCG:  Solving for p_rgh, Initial residual = 9.9997625e-06, Final residual = 1.1090568e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.10222818, Final residual = 9.9833878e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.11879743, Final residual = 3.6837752e-11, No Iterations 3
+ExecutionTime = 3.31 s  ClockTime = 5 s
+
+Courant Number mean: 0.0025722356 max: 0.061389718
+Interface Courant Number mean: 8.5195006e-05 max: 0.011911022
+deltaT = 0.0058823529
+Time = 0.4058823529
+
+PIMPLE: iteration 1
+Tsat min/max: 76.89974, 77.017349
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90222768  Min(alpha.liquid) = 4.1963666e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.89974, 77.017349
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90227055  Min(alpha.liquid) = 4.1950656e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.89974, 77.017349
+dmdtNet Min/Max = -22.447983, 0.055234863
+smoothSolver:  Solving for T, Initial residual = 2.8850533e-05, Final residual = 5.7518062e-11, No Iterations 2
+min/max(T) = 76.882577, 77.821431
+Tsat min/max: 76.89974, 77.017349
+GAMG:  Solving for p_rgh, Initial residual = 0.019523994, Final residual = 0.00019448757, No Iterations 1
+Tsat min/max: 76.893756, 77.011348
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00020165014, Final residual = 5.5721001e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.11228373, Final residual = 2.7270529e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.13206082, Final residual = 5.7892727e-11, No Iterations 3
+ExecutionTime = 3.35 s  ClockTime = 5 s
+
+Courant Number mean: 0.0032679285 max: 0.077631813
+Interface Courant Number mean: 0.00010049377 max: 0.013378105
+deltaT = 0.0067226891
+Time = 0.412605042
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901442, 77.018963
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90232271  Min(alpha.liquid) = 4.1934828e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901442, 77.018963
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90237489  Min(alpha.liquid) = 4.1919031e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901442, 77.018963
+dmdtNet Min/Max = -21.632109, 0.049479294
+smoothSolver:  Solving for T, Initial residual = 3.6537887e-05, Final residual = 9.6223697e-11, No Iterations 2
+min/max(T) = 76.879073, 77.819674
+Tsat min/max: 76.901442, 77.018963
+GAMG:  Solving for p_rgh, Initial residual = 0.022810761, Final residual = 2.5647881e-05, No Iterations 2
+Tsat min/max: 76.893514, 77.010975
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.6853791e-05, Final residual = 1.889815e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.12302009, Final residual = 4.458115e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14611253, Final residual = 9.5663773e-11, No Iterations 3
+ExecutionTime = 3.39 s  ClockTime = 5 s
+
+Courant Number mean: 0.003964406 max: 0.093202058
+Interface Courant Number mean: 0.00010792285 max: 0.014961832
+deltaT = 0.0072829132
+Time = 0.4198879552
+
+PIMPLE: iteration 1
+Tsat min/max: 76.902394, 77.019886
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90242741  Min(alpha.liquid) = 4.1899225e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902394, 77.019886
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90247995  Min(alpha.liquid) = 4.1879463e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902394, 77.019886
+dmdtNet Min/Max = -21.172199, 0.061134149
+smoothSolver:  Solving for T, Initial residual = 3.4245893e-05, Final residual = 1.2839259e-10, No Iterations 2
+min/max(T) = 76.878564, 77.818042
+Tsat min/max: 76.902394, 77.019886
+GAMG:  Solving for p_rgh, Initial residual = 0.021974887, Final residual = 2.5019042e-05, No Iterations 2
+Tsat min/max: 76.893492, 77.010934
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.5780054e-05, Final residual = 2.8866387e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.12832715, Final residual = 5.9393529e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.15397971, Final residual = 1.2861925e-10, No Iterations 3
+ExecutionTime = 3.42 s  ClockTime = 5 s
+
+Courant Number mean: 0.0044809577 max: 0.10402421
+Interface Courant Number mean: 0.00011636605 max: 0.015413252
+deltaT = 0.0072829132
+Time = 0.4271708683
+
+PIMPLE: iteration 1
+Tsat min/max: 76.903144, 77.02067
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90253239  Min(alpha.liquid) = 4.1859255e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903144, 77.02067
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90258486  Min(alpha.liquid) = 4.1839072e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.903144, 77.02067
+dmdtNet Min/Max = -20.892207, 0.064431673
+smoothSolver:  Solving for T, Initial residual = 3.2600904e-05, Final residual = 1.3406365e-10, No Iterations 2
+min/max(T) = 76.877166, 77.817626
+Tsat min/max: 76.903144, 77.02067
+GAMG:  Solving for p_rgh, Initial residual = 0.021028029, Final residual = 2.3669787e-05, No Iterations 2
+Tsat min/max: 76.894439, 77.011914
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.3596677e-05, Final residual = 1.5647436e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.12504331, Final residual = 5.7752072e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.15188329, Final residual = 1.263188e-10, No Iterations 3
+ExecutionTime = 3.45 s  ClockTime = 5 s
+
+Courant Number mean: 0.0041524467 max: 0.10765302
+Interface Courant Number mean: 8.135378e-05 max: 0.011269326
+deltaT = 0.0066208302
+Time = 0.4337916985
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901276, 77.018782
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90261664  Min(alpha.liquid) = 4.1818199e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901276, 77.018782
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90264844  Min(alpha.liquid) = 4.1797347e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901276, 77.018782
+dmdtNet Min/Max = -21.708699, 0.063187465
+smoothSolver:  Solving for T, Initial residual = 2.2205248e-05, Final residual = 8.5556437e-11, No Iterations 2
+min/max(T) = 76.876476, 77.816046
+Tsat min/max: 76.901276, 77.018782
+GAMG:  Solving for p_rgh, Initial residual = 0.012330524, Final residual = 1.3882284e-05, No Iterations 2
+Tsat min/max: 76.894357, 77.011837
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.4951894e-05, Final residual = 2.0058751e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.11209867, Final residual = 3.877174e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.13781061, Final residual = 8.5719367e-11, No Iterations 3
+ExecutionTime = 3.49 s  ClockTime = 5 s
+
+Courant Number mean: 0.0034797263 max: 0.092822554
+Interface Courant Number mean: 7.536395e-05 max: 0.010234004
+deltaT = 0.0073564779
+Time = 0.4411481764
+
+PIMPLE: iteration 1
+Tsat min/max: 76.900602, 77.018171
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90268491  Min(alpha.liquid) = 4.177453e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900602, 77.018171
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90272139  Min(alpha.liquid) = 4.1751742e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900602, 77.018171
+dmdtNet Min/Max = -22.026527, 0.063233786
+smoothSolver:  Solving for T, Initial residual = 2.4607167e-05, Final residual = 1.0817412e-10, No Iterations 2
+min/max(T) = 76.879042, 77.81885
+Tsat min/max: 76.900602, 77.018171
+GAMG:  Solving for p_rgh, Initial residual = 0.013788654, Final residual = 1.5197539e-05, No Iterations 2
+Tsat min/max: 76.892102, 77.00963
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.8508054e-05, Final residual = 8.4294888e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.12015347, Final residual = 5.5118732e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14897141, Final residual = 1.2391771e-10, No Iterations 3
+ExecutionTime = 3.52 s  ClockTime = 5 s
+
+Courant Number mean: 0.0051674677 max: 0.1057916
+Interface Courant Number mean: 0.00017321941 max: 0.02227596
+deltaT = 0.0073564779
+Time = 0.4485046544
+
+PIMPLE: iteration 1
+Tsat min/max: 76.905943, 77.023619
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90280399  Min(alpha.liquid) = 4.1745518e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.905943, 77.023619
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90288665  Min(alpha.liquid) = 4.1739152e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.905943, 77.023619
+dmdtNet Min/Max = -20.945704, 0.070530146
+smoothSolver:  Solving for T, Initial residual = 4.2974991e-05, Final residual = 1.7180048e-10, No Iterations 2
+min/max(T) = 76.879108, 77.819613
+Tsat min/max: 76.905943, 77.023619
+GAMG:  Solving for p_rgh, Initial residual = 0.029913672, Final residual = 3.2122213e-05, No Iterations 2
+Tsat min/max: 76.896488, 77.014062
+GAMGPCG:  Solving for p_rgh, Initial residual = 3.1044275e-05, Final residual = 1.9826425e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.11758101, Final residual = 5.4190903e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14833016, Final residual = 1.2281605e-10, No Iterations 3
+ExecutionTime = 3.6 s  ClockTime = 5 s
+
+Courant Number mean: 0.003858238 max: 0.11773473
+Interface Courant Number mean: 2.4455023e-05 max: 0.0040488549
+deltaT = 0.0064369182
+Time = 0.4549415726
+
+PIMPLE: iteration 1
+Tsat min/max: 76.899143, 77.016559
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90289314  Min(alpha.liquid) = 4.1719206e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.899143, 77.016559
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90289963  Min(alpha.liquid) = 4.1699284e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.899143, 77.016559
+dmdtNet Min/Max = -22.742495, 0.052513535
+smoothSolver:  Solving for T, Initial residual = 2.212618e-05, Final residual = 6.5320482e-11, No Iterations 2
+min/max(T) = 76.873286, 77.813052
+Tsat min/max: 76.899143, 77.016559
+GAMG:  Solving for p_rgh, Initial residual = 0.0022839205, Final residual = 3.5956939e-06, No Iterations 2
+Tsat min/max: 76.893018, 77.010455
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.3912256e-06, Final residual = 7.1652114e-08, No Iterations 2
+smoothSolver:  Solving for epsilon, Initial residual = 0.10093823, Final residual = 3.1575119e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.12835318, Final residual = 7.2373092e-11, No Iterations 3
+ExecutionTime = 3.64 s  ClockTime = 5 s
+
+Courant Number mean: 0.0036031893 max: 0.084982185
+Interface Courant Number mean: 0.00011368689 max: 0.014161236
+deltaT = 0.0075097379
+Time = 0.4624513105
+
+PIMPLE: iteration 1
+Tsat min/max: 76.902647, 77.020371
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90296193  Min(alpha.liquid) = 4.1688347e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902647, 77.020371
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90302427  Min(alpha.liquid) = 4.1677357e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902647, 77.020371
+dmdtNet Min/Max = -21.287652, 0.076955041
+smoothSolver:  Solving for T, Initial residual = 3.2873994e-05, Final residual = 1.3329596e-10, No Iterations 2
+min/max(T) = 76.884985, 77.824046
+Tsat min/max: 76.902647, 77.020371
+GAMG:  Solving for p_rgh, Initial residual = 0.02135316, Final residual = 2.255603e-05, No Iterations 2
+Tsat min/max: 76.893707, 77.011345
+GAMGPCG:  Solving for p_rgh, Initial residual = 2.2942572e-05, Final residual = 3.1084781e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.11417654, Final residual = 5.3894195e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14675651, Final residual = 1.2556428e-10, No Iterations 3
+ExecutionTime = 3.67 s  ClockTime = 5 s
+
+Courant Number mean: 0.0049540389 max: 0.12157394
+Interface Courant Number mean: 0.00010554662 max: 0.013317732
+deltaT = 0.0062581149
+Time = 0.4687094254
+
+PIMPLE: iteration 1
+Tsat min/max: 76.901669, 77.019235
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90306537  Min(alpha.liquid) = 4.165933e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901669, 77.019235
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.9031065  Min(alpha.liquid) = 4.1641347e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.901669, 77.019235
+dmdtNet Min/Max = -21.499467, 0.043772942
+smoothSolver:  Solving for T, Initial residual = 2.5667797e-05, Final residual = 8.8550889e-11, No Iterations 2
+min/max(T) = 76.871327, 77.812661
+Tsat min/max: 76.901669, 77.019235
+GAMG:  Solving for p_rgh, Initial residual = 0.013604784, Final residual = 1.4519225e-05, No Iterations 2
+Tsat min/max: 76.894711, 77.012234
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.5462238e-05, Final residual = 2.5018733e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.093999921, Final residual = 2.7232569e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.12302026, Final residual = 6.3684551e-11, No Iterations 3
+ExecutionTime = 3.71 s  ClockTime = 5 s
+
+Courant Number mean: 0.0029711784 max: 0.086558793
+Interface Courant Number mean: 5.8723771e-05 max: 0.0076583959
+deltaT = 0.0078226436
+Time = 0.4765320691
+
+PIMPLE: iteration 1
+Tsat min/max: 76.900937, 77.018533
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90313932  Min(alpha.liquid) = 4.1619035e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900937, 77.018533
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90317216  Min(alpha.liquid) = 4.1596757e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900937, 77.018533
+dmdtNet Min/Max = -21.845512, 0.077600945
+smoothSolver:  Solving for T, Initial residual = 2.4338237e-05, Final residual = 1.1601598e-10, No Iterations 2
+min/max(T) = 76.886501, 77.823639
+Tsat min/max: 76.900937, 77.018533
+GAMG:  Solving for p_rgh, Initial residual = 0.010609482, Final residual = 1.1576395e-05, No Iterations 2
+Tsat min/max: 76.891959, 77.009516
+GAMGPCG:  Solving for p_rgh, Initial residual = 1.5040501e-05, Final residual = 7.3988472e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.11225382, Final residual = 5.9813131e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.14701184, Final residual = 1.4230288e-10, No Iterations 3
+ExecutionTime = 3.74 s  ClockTime = 5 s
+
+Courant Number mean: 0.0060763269 max: 0.12542847
+Interface Courant Number mean: 0.00018700649 max: 0.023620954
+deltaT = 0.0058669827
+Time = 0.4823990518
+
+PIMPLE: iteration 1
+Tsat min/max: 76.906084, 77.023826
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90324018  Min(alpha.liquid) = 4.1592252e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906084, 77.023826
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90330826  Min(alpha.liquid) = 4.158737e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.906084, 77.023826
+dmdtNet Min/Max = -20.814728, 0.051384439
+smoothSolver:  Solving for T, Initial residual = 3.1813312e-05, Final residual = 9.4657895e-11, No Iterations 2
+min/max(T) = 76.873678, 77.816228
+Tsat min/max: 76.906084, 77.023826
+GAMG:  Solving for p_rgh, Initial residual = 0.021297318, Final residual = 0.00021177741, No Iterations 1
+Tsat min/max: 76.899453, 77.017173
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.00021318967, Final residual = 5.724515e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.084786579, Final residual = 2.038641e-11, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.11421597, Final residual = 4.8608993e-11, No Iterations 3
+ExecutionTime = 3.77 s  ClockTime = 6 s
+
+Courant Number mean: 0.0023798217 max: 0.089347532
+Interface Courant Number mean: 8.7414128e-06 max: 0.0023367787
+deltaT = 0.0058669827
+Time = 0.4882660345
+
+PIMPLE: iteration 1
+Tsat min/max: 76.900668, 77.018118
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90330594  Min(alpha.liquid) = 4.1570612e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900668, 77.018118
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90330362  Min(alpha.liquid) = 4.1554616e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.900668, 77.018118
+dmdtNet Min/Max = -21.981777, 0.070760405
+smoothSolver:  Solving for T, Initial residual = 1.775922e-05, Final residual = 6.9502015e-09, No Iterations 1
+min/max(T) = 76.88378, 77.821498
+Tsat min/max: 76.900668, 77.018118
+GAMG:  Solving for p_rgh, Initial residual = 0.00071974389, Final residual = 6.8109164e-06, No Iterations 1
+Tsat min/max: 76.895868, 77.013321
+GAMGPCG:  Solving for p_rgh, Initial residual = 8.3347329e-06, Final residual = 7.5034689e-08, No Iterations 3
+smoothSolver:  Solving for epsilon, Initial residual = 0.082601275, Final residual = 9.7099303e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.11112078, Final residual = 4.5977583e-11, No Iterations 3
+ExecutionTime = 3.81 s  ClockTime = 6 s
+
+Courant Number mean: 0.0027646939 max: 0.09381943
+Interface Courant Number mean: 2.885208e-05 max: 0.0045248954
+deltaT = 0.0058669827
+Time = 0.4941330173
+
+PIMPLE: iteration 1
+Tsat min/max: 76.897711, 77.015368
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90331392  Min(alpha.liquid) = 4.1538173e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897711, 77.015368
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90332421  Min(alpha.liquid) = 4.1538173e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.897711, 77.015368
+dmdtNet Min/Max = -23.403265, 0.036559305
+smoothSolver:  Solving for T, Initial residual = 9.0059894e-05, Final residual = 5.5841677e-11, No Iterations 2
+min/max(T) = 76.876197, 77.816926
+Tsat min/max: 76.897711, 77.015368
+GAMG:  Solving for p_rgh, Initial residual = 0.003129661, Final residual = 3.0623988e-05, No Iterations 1
+Tsat min/max: 76.892354, 77.010007
+GAMGPCG:  Solving for p_rgh, Initial residual = 3.7025622e-05, Final residual = 9.355055e-09, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.080892333, Final residual = 9.5317644e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.11020041, Final residual = 4.6155924e-11, No Iterations 3
+ExecutionTime = 3.84 s  ClockTime = 6 s
+
+Courant Number mean: 0.0035056417 max: 0.080173216
+Interface Courant Number mean: 0.00012818926 max: 0.016600307
+deltaT = 0.0058669827
+Time = 0.5
+
+PIMPLE: iteration 1
+Tsat min/max: 76.902991, 77.020824
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90338651  Min(alpha.liquid) = 4.1538173e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902991, 77.020824
+MULES: Solving for alpha.liquid
+Phase-1 volume fraction = 0.90344885  Min(alpha.liquid) = 4.1538173e-06  Max(alpha.liquid) = 1
+Tsat min/max: 76.902991, 77.020824
+dmdtNet Min/Max = -21.329835, 0.070227115
+smoothSolver:  Solving for T, Initial residual = 3.4137845e-05, Final residual = 6.4080809e-11, No Iterations 2
+min/max(T) = 76.884443, 77.822836
+Tsat min/max: 76.902991, 77.020824
+GAMG:  Solving for p_rgh, Initial residual = 0.018548266, Final residual = 0.00018353499, No Iterations 1
+Tsat min/max: 76.896915, 77.014727
+GAMGPCG:  Solving for p_rgh, Initial residual = 0.0001864595, Final residual = 6.5135524e-08, No Iterations 4
+smoothSolver:  Solving for epsilon, Initial residual = 0.080128282, Final residual = 9.4386839e-09, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.11084728, Final residual = 4.5499031e-11, No Iterations 3

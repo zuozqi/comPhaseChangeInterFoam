@@ -1,0 +1,80 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Jun 19 2020
+Time   : 14:24:38
+Host   : ZZQ
+PID    : 16375
+I/O    : uncollated
+Case   : /home/zzq/OpenFOAM/zzq-v1912/run/OFcode/comPhaseChangeInterFoam/exampleCase/pressuriztionLN2tank
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod simple [3]
+
+Finished decomposition in 0 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 4800
+    Number of faces shared with processor 1 = 120
+    Number of processor patches = 1
+    Number of processor faces = 120
+    Number of boundary faces = 9800
+
+Processor 1
+    Number of cells = 4800
+    Number of faces shared with processor 0 = 120
+    Number of faces shared with processor 2 = 120
+    Number of processor patches = 2
+    Number of processor faces = 240
+    Number of boundary faces = 9680
+
+Processor 2
+    Number of cells = 4800
+    Number of faces shared with processor 1 = 120
+    Number of processor patches = 1
+    Number of processor faces = 120
+    Number of boundary faces = 9800
+
+Number of processor faces = 240
+Max number of cells = 4800 (0% above average 4800)
+Max number of processor patches = 2 (50% above average 1.3333333)
+Max number of faces between processors = 240 (50% above average 160)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+
+End
+

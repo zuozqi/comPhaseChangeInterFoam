@@ -1,0 +1,34 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setFields
+Date   : Jun 19 2020
+Time   : 14:24:37
+Host   : ZZQ
+PID    : 16374
+I/O    : uncollated
+Case   : /home/zzq/OpenFOAM/zzq-v1912/run/OFcode/comPhaseChangeInterFoam/exampleCase/pressuriztionLN2tank
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting field region values
+    Adding cells with centre within boxes 1((-10 0.1917 -1) (10 10 1))
+    Setting internal values of volScalarField alpha.liquid
+
+End
+

@@ -1,1 +1,0 @@
-../derivedFvPatchFields/gradientEnergy/gradientEnergyFvPatchScalarField.H

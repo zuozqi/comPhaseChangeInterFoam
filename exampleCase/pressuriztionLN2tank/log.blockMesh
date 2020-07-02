@@ -1,0 +1,80 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Jun 19 2020
+Time   : 14:24:37
+Host   : ZZQ
+PID    : 16370
+I/O    : uncollated
+Case   : /home/zzq/OpenFOAM/zzq-v1912/run/OFcode/comPhaseChangeInterFoam/exampleCase/pressuriztionLN2tank
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from "system/blockMeshDict"
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Reading patches section
+
+Creating block mesh topology
+
+Reading physicalType from existing boundary file
+
+Default patch type set to empty
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list...
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 0.1
+    Block 0 cell size :
+        i : 0.001675 .. 0.001675
+        j : 0.001775 .. 0.001775
+        k : 0.02 .. 0.02
+
+
+There are no merge patch pairs
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 0 -0.01) (0.201 0.213 0.01)
+  nPoints: 29282
+  nCells: 14400
+  nFaces: 57840
+  nInternalFaces: 28560
+----------------
+Patches
+----------------
+  patch 0 (start: 28560 size: 360) name: heatwall
+  patch 1 (start: 28920 size: 120) name: topwall
+  patch 2 (start: 29040 size: 28800) name: frontAndBack
+
+End
+
