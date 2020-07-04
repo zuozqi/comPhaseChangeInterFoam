@@ -908,6 +908,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseListOptions.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCaseListOutput.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H \
 createFluidMesh.H \
+createSolidMesh.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createControl.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createPisoControl.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createPimpleControl.H \
@@ -923,6 +924,7 @@ $(WM_PROJECT_DIR)/src/../applications/solvers/multiphase/VoF/createAlphaFluxes.H
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createK.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createMRF.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createFvOptions.H \
+createSolidFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/readTimeControls.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/CourantNo.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/setInitialDeltaT.H \
@@ -937,5 +939,7 @@ $(WM_PROJECT_DIR)/src/../applications/solvers/multiphase/VoF/alphaEqn.H \
 ../UEqn.H \
 ../TEqn.H \
 ../pEqn.H \
+getSolidFields.H \
+sTEqn.H \
 
 
