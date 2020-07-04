@@ -55,6 +55,7 @@ Description
 #include "fvOptions.H"
 #include "fvcSmooth.H"
 #include "compressiblePhaseChangeMixture.H"
+#include "pimpleControl.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
