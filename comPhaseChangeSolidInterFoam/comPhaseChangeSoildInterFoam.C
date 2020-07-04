@@ -74,10 +74,13 @@ int main(int argc, char *argv[])
     #include "addCheckCaseOptions.H"
     #include "setRootCaseLists.H"
     #include "createTime.H"
-    #include "createFluidMesh.H"
+    #include "createMesh.H"
+    #include "createSolidMesh.H"
+
     #include "createControl.H"
     #include "createTimeControls.H"
     #include "createFields.H"
+    #include "createSolidFields.H"
 
     volScalarField& p = mixture.p();
     volScalarField& T = mixture.T();
@@ -131,6 +134,11 @@ int main(int argc, char *argv[])
                 #include "pEqn.H"
             }
 
+            {
+                #include "getSolidFields.H"  // fields for solid
+                #include "sTEqn.H"
+            }
+            
             if (pimple.turbCorr())
             {
                 turbulence.correct();
