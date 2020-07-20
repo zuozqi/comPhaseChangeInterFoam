@@ -133,13 +133,14 @@ public:
             //  Non-const access allowed for transport equations
             virtual volScalarField& he()
             {
-                return (alpha1()*thermo1_->he()+alpha2()*thermo2_->he());
+                NotImplemented;
+                return thermo1_->he();
             }
 
             //- Enthalpy/Internal energy [J/kg]
             virtual const volScalarField& he() const
             {
-                return (alpha1()*thermo1_->he()+alpha2()*thermo2_->he());
+                return alpha1()*thermo1_->he()+alpha2()*thermo2_->he();
             }
 
             //- Enthalpy/Internal energy
