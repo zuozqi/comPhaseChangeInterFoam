@@ -65,43 +65,27 @@ void Foam::functionObjects::wallHeatFluxLiquid::writeFileHeader(Ostream& os) con
 void Foam::functionObjects::wallHeatFluxLiquid::calcHeatFlux
 (
     const volScalarField& alpha,
-    const volScalarField& he,
+    const volScalarField& kappa,
     volScalarField& wallHeatFluxLiquid
 )
 {
     volScalarField::Boundary& wallHeatFluxLiquidBf = wallHeatFluxLiquid.boundaryFieldRef();
 
-    const volScalarField::Boundary& heBf = he.boundaryField();
+    const volScalarField T = mesh_.lookupObject<volScalarField>("T");
+    volScalarField gradT = mag(fvc::grad(T));
+    const volScalarField::Boundary& TBf = gradT.boundaryField();
 
-    const volScalarField::Boundary& alphaBf = alpha.boundaryField();
 
+    // const fluidThermo& thermo =
+    //         lookupObject<fluidThermo>(fluidThermo::dictName);
+    // const volScalarField kappa = thermo.kappa();
+    const volScalarField::Boundary& kappaBf = kappa.boundaryField();
+
+    const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
+    const volScalarField::Boundary& alphalBf = alphal.boundaryField();
     forAll(wallHeatFluxLiquidBf, patchi)
     {
-        if (!wallHeatFluxLiquidBf[patchi].coupled())
-        {
-            wallHeatFluxLiquidBf[patchi] = alphaBf[patchi]*heBf[patchi].snGrad();
-        }
-    }
-
-    if (foundObject<volScalarField>(qrName_))
-    {
-        const volScalarField& qr = lookupObject<volScalarField>(qrName_);
-
-        const volScalarField::Boundary& radHeatFluxBf = qr.boundaryField();
-
-        forAll(wallHeatFluxLiquidBf, patchi)
-        {
-            if (!wallHeatFluxLiquidBf[patchi].coupled())
-            {
-                wallHeatFluxLiquidBf[patchi] -= radHeatFluxBf[patchi];
-            }
-        }
-        const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
-        const volScalarField::Boundary& alphalbf = alphal.boundaryField();
-        forAll(wallHeatFluxLiquidBf, patchi)
-        {
-            wallHeatFluxLiquidBf[patchi] = wallHeatFluxLiquidBf[patchi]*alphalbf[patchi];
-        }
+        wallHeatFluxLiquidBf[patchi] = TBf[patchi]*kappaBf[patchi]*alphalBf[patchi];
     }
 }
 
@@ -231,7 +215,7 @@ bool Foam::functionObjects::wallHeatFluxLiquid::execute()
         calcHeatFlux
         (
             turbModel.alphaEff()(),
-            turbModel.transport().he(),
+            turbModel.kappa(),
             wallHeatFluxLiquid
         );
     }
@@ -243,7 +227,7 @@ bool Foam::functionObjects::wallHeatFluxLiquid::execute()
         calcHeatFlux
         (
             thermo.alpha(),
-            thermo.he(),
+            thermo.kappa(),
             wallHeatFluxLiquid
         );
     }
@@ -252,7 +236,7 @@ bool Foam::functionObjects::wallHeatFluxLiquid::execute()
         const solidThermo& thermo =
             lookupObject<solidThermo>(solidThermo::dictName);
 
-        calcHeatFlux(thermo.alpha(), thermo.he(), wallHeatFluxLiquid);
+        calcHeatFlux(thermo.alpha(), thermo.kappa(), wallHeatFluxLiquid);
     }
     else
     {
