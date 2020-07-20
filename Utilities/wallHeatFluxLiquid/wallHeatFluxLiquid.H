@@ -115,7 +115,7 @@ protected:
         void calcHeatFlux
         (
             const volScalarField& alpha,
-            const volScalarField& he,
+            const volScalarField& kappa,
             volScalarField& wallHeatFluxLiquid
         );
 
