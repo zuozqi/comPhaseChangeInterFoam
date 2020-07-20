@@ -256,7 +256,7 @@ bool Foam::functionObjects::wallHeatFluxLiquid::write()
     Log << type() << " " << name() << " write:" << nl
         << "    writing field " << wallHeatFluxLiquid.name() << endl;
 
-    wallHeatFluxLiquid.write();
+    // wallHeatFluxLiquid.write();
 
     const fvPatchList& patches = mesh_.boundary();
 

@@ -81,7 +81,7 @@ void Foam::functionObjects::wallHeatFluxVapor::calcHeatFlux
     // const volScalarField kappa = thermo.kappa();
     const volScalarField::Boundary& kappaBf = kappa.boundaryField();
 
-    const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.Vapor");
+    const volScalarField alphal = 1 - mesh_.lookupObject<volScalarField>("alpha.liquid");
     const volScalarField::Boundary& alphalBf = alphal.boundaryField();
     forAll(wallHeatFluxVaporBf, patchi)
     {
@@ -256,7 +256,7 @@ bool Foam::functionObjects::wallHeatFluxVapor::write()
     Log << type() << " " << name() << " write:" << nl
         << "    writing field " << wallHeatFluxVapor.name() << endl;
 
-    wallHeatFluxVapor.write();
+    // wallHeatFluxVapor.write();
 
     const fvPatchList& patches = mesh_.boundary();
 
