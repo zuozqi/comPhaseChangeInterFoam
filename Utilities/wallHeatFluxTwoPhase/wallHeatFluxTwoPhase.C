@@ -344,11 +344,6 @@ bool Foam::functionObjects::wallHeatFluxTwoPhase::write()
                 << token::TAB << htcpAve
                 << token::TAB << liquidHtcpAve
                 << token::TAB << vaporHtcpAve
-                << token::TAB << "debug"
-                << token::TAB << min(htcp)
-                << token::TAB << min(totalhtcp)
-                << token::TAB << min(magSf[patchi])
-                << token::TAB << min(alphalp)
                 << endl;
         }
 
