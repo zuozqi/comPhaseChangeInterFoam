@@ -58,6 +58,9 @@ void Foam::functionObjects::wallHeatFluxLiquid::writeFileHeader(Ostream& os) con
     writeTabbed(os, "min");
     writeTabbed(os, "max");
     writeTabbed(os, "integral");
+    writeTabbed(os, "HTC min");
+    writeTabbed(os, "HTC max");
+    writeTabbed(os, "HTC average");
     os  << endl;
 }
 
@@ -83,9 +86,46 @@ void Foam::functionObjects::wallHeatFluxLiquid::calcHeatFlux
 
     const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
     const volScalarField::Boundary& alphalBf = alphal.boundaryField();
+
+    dimensionedScalar TAveLiquid("TAveLiquid",dimTemperature,77);
+    scalar TCount = 0;
+    // Get the volume average temperature of liquid;
+    if (gSum(alphal))
+    {
+        forAll(T,celli)
+        {
+            if (alphal[celli])
+            {
+                TAveLiquid += T[celli];
+                TCount = TCount + 1;
+            }
+        }
+        TAveLiquid = TAveLiquid / TCount;
+    }
+    volScalarField Tref
+    (
+        IOobject
+        (
+            "Tref",
+            mesh_.time().timeName(),
+            mesh_,
+            IOobject::NO_READ,
+            IOobject::NO_WRITE
+        ),
+        mesh_,
+        dimensionedScalar(TAveLiquid)
+    );
+    
+    const volScalarField::Boundary& TrefBf = Tref.boundaryField();
     forAll(wallHeatFluxLiquidBf, patchi)
     {
         wallHeatFluxLiquidBf[patchi] = TBf[patchi]*kappaBf[patchi]*alphalBf[patchi];
+    }
+
+    volScalarField::Boundary& htcBf = wallHtc_.boundaryFieldRef();
+    forAll(htcBf, patchi)
+    {
+        htcBf[patchi] = wallHeatFluxLiquidBf[patchi] / (TBf[patchi] - TrefBf[patchi]);
     }
 }
 
@@ -102,7 +142,23 @@ Foam::functionObjects::wallHeatFluxLiquid::wallHeatFluxLiquid
     fvMeshFunctionObject(name, runTime, dict),
     writeFile(obr_, name, typeName, dict),
     patchSet_(),
-    qrName_("qr")
+    qrName_("qr"),
+    wallHtc_
+    (
+        volScalarField
+        (
+            IOobject
+            (
+                "wallHtc",
+                mesh_.time().timeName(),
+                mesh_,
+                IOobject::NO_READ,
+                IOobject::NO_WRITE
+            ),
+            mesh_,
+            dimensionedScalar(dimPower/dimArea/dimTemperature, Zero)
+        )
+    )
 {
     volScalarField* wallHeatFluxLiquidPtr
     (
@@ -273,6 +329,11 @@ bool Foam::functionObjects::wallHeatFluxLiquid::write()
         const scalar maxHfp = gMax(hfp);
         const scalar integralHfp = gSum(magSf[patchi]*hfp);
 
+        const scalarField& htcp = wallHtc_.boundaryField()[patchi];
+        const scalar minHtc = gMin(hfp);
+        const scalar maxHtc = gMax(hfp);
+        const scalar averageHtc = gSum(magSf[patchi]*htcp)/gSum(magSf[patchi]);
+
         if (Pstream::master())
         {
             writeCurrentTime(file());
@@ -282,6 +343,9 @@ bool Foam::functionObjects::wallHeatFluxLiquid::write()
                 << token::TAB << minHfp
                 << token::TAB << maxHfp
                 << token::TAB << integralHfp
+                << token::TAB << minHtc
+                << token::TAB << maxHtc
+                << token::TAB << averageHtc
                 << endl;
         }
 

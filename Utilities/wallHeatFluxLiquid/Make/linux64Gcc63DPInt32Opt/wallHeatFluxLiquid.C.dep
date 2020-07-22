@@ -326,15 +326,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/writeFile.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/OFstream.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOmanip.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/writeFileTemplates.C \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsFwd.H \
-$(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/turbulentFluidThermoModel.H \
-$(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/CompressibleTurbulenceModel.H \
-$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/TurbulenceModel.H \
-$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/turbulenceModel.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceFieldsFwd.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMatricesFwd.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/nearWallDist.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFields.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricFields.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricScalarField.H \
@@ -371,6 +362,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterfaceFieldPtrsList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterfaceField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterface.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelField.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterfaceFieldTemplates.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduInterfaceFieldPtrsList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduInterfaceField.H \
@@ -562,6 +554,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SubFieldI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvPatchFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvPatchTemplates.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolation.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsFwd.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSchemes.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSolution.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/solution.H \
@@ -579,6 +573,12 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/calculatedFvPatchField.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/calculatedFvPatchField.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/calculatedFvPatchFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsI.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/turbulentFluidThermoModel.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/CompressibleTurbulenceModel.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/TurbulenceModel.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/turbulenceModel.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMatricesFwd.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/nearWallDist.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/geometricOneField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/oneFieldField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/oneField.H \

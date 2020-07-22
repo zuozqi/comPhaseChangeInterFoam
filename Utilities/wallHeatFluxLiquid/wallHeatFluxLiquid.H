@@ -75,6 +75,8 @@ SourceFiles
 
 #include "fvMeshFunctionObject.H"
 #include "writeFile.H"
+#include "volFields.H"
+
 #include "volFieldsFwd.H"
 #include "HashSet.H"
 
@@ -105,6 +107,7 @@ protected:
         //- Name of radiative heat flux name, default = qr
         word qrName_;
 
+        volScalarField wallHtc_;
 
     // Protected Member Functions
 

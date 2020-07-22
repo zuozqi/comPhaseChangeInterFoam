@@ -76,6 +76,7 @@ SourceFiles
 #include "fvMeshFunctionObject.H"
 #include "writeFile.H"
 #include "volFieldsFwd.H"
+#include "volFields.H"
 #include "HashSet.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -104,9 +105,10 @@ protected:
 
         //- Name of radiative heat flux name, default = qr
         word qrName_;
-
-
-    // Protected Member Functions
+        // - wall heat transfer coefficient, htc = q / (T_bf - T_ref), 
+        // T_ref is the average liquid temeprature.
+        volScalarField wallHtc_;
+        // Protected Member Functions
 
         //- File header information
         virtual void writeFileHeader(Ostream& os) const;
