@@ -878,11 +878,8 @@ VoFphaseCompressibleTurbulenceModels/lnInclude/VoFphaseCompressibleTurbulenceMod
 VoFphaseCompressibleTurbulenceModels/lnInclude/VoFphaseCompressibleTurbulenceModelFwd.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/phaseCompressible/lnInclude/PhaseCompressibleTurbulenceModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/phaseCompressible/lnInclude/PhaseCompressibleTurbulenceModel.C \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControl.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlTemplates.C \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlI.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControlI.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pressureControl.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pressureControlI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptions.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionList.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOption.H \
@@ -893,6 +890,11 @@ compressiblePhaseChangeMixture/compressiblePhaseChangeMixture.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Polynomial.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PolynomialIO.C \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControl.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControl.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlTemplates.C \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlI.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControlI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addRegionOption.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addFunctionObjectOptions.H \

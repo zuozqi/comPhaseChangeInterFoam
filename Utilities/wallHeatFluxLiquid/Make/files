@@ -1,3 +1,0 @@
-wallHeatFluxLiquid.C
-
-LIB = $(FOAM_USER_LIBBIN)/libwallHeatFluxLiquid

@@ -26,7 +26,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "wallHeatFluxVapor.H"
+#include "wallHeatFluxTwoPhase.H"
 #include "turbulentFluidThermoModel.H"
 #include "solidThermo.H"
 #include "surfaceInterpolate.H"
@@ -41,69 +41,55 @@ namespace Foam
 {
 namespace functionObjects
 {
-    defineTypeNameAndDebug(wallHeatFluxVapor, 0);
-    addToRunTimeSelectionTable(functionObject, wallHeatFluxVapor, dictionary);
+    defineTypeNameAndDebug(wallHeatFluxTwoPhase, 0);
+    addToRunTimeSelectionTable(functionObject, wallHeatFluxTwoPhase, dictionary);
 }
 }
 
 
 // * * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * //
 
-void Foam::functionObjects::wallHeatFluxVapor::writeFileHeader(Ostream& os) const
+void Foam::functionObjects::wallHeatFluxTwoPhase::writeFileHeader(Ostream& os) const
 {
     // Add headers to output data
     writeHeader(os, "Wall heat-flux");
     writeCommented(os, "Time");
     writeTabbed(os, "patch");
-    writeTabbed(os, "min");
     writeTabbed(os, "max");
     writeTabbed(os, "integral");
-    writeTabbed(os, "HTC min");
-    writeTabbed(os, "HTC max");
-    writeTabbed(os, "HTC average");
+    writeTabbed(os, "liquid");
+    writeTabbed(os, "vapor");
+    writeTabbed(os, "total HTC");
+    writeTabbed(os, "liquid HTC");
+    writeTabbed(os, "vapor HTC");
 
     os  << endl;
 }
 
 
-void Foam::functionObjects::wallHeatFluxVapor::calcHeatFlux
+void Foam::functionObjects::wallHeatFluxTwoPhase::calcHeatFlux
 (
     const volScalarField& alpha,
     const volScalarField& kappa,
-    volScalarField& wallHeatFluxVapor
+    volScalarField& wallHeatFluxTwoPhase
 )
 {
-    volScalarField::Boundary& wallHeatFluxVaporBf = wallHeatFluxVapor.boundaryFieldRef();
+    volScalarField::Boundary& wallHeatFluxTwoPhaseBf = wallHeatFluxTwoPhase.boundaryFieldRef();
 
     const volScalarField T = mesh_.lookupObject<volScalarField>("T");
+    // - Temperature gradient at boundary.
     volScalarField gradT = mag(fvc::grad(T));
-    const volScalarField::Boundary& TBf = gradT.boundaryField();
-
-
-
-    // const fluidThermo& thermo =
-    //         lookupObject<fluidThermo>(fluidThermo::dictName);
-    // const volScalarField kappa = thermo.kappa();
+    
+    const volScalarField::Boundary& TBf = T.boundaryField();
+    const volScalarField::Boundary& gradTBf = gradT.boundaryField();
+    // - Thermal conductivity boudnary field.
     const volScalarField::Boundary& kappaBf = kappa.boundaryField();
+    const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
 
-    const volScalarField alphal = 1 - mesh_.lookupObject<volScalarField>("alpha.liquid");
-    const volScalarField::Boundary& alphalBf = alphal.boundaryField();
+    const scalar TAveLiquid = gSum((T*alphal*mesh_.V())())  //dereference from tmp object.
+                            / gSum((alphal*mesh_.V())());
 
-    dimensionedScalar TAveLiquid("TAveLiquid",dimTemperature,77);
-    scalar TCount = 0;
-    // Get the volume average temperature of liquid;
-    if (gSum(alphal))
-    {
-        forAll(T,celli)
-        {
-            if (alphal[celli])
-            {
-                TAveLiquid += T[celli];
-                TCount = TCount + 1;
-            }
-        }
-        TAveLiquid = TAveLiquid / TCount;
-    }
+    dimensionedScalar Tave("Tave", dimTemperature, TAveLiquid);
     volScalarField Tref
     (
         IOobject
@@ -115,26 +101,29 @@ void Foam::functionObjects::wallHeatFluxVapor::calcHeatFlux
             IOobject::NO_WRITE
         ),
         mesh_,
-        dimensionedScalar(TAveLiquid)
+        dimensionedScalar(Tave)
     );
-    
-    const volScalarField::Boundary& TrefBf = Tref.boundaryField();
-    forAll(wallHeatFluxVaporBf, patchi)
-    {
-        wallHeatFluxVaporBf[patchi] = TBf[patchi]*kappaBf[patchi]*alphalBf[patchi];
-    }
 
-    volScalarField::Boundary& htcBf = wallHtc_.boundaryFieldRef();
+    const volScalarField::Boundary& TrefBf = Tref.boundaryField();
+
+    // - Update flux into liquid.
+    forAll(wallHeatFluxTwoPhaseBf, patchi)
+    {
+        wallHeatFluxTwoPhaseBf[patchi] = gradTBf[patchi]*kappaBf[patchi];
+    }
+    // - Update htc
+    volScalarField::Boundary& htcBf = htc_.boundaryFieldRef();
+
     forAll(htcBf, patchi)
     {
-        htcBf[patchi] = wallHeatFluxVaporBf[patchi] / (TBf[patchi] - TrefBf[patchi]);
+        htcBf[patchi] = wallHeatFluxTwoPhaseBf[patchi] / (TBf[patchi] - TrefBf[patchi]);
     }
 }
 
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-Foam::functionObjects::wallHeatFluxVapor::wallHeatFluxVapor
+Foam::functionObjects::wallHeatFluxTwoPhase::wallHeatFluxTwoPhase
 (
     const word& name,
     const Time& runTime,
@@ -145,13 +134,13 @@ Foam::functionObjects::wallHeatFluxVapor::wallHeatFluxVapor
     writeFile(obr_, name, typeName, dict),
     patchSet_(),
     qrName_("qr"),
-    wallHtc_
+    htc_
     (
         volScalarField
         (
             IOobject
             (
-                "wallHtc",
+                "liquidHtc",
                 mesh_.time().timeName(),
                 mesh_,
                 IOobject::NO_READ,
@@ -162,7 +151,7 @@ Foam::functionObjects::wallHeatFluxVapor::wallHeatFluxVapor
         )
     )
 {
-    volScalarField* wallHeatFluxVaporPtr
+    volScalarField* wallHeatFluxTwoPhasePtr
     (
         new volScalarField
         (
@@ -179,7 +168,7 @@ Foam::functionObjects::wallHeatFluxVapor::wallHeatFluxVapor
         )
     );
 
-    mesh_.objectRegistry::store(wallHeatFluxVaporPtr);
+    mesh_.objectRegistry::store(wallHeatFluxTwoPhasePtr);
 
     read(dict);
 
@@ -189,13 +178,13 @@ Foam::functionObjects::wallHeatFluxVapor::wallHeatFluxVapor
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
-Foam::functionObjects::wallHeatFluxVapor::~wallHeatFluxVapor()
+Foam::functionObjects::wallHeatFluxTwoPhase::~wallHeatFluxTwoPhase()
 {}
 
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
-bool Foam::functionObjects::wallHeatFluxVapor::read(const dictionary& dict)
+bool Foam::functionObjects::wallHeatFluxTwoPhase::read(const dictionary& dict)
 {
     fvMeshFunctionObject::read(dict);
     writeFile::read(dict);
@@ -252,9 +241,9 @@ bool Foam::functionObjects::wallHeatFluxVapor::read(const dictionary& dict)
 }
 
 
-bool Foam::functionObjects::wallHeatFluxVapor::execute()
+bool Foam::functionObjects::wallHeatFluxTwoPhase::execute()
 {
-    volScalarField& wallHeatFluxVapor = lookupObjectRef<volScalarField>(type());
+    volScalarField& wallHeatFluxTwoPhase = lookupObjectRef<volScalarField>(type());
 
     if
     (
@@ -274,7 +263,7 @@ bool Foam::functionObjects::wallHeatFluxVapor::execute()
         (
             turbModel.alphaEff()(),
             turbModel.kappa(),
-            wallHeatFluxVapor
+            wallHeatFluxTwoPhase
         );
     }
     else if (foundObject<fluidThermo>(fluidThermo::dictName))
@@ -286,7 +275,7 @@ bool Foam::functionObjects::wallHeatFluxVapor::execute()
         (
             thermo.alpha(),
             thermo.kappa(),
-            wallHeatFluxVapor
+            wallHeatFluxTwoPhase
         );
     }
     else if (foundObject<solidThermo>(solidThermo::dictName))
@@ -294,7 +283,7 @@ bool Foam::functionObjects::wallHeatFluxVapor::execute()
         const solidThermo& thermo =
             lookupObject<solidThermo>(solidThermo::dictName);
 
-        calcHeatFlux(thermo.alpha(), thermo.kappa(), wallHeatFluxVapor);
+        calcHeatFlux(thermo.alpha(), thermo.kappa(), wallHeatFluxTwoPhase);
     }
     else
     {
@@ -307,14 +296,15 @@ bool Foam::functionObjects::wallHeatFluxVapor::execute()
 }
 
 
-bool Foam::functionObjects::wallHeatFluxVapor::write()
+bool Foam::functionObjects::wallHeatFluxTwoPhase::write()
 {
-    const volScalarField& wallHeatFluxVapor = lookupObject<volScalarField>(type());
+    const volScalarField& wallHeatFluxTwoPhase = lookupObject<volScalarField>(type());
 
     Log << type() << " " << name() << " write:" << nl
-        << "    writing field " << wallHeatFluxVapor.name() << endl;
+        << "    writing field " << wallHeatFluxTwoPhase.name() << endl;
 
-    // wallHeatFluxVapor.write();
+    // wallHeatFluxTwoPhase.write();
+    const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
 
     const fvPatchList& patches = mesh_.boundary();
 
@@ -325,29 +315,40 @@ bool Foam::functionObjects::wallHeatFluxVapor::write()
     {
         const fvPatch& pp = patches[patchi];
 
-        const scalarField& hfp = wallHeatFluxVapor.boundaryField()[patchi];
-
+        const scalarField& hfp = wallHeatFluxTwoPhase.boundaryField()[patchi];
+        const scalarField totalHf = magSf[patchi]*hfp;
         const scalar minHfp = gMin(hfp);
         const scalar maxHfp = gMax(hfp);
-        const scalar integralHfp = gSum(magSf[patchi]*hfp);
-        
-        const scalarField& htcp = wallHtc_.boundaryField()[patchi];
-        const scalar minHtc = gMin(hfp);
-        const scalar maxHtc = gMax(hfp);
-        const scalar averageHtc = gSum(magSf[patchi]*htcp)/gSum(magSf[patchi]);
+        const scalar integralHfp = gSum(totalHf);
+        // liquid and vapor phase flux.
+        const scalarField& alphalp = alphal.boundaryField()[patchi];
+        const scalar liquidHfp = gSum((totalHf*alphalp)());
+        const scalar vaporHfp = gSum((totalHf*(1-alphalp))());
 
+        const scalarField& htcp= htc_.boundaryField()[patchi];
+        const scalarField totalhtcp = magSf[patchi]*htcp;
+
+        const scalar htcpAve = gSum(totalhtcp)/gSum(magSf[patchi]);
+        const scalar liquidHtcpAve = gSum((totalhtcp*alphalp)())/gSum((magSf[patchi]*alphalp)());
+        const scalar vaporHtcpAve = gSum((totalhtcp*(1-alphalp))())/gSum((magSf[patchi]*(1-alphalp))());
         if (Pstream::master())
         {
             writeCurrentTime(file());
 
             file()
                 << token::TAB << pp.name()
-                << token::TAB << minHfp
                 << token::TAB << maxHfp
-                << token::TAB << integralHfp
-                << token::TAB << minHtc
-                << token::TAB << maxHtc
-                << token::TAB << averageHtc
+                << token::TAB << integralHfp                
+                << token::TAB << liquidHfp
+                << token::TAB << vaporHfp
+                << token::TAB << htcpAve
+                << token::TAB << liquidHtcpAve
+                << token::TAB << vaporHtcpAve
+                << token::TAB << "debug"
+                << token::TAB << min(htcp)
+                << token::TAB << min(totalhtcp)
+                << token::TAB << min(magSf[patchi])
+                << token::TAB << min(alphalp)
                 << endl;
         }
 

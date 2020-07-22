@@ -1,6 +1,6 @@
-$(OBJECTS_DIR)/wallHeatFluxVapor.C.dep: \
-wallHeatFluxVapor.C \
-wallHeatFluxVapor.H \
+$(OBJECTS_DIR)/wallHeatFluxTwoPhase.C.dep: \
+wallHeatFluxTwoPhase.C \
+wallHeatFluxTwoPhase.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMeshFunctionObject.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/regionFunctionObject.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stateFunctionObject.H \
@@ -326,7 +326,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/writeFile.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/OFstream.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOmanip.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/writeFileTemplates.C \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFields.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricFields.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricScalarField.H \
@@ -555,6 +554,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SubFieldI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvPatchFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvPatchTemplates.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolation.H \
+$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSchemes.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSolution.H \

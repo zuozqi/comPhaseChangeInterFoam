@@ -25,14 +25,14 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    Foam::functionObjects::wallHeatFluxVapor
+    Foam::functionObjects::wallHeatFluxTwoPhase
 
 Group
     grpForcesFunctionObjects
 
 Description
     Calculates and write the heat-flux at wall patches as the
-    volScalarField field 'wallHeatFluxVapor'.
+    volScalarField field 'wallHeatFluxTwoPhase'.
 
     All wall patches are included by default; to restrict the calculation to
     certain patches, use the optional 'patches' entry.
@@ -40,9 +40,9 @@ Description
 Usage
     Example of function object specification:
     \verbatim
-    wallHeatFluxVapor1
+    wallHeatFluxTwoPhase1
     {
-        type        wallHeatFluxVapor;
+        type        wallHeatFluxTwoPhase;
         libs        ("libfieldFunctionObjects.so");
         ...
         region      fluid;
@@ -53,7 +53,7 @@ Usage
     Where the entries comprise:
     \table
         Property | Description                | Required   | Default value
-        type     | type name: wallHeatFluxVapor    | yes        |
+        type     | type name: wallHeatFluxTwoPhase    | yes        |
         patches  | list of patches to process | no         | all wall patches
         qr       | name of radiative heat flux field | no  | qr
         region   | region to be evaluated     | no         | default region
@@ -66,17 +66,18 @@ See also
     Foam::functionObjects::timeControl
 
 SourceFiles
-    wallHeatFluxVapor.C
+    wallHeatFluxTwoPhase.C
 
 \*---------------------------------------------------------------------------*/
 
-#ifndef functionObjects_wallHeatFluxVapor_H
-#define functionObjects_wallHeatFluxVapor_H
+#ifndef functionObjects_wallHeatFluxTwoPhase_H
+#define functionObjects_wallHeatFluxTwoPhase_H
 
 #include "fvMeshFunctionObject.H"
 #include "writeFile.H"
-#include "volFieldsFwd.H"
 #include "volFields.H"
+
+#include "volFieldsFwd.H"
 #include "HashSet.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -87,10 +88,10 @@ namespace functionObjects
 {
 
 /*---------------------------------------------------------------------------*\
-                       Class wallHeatFluxVapor Declaration
+                       Class wallHeatFluxTwoPhase Declaration
 \*---------------------------------------------------------------------------*/
 
-class wallHeatFluxVapor
+class wallHeatFluxTwoPhase
 :
     public fvMeshFunctionObject,
     public writeFile
@@ -105,10 +106,10 @@ protected:
 
         //- Name of radiative heat flux name, default = qr
         word qrName_;
-        // - wall heat transfer coefficient, htc = q / (T_bf - T_ref), 
-        // T_ref is the average liquid temeprature.
-        volScalarField wallHtc_;
-        // Protected Member Functions
+
+        volScalarField htc_;
+
+    // Protected Member Functions
 
         //- File header information
         virtual void writeFileHeader(Ostream& os) const;
@@ -118,7 +119,7 @@ protected:
         (
             const volScalarField& alpha,
             const volScalarField& kappa,
-            volScalarField& wallHeatFluxVapor
+            volScalarField& wallHeatFluxTwoPhase
         );
 
 
@@ -127,22 +128,22 @@ private:
     // Private member functions
 
         //- No copy construct
-        wallHeatFluxVapor(const wallHeatFluxVapor&) = delete;
+        wallHeatFluxTwoPhase(const wallHeatFluxTwoPhase&) = delete;
 
         //- No copy assignment
-        void operator=(const wallHeatFluxVapor&) = delete;
+        void operator=(const wallHeatFluxTwoPhase&) = delete;
 
 
 public:
 
     //- Runtime type information
-    TypeName("wallHeatFluxVapor");
+    TypeName("wallHeatFluxTwoPhase");
 
 
     // Constructors
 
         //- Construct from Time and dictionary
-        wallHeatFluxVapor
+        wallHeatFluxTwoPhase
         (
             const word& name,
             const Time& runTime,
@@ -151,12 +152,12 @@ public:
 
 
     //- Destructor
-    virtual ~wallHeatFluxVapor();
+    virtual ~wallHeatFluxTwoPhase();
 
 
     // Member Functions
 
-        //- Read the wallHeatFluxVapor data
+        //- Read the wallHeatFluxTwoPhase data
         virtual bool read(const dictionary&);
 
         //- Calculate the wall heat-flux
