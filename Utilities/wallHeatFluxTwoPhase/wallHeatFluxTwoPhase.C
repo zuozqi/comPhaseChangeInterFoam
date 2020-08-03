@@ -79,32 +79,29 @@ void Foam::functionObjects::wallHeatFluxTwoPhase::calcHeatFlux
     const volScalarField T = mesh_.lookupObject<volScalarField>("T");
     // - Temperature gradient at boundary.
     volScalarField gradT = mag(fvc::grad(T));
-    
-    const volScalarField::Boundary& TBf = T.boundaryField();
-    const volScalarField::Boundary& gradTBf = gradT.boundaryField();
+        const volScalarField::Boundary& gradTBf = gradT.boundaryField();
     // - Thermal conductivity boudnary field.
     const volScalarField::Boundary& kappaBf = kappa.boundaryField();
     const volScalarField alphal = mesh_.lookupObject<volScalarField>("alpha.liquid");
+    
+    // - Use a average T will result huge values when T is close to Tave
+    // const scalar TAveLiquid = gSum((T*alphal*mesh_.V())())  //dereference from tmp object.
+    //                         / gSum((alphal*mesh_.V())());
 
-    const scalar TAveLiquid = gSum((T*alphal*mesh_.V())())  //dereference from tmp object.
-                            / gSum((alphal*mesh_.V())());
-
-    dimensionedScalar Tave("Tave", dimTemperature, TAveLiquid);
-    volScalarField Tref
-    (
-        IOobject
-        (
-            "Tref",
-            mesh_.time().timeName(),
-            mesh_,
-            IOobject::NO_READ,
-            IOobject::NO_WRITE
-        ),
-        mesh_,
-        dimensionedScalar(Tave)
-    );
-
-    const volScalarField::Boundary& TrefBf = Tref.boundaryField();
+    // dimensionedScalar Tave("Tave", dimTemperature, TAveLiquid);
+    // volScalarField Tref
+    // (
+    //     IOobject
+    //     (
+    //         "Tref",
+    //         mesh_.time().timeName(),
+    //         mesh_,
+    //         IOobject::NO_READ,
+    //         IOobject::NO_WRITE
+    //     ),
+    //     mesh_,
+    //     dimensionedScalar(Tave)
+    // );
 
     // - Update flux into liquid.
     forAll(wallHeatFluxTwoPhaseBf, patchi)
@@ -113,10 +110,9 @@ void Foam::functionObjects::wallHeatFluxTwoPhase::calcHeatFlux
     }
     // - Update htc
     volScalarField::Boundary& htcBf = htc_.boundaryFieldRef();
-
     forAll(htcBf, patchi)
     {
-        htcBf[patchi] = wallHeatFluxTwoPhaseBf[patchi] / (TBf[patchi] - TrefBf[patchi]);
+        htcBf[patchi] = kappaBf[patchi] * mesh_.deltaCoeffs()[patchi];
     }
 }
 
