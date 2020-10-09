@@ -132,8 +132,8 @@ Foam::compressiblePhaseChangeMixtures::heatConvection::mDot()
 
     return Pair<tmp<volScalarField>>
     (
-        h*max(T-Tsat,T0)*limitedAlpha1/L/Nl,
-        h*max(Tsat-T,T0)*limitedAlpha2/L/Nl
+        coeffE_*h*max(T-Tsat,T0)*limitedAlpha1/L/Nl,
+        coeffC_*h*max(Tsat-T,T0)*limitedAlpha2/L/Nl
     );
 }
 
