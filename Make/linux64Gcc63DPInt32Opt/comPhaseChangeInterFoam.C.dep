@@ -848,8 +848,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordIOList.H \
 $(WM_PROJECT_DIR)/src/thermophysicalModels/basic/lnInclude/basicThermoTemplates.C \
 $(WM_PROJECT_DIR)/src/transportModels/compressible/lnInclude/compressibleTransportModel.H \
 $(WM_PROJECT_DIR)/src/thermophysicalModels/basic/lnInclude/psiThermo.H \
-$(WM_PROJECT_DIR)/src/transportModels/interfaceProperties/lnInclude/interfaceProperties.H \
-$(WM_PROJECT_DIR)/src/transportModels/interfaceProperties/lnInclude/surfaceTensionModel.H \
+interfaceProperties/lnInclude/interfaceProperties.H \
+interfaceProperties/lnInclude/surfaceTensionModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/turbulentFluidThermoModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/compressible/lnInclude/CompressibleTurbulenceModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/TurbulenceModel.H \

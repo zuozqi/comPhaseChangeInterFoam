@@ -8,7 +8,7 @@ EXE_INC = \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
     -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude \
-    -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
+    -IinterfaceProperties/lnInclude \
     -I$(LIB_SRC)/TurbulenceModels/turbulenceModels/lnInclude \
     -I$(LIB_SRC)/TurbulenceModels/compressible/lnInclude \
     -I$(LIB_SRC)/TurbulenceModels/phaseCompressible/lnInclude \
@@ -27,7 +27,7 @@ EXE_LIBS = \
     -lspecie \
     -ltwoPhaseMixture \
     -ltwoPhaseProperties \
-    -linterfaceProperties \
+    -linterfaceMaProperties \
     -lturbulenceModels \
     -lcompressibleTurbulenceModels \
     -lVoFphaseCompressibleTurbulenceModels

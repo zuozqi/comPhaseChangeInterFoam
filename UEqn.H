@@ -6,6 +6,7 @@
       + turbulence.divDevRhoReff(U)
      ==
         fvOptions(rho, U)
+      + mixture.maranForce()
     );
 
     UEqn.relax();
